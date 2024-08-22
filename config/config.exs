@@ -62,11 +62,13 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :git_hooks,
+  auto_install: true,
   verbose: true,
   hooks: [
     pre_commit: [
       tasks: [
-        "mix format"
+        "mix format",
+        "git add ."
       ]
     ]
   ]
