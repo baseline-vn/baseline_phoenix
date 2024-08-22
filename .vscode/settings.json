@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.heex": "phoenix-heex"
+  },
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html",
+  },
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html",
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "[elixir]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+}

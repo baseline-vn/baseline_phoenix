@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "JakeBecker.elixir-ls",
+    "pantajoe.vscode-elixir-credo",
+    "phoenixframework.phoenix",
+    "RoyalMist.vscode-eex-format",
+    "aziz-abdullaev.heex-snippets"
+  ],
+}
