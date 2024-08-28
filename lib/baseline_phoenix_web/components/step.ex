@@ -1,4 +1,4 @@
-defmodule BaselinePhoenixWeb.Step do
+defmodule BaselinePhoenixWeb.Components.Step do
   use Phoenix.Component
   attr :title, :string, required: true
 
@@ -10,25 +10,54 @@ defmodule BaselinePhoenixWeb.Step do
 
   def step(assigns) do
     ~H"""
-    <div class="flex items-center">
-      <div class="flex items-center justify-center w-10 h-10 bg-green-500 text-white rounded-full">
-        <%= @no %>
-      </div>
+    <div class={
+      Tails.classes([
+        "flex flex-1 gap-4 h-16 border-b-4 items-center min-w-[240px]",
+        [
+          "border-primary-500": @status in ~w(current done)
+        ]
+      ])
+    }>
       <div class={
         Tails.classes([
-          "ml-2 text-green-500 font-bold",
-          @status == "upcoming" && "bg-red-900",
-          @status == "done" && "bg-green-900"
+          "flex items-center justify-center w-9 h-9  rounded-full border-2",
+          [
+            "bg-primary-500 text-white": @status == "done",
+            "border-primary-500 text-sm font-medium text-primary-500": @status == "current",
+            "border-gray-300 text-sm font-medium text-gray-600": @status == "upcoming"
+          ]
         ])
       }>
-        <%= @status %>
+        <%= if @status == "done" do %>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        <% else %>
+          <%= @no |> Integer.to_string() |> String.pad_leading(2, "0") %>
+        <% end %>
+      </div>
+
+      <div class="flex flex-col items-start">
+        <div class={
+          Tails.classes([
+            "text-sm font-semibold",
+            [
+              "text-primary-500": @status in ~w(current done),
+              "text-gray-600": @status == "upcoming"
+            ]
+          ])
+        }>
+          <%= @title %>
+        </div>
       </div>
     </div>
-    <div class="flex-1 h-1 bg-green-500"></div>
-
-    <%= @title %>
-    <%= @status %>
-    <%= @no %>
     """
   end
 end

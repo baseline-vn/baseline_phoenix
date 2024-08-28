@@ -12,9 +12,13 @@
     </script>
   </head>
   <body class="bg-white antialiased baseline-phoenix-web">
-    <%= @inner_content %>
-    <BaselinePhoenixWeb.Step.step no={1} status="upcoming" title="1" />
-    <BaselinePhoenixWeb.Step.step no={2} status="current" title="2" />
-    <BaselinePhoenixWeb.Step.step no={3} status="done" title="3" />
+    <div class="flex gap-4">
+      <BaselinePhoenixWeb.Components.Step.step no={1} status="done" title="DONE" />
+      <BaselinePhoenixWeb.Components.Step.step no={2} status="current" title="CURRENT" />
+      <BaselinePhoenixWeb.Components.Step.step no={3} status="upcoming" title="UPCOMING" />
+      <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
+      <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
+      <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
+    </div>
   </body>
 </html>
