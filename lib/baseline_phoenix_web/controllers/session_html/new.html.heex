@@ -1,0 +1,11 @@
+<h2>Login Page</h2>
+
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <div class="form-group">
+    <.input field={f[:email]} label="Phone Number" class="control-label" />
+  </div>
+
+  <:actions>
+    <.button>Save Memory</.button>
+  </:actions>
+</.simple_form>

@@ -19,6 +19,7 @@ defmodule BaselinePhoenix.MixProject do
   def application do
     [
       mod: {BaselinePhoenix.Application, []},
+      application: [:baseline_phoenix],
       extra_applications: [:logger, :runtime_tools]
     ]
   end

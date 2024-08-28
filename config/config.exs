@@ -61,6 +61,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :baseline_phoenix, BaselinePhoenix.UserManager.Guardian,
+  issuer: "baseline_phoenix",
+  secret_key: "cQPnevVUySbm1zg0up7/nlJGS/sR+vTwnDE+XzEoO/xqzxr32Z+FJdYVYlmPK/zd"
+
 config :git_hooks,
   auto_install: true,
   verbose: true,
