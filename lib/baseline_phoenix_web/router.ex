@@ -36,7 +36,7 @@ defmodule BaselinePhoenixWeb.Router do
   end
 
   # Definitely logged in scope
-  scope "/", BaselinePhoenix do
+  scope "/", BaselinePhoenixWeb do
     pipe_through [:browser, :auth, :ensure_auth]
 
     get "/protected", PageController, :protected

@@ -4,6 +4,7 @@ defmodule BaselinePhoenix.UserManager.User do
   import Ecto.Changeset
   alias BaselinePhoenix.UserManager.User
 
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string
 

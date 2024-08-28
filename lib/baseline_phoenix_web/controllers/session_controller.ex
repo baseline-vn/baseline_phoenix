@@ -3,7 +3,6 @@ defmodule BaselinePhoenixWeb.SessionController do
   alias BaselinePhoenix.UserManager
   alias BaselinePhoenix.UserManager.User
   alias BaselinePhoenix.UserManager.Guardian
-  alias BaselinePhoenixWeb.Router
 
   def new(conn, _) do
     changeset = BaselinePhoenix.UserManager.change_user(%User{})
@@ -12,7 +11,7 @@ defmodule BaselinePhoenixWeb.SessionController do
     if maybe_user do
       redirect(conn, to: :protected)
     else
-      render(conn, "new.html", changeset: changeset, action: Routes.session_path(conn, :login))
+      render(conn, "new.html", changeset: changeset, action: ~p"/login")
     end
   end
 
