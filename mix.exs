@@ -57,7 +57,8 @@ defmodule BaselinePhoenix.MixProject do
       {:git_hooks, "~> 0.3.0", only: :dev, runtime: false},
       {:phoenix_storybook, "~> 0.6.3"},
       {:tails, "~> 0.1.5"},
-      {:guardian, "~> 2.3"}
+      {:guardian, "~> 2.3"},
+      {:live_svelte, "~> 0.13.3"}
     ]
   end
 
@@ -69,7 +70,11 @@ defmodule BaselinePhoenix.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+      setup: [
+        "deps.get",
+        "ecto.setup",
+        "npm install --prefix assets"
+      ],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
@@ -77,8 +82,7 @@ defmodule BaselinePhoenix.MixProject do
       "assets.build": ["tailwind baseline_phoenix", "esbuild baseline_phoenix"],
       "assets.deploy": [
         "tailwind baseline_phoenix --minify",
-        "esbuild baseline_phoenix --minify",
-        "phx.digest",
+        "node build.js --deploy --prefix assets",
         "tailwind storybook --minify",
         "phx.digest"
       ]

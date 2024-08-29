@@ -25,7 +25,8 @@ config :baseline_phoenix, BaselinePhoenixWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "PfD3rChjmiUzrTYml/8sIcoYgQON8l8BKa7wnw8p+zMTV/Z9kQoRWY7Vm4vgTcyw",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:baseline_phoenix, ~w(--sourcemap=inline --watch)]},
+    node: ["build.js", "--watch", cd: Path.expand("../assets", __DIR__)],
+    # esbuild: {Esbuild, :install_and_run, [:baseline_phoenix, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:baseline_phoenix, ~w(--watch)]},
     storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
   ]

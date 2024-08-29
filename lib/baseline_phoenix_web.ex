@@ -88,6 +88,8 @@ defmodule BaselinePhoenixWeb do
       # Core UI components and translation
       import BaselinePhoenixWeb.CoreComponents
       import BaselinePhoenixWeb.Gettext
+      # Import LiveSvelte
+      import LiveSvelte
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
