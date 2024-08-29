@@ -1,8 +1,8 @@
+```
 mix setup
-mix live_svelte.setup
 mix deps.get
 mix phx.server
-
+```
 
 # BaselinePhoenix
 
