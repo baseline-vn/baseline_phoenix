@@ -1,5 +1,3 @@
-import BaselinePhoenixWeb
-
 defmodule BaselinePhoenixWeb.PageHTML do
   @moduledoc """
   This module contains pages rendered by PageController.

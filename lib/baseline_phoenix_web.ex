@@ -21,7 +21,8 @@ defmodule BaselinePhoenixWeb do
 
   def router do
     quote do
-      use Phoenix.Router, helpers: false
+      # , helpers: false
+      use Phoenix.Router
 
       # Import common connection and controller functions to use in pipelines
       import Plug.Conn
