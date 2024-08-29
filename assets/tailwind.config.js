@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 // See the Tailwind configuration guide for advanced usage
 // https://tailwindcss.com/docs/configuration
 
@@ -13,7 +14,84 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '3/2': '3 / 2',
+        '16/9': '16 / 9',
+        '11/5': '11 / 5',
+      },
+      maxWidth: {
+        '36': '9rem', // 36 divided by 4 to convert to rem
+      },
+      minWidth: {
+        '5': '1.25rem',
+      },
+      boxShadow: {
+        'inset-top': '0px -4px 24px -4px rgba(16, 24, 40, 0.3) inset',
+      },
       colors: {
+        // FROM BASELINE_RAILS
+        secondary: colors.emerald,
+        tertiary: colors.gray,
+        danger: colors.red,
+        "code-400": "#fefcf9",
+        "code-600": "#3c455b",
+        "carbon-light": "#1D1F1F",
+        alto: {
+          '50': '#FCFCFC',
+          '100': '#FCFCFC',
+          '200': '#F7F7F7',
+          '300': '#F0F2F2',
+          '400': '#E8EAEB',
+          '500': '#DCDFE0',
+          '600': '#B1C3C9',
+          '700': '#7B98A8',
+          '800': '#507187',
+          '900': '#2D4C66',
+          '950': '#132A42'
+        },
+        carbon: {
+          '50': '#F2F2F2',
+          '100': '#E3E6E6',
+          '200': '#BEC2C2',
+          '300': '#989E9E',
+          '400': '#4E5454',
+          '500': '#090A0A',
+          '600': '#080A0A',
+          '700': '#050807',
+          '800': '#030505',
+          '900': '#020504',
+          '950': '#010302'
+        },
+        sunburst: {
+          '50': '#FFFFF2',
+          '100': '#FFFFE6',
+          '200': '#FFFFBF',
+          '300': '#FFFF99',
+          '400': '#FFFF4D',
+          '500': '#FFFF00',
+          '600': '#DAE600',
+          '700': '#A6BF00',
+          '800': '#7A9900',
+          '900': '#527300',
+          '950': '#304A00'
+        }, 'court': {
+          '50': '#F2FFFB',
+          '100': '#E6FCF4',
+          '200': '#C0FAE3',
+          '300': '#9EF7CF',
+          '400': '#56F09B',
+          '500': '#14EB5F',
+          '600': '#11D452',
+          '700': '#0CB03D',
+          '800': '#078C2D',
+          '900': '#04691D',
+          '950': '#024512'
+        },
+        // DESIGN SYSTEM COLORS
         gray: {
           25: '#FCFCFD',
           50: '#F9FAFB',
@@ -181,6 +259,16 @@ module.exports = {
         'd-md': ['3rem', { lineHeight: '3.75rem' }],      // 48px, 60px
         'd-lg': ['3.75rem', { lineHeight: '4.5rem' }],    // 60px, 72px
       },
+      container: {
+        center: true,
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1076px',
+        xl: '1280px',
+        // '2xl': '1320px'
+      },
     },
   },
   plugins: [
@@ -235,5 +323,6 @@ module.exports = {
         }
       }, { values })
     })
-  ]
+  ],
+  darkMode: 'class',
 }

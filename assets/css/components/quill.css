@@ -1,0 +1,41 @@
+.ql-container.ql-snow {
+    @apply bg-white;
+}
+
+.ql-toolbar.ql-snow {
+    @apply bg-gray-100;
+}
+
+.ql-editor.ql-blank:before {
+    @apply text-sm;
+    color: #0009;
+    font-style: normal;
+    line-height: 1.5rem;
+}
+
+.ql-editor {
+    @apply text-sm shadow-inner text-gray-900;
+    line-height: 1.5rem;
+}
+
+.write .ql-toolbar.ql-snow {
+    @apply hidden;
+}
+
+.write .ql-container.ql-snow {
+    @apply border-none;
+}
+
+.write .ql-editor {
+    @apply shadow-none drop-shadow-none;
+    @apply text-gray-900 text-base;
+    @apply p-2;
+}
+
+.write .ql-editor.ql-blank:before {
+    @apply text-gray-400 text-base left-2;
+}
+
+.quill-content {
+    @apply leading-snug;
+}

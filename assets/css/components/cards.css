@@ -1,0 +1,17 @@
+.card {
+    @apply rounded;
+    @apply bg-white shadow-sm; /* Light mode */
+    @apply dark:bg-carbon-light; /* Light mode */
+
+    &.p-sm {
+        @apply p-2;
+    }
+
+    &.p-md {
+        @apply p-4;
+    }
+
+    &.p-lg {
+        @apply p-6;
+    }
+}

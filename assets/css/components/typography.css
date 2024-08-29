@@ -1,0 +1,45 @@
+  .font-display {
+    @apply text-5xl font-bold leading-tight;
+  }
+  
+  h1, .h1 {
+    @apply text-4xl font-bold leading-tight;
+  }
+  
+  h2, .h2 {
+    @apply text-3xl font-semibold leading-tight;
+  }
+  
+  h3, .h3 {
+    @apply text-2xl font-semibold leading-normal;
+  }
+  
+  h4, .h4 {
+    @apply text-xl font-bold leading-normal;
+  }
+  
+  h5, .h5 {
+    @apply text-lg font-bold leading-normal;
+  }
+  
+  h6, .h6 {
+    @apply font-bold;
+  }
+  
+  .link {
+    @apply text-blue-500;
+  
+    &:hover,
+    &:focus {
+      @apply text-blue-600;
+    }
+  }
+  
+  .prose p:last-child {
+    @apply mb-0;
+  }
+
+  .prose :where(img):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }

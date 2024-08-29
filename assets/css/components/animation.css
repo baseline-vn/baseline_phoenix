@@ -1,0 +1,7 @@
+.fade-out {
+    animation: fadeOut 1s linear 9s forwards;
+}
+
+@keyframes fadeOut {
+    100% { opacity: 0; visibility: hidden; }
+}

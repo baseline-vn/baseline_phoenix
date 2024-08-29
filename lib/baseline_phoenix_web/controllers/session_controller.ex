@@ -9,7 +9,7 @@ defmodule BaselinePhoenixWeb.SessionController do
     maybe_user = Guardian.Plug.current_resource(conn)
 
     if maybe_user do
-      redirect(conn, to: :protected)
+      redirect(conn, to: ~p"/protected")
     else
       render(conn, :new, layout: false, changeset: changeset, action: ~p"/sign_in")
     end

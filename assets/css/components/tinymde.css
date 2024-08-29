@@ -1,0 +1,24 @@
+.TinyMDE {
+    @apply border shadow-inner !p-[12px];
+}
+
+#tinymde.prose > p {
+    @apply text-carbon-600 text-base leading-normal;
+}
+
+#tinymde.prose > h2 {
+    @apply text-lg mt-2 mb-1;
+}
+
+#tinymde.prose > hr {
+    @apply my-6;
+}
+
+#tinymde.prose > ul {
+    /* @apply list-disc list-inside; */
+    padding-inline-start: 0.25em;
+}
+
+#tinymde.prose > ul > li {
+    @apply my-0;
+}

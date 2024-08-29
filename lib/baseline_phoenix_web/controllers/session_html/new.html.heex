@@ -1,11 +1,64 @@
-<h2>Login Page</h2>
+<div class="flex justify-center items-center h-screen bg-carbon-500">
+  <div class="flex flex-col items-center w-full">
+    <div class="text-center flex flex-col items-center mb-6">
+      <img src={~p"/images/baseline-logo-v2.png"} width="172" class="mb-1" />
+      <p class="text-carbon-200 text-sm font-brand">
+        Ứng dụng số hóa Tennis tiên phong tại Việt Nam
+      </p>
+    </div>
+    <div class="p-6 md:bg-carbon-light rounded text-white w-full md:w-96">
+      <.simple_form :let={f} for={@changeset} action={@action}>
+        <div class="form-group">
+          <.input field={f[:email]} label="Phone Number" class="control-label" />
+        </div>
 
-<.simple_form :let={f} for={@changeset} action={@action}>
-  <div class="form-group">
-    <.input field={f[:email]} label="Phone Number" class="control-label" />
+        <:actions>
+          <.button>Save</.button>
+        </:actions>
+      </.simple_form>
+      <%!-- <.form :let={f} for={@changeset} action={~p"/sign_in"}>
+        <div class="form-group">
+          <.input
+            field={f[:phone_number]}
+            required
+            autofocus
+            class="form-control bg-carbon-light md:bg-carbon-500 ring-carbon-400 text-white"
+            data-phoneinput-target="phoneInput"
+            data-action="keyup->phoneinput#change"
+            inputmode="numeric"
+            pattern="[ 0-9]*"
+          />
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary btn-expanded">Continue</button>
+        </div>
+      </.form> --%>
+      <%!-- <%= form_for @conn, sign_in_path(@conn, :create), [as: :user, data: [controller: "phoneinput", phoneinput_hiddenfield_value: "mobile_number"]] do %>
+        <div class="form-group">
+          <%= label(f, :phone, "Mobile number", style: "display: block", class: "text-carbon-200") %>
+          <%= text_input(f, :phone,
+            required: true,
+            autofocus: true,
+            class: "form-control bg-carbon-light md:bg-carbon-500 ring-carbon-400 text-white",
+            data: [phoneinput_target: "phoneInput", action: "keyup->phoneinput#change"],
+            inputmode: "numeric",
+            pattern: "[ 0-9]*"
+          ) %>
+          <%= hidden_input(f, :phone_number,
+            value: "",
+            data: [phoneinput_target: "phoneHiddenInput"]
+          ) %>
+        </div>
+
+        <div>
+          <%= submit("Continue", class: "btn btn-primary btn-expanded") %>
+        </div>
+      <% end %> --%>
+
+      <div class="text-center text-gray-400 text-sm mt-6">
+        <p>Mã xác minh sẽ được gửi đến tài khoản Zalo<br /> liên kết với số điện thoại này.</p>
+      </div>
+    </div>
   </div>
-
-  <:actions>
-    <.button>Save</.button>
-  </:actions>
-</.simple_form>
+</div>

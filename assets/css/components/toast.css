@@ -1,0 +1,41 @@
+@layer components {
+    /* Base toast style */
+    .toast {
+      @apply flex items-center w-full md:max-w-md px-4 py-2 space-x-4 divide-x rounded-md;
+      @apply text-gray-500 bg-alto-300 divide-gray-200 shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800;
+      @apply animatecss animatecss-backOutDown animatecss-delay-4s;
+    }
+  
+    /* Success toast */
+    .toast-success {
+      @apply border border-court-800;
+    }
+  
+    /* Notice toast */
+    .toast-notice {
+      @apply border border-blue-400 dark:border-blue-700;
+    }
+  
+    /* Alert toast */
+    .toast-alert {
+      @apply border border-red-400 dark:border-red-700 dark:!text-white bg-alto-200;
+    }
+  
+    /* Icon styles if needed */
+    .toast-icon {
+      @apply flex-shrink-0 inline w-4 h-4;
+    }
+  
+    /* Specific color styles for icons */
+    .icon-success {
+      @apply text-green-500;
+    }
+  
+    .icon-notice {
+      @apply text-blue-500;
+    }
+  
+    .icon-alert {
+      @apply text-red-500;
+    }
+}
