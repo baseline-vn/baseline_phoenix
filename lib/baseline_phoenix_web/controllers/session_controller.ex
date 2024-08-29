@@ -11,13 +11,13 @@ defmodule BaselinePhoenixWeb.SessionController do
     if maybe_user do
       redirect(conn, to: :protected)
     else
-      render(conn, "new.html", changeset: changeset, action: ~p"/login")
+      render(conn, :new, layout: false, changeset: changeset, action: ~p"/sign_in")
     end
   end
 
-  def login(conn, %{"user" => %{"email" => email}}) do
+  def sign_in(conn, %{"user" => %{"email" => email}}) do
     UserManager.authenticate_user(email)
-    |> login_reply(conn)
+    |> sign_in_reply(conn)
   end
 
   def logout(conn, _) do
@@ -25,12 +25,12 @@ defmodule BaselinePhoenixWeb.SessionController do
     # This module's full name is Auth.UserManager.Guardian.Plug,
     |> Guardian.Plug.sign_out()
     # and the arguments specified in the Guardian.Plug.sign_out()
-    |> redirect(to: "/login")
+    |> redirect(to: "/sign_in")
   end
 
   # docs are not applicable here
 
-  defp login_reply({:ok, user}, conn) do
+  defp sign_in_reply({:ok, user}, conn) do
     conn
     |> put_flash(:info, "Welcome back!")
     # This module's full name is Auth.UserManager.Guardian.Plug,
@@ -41,7 +41,7 @@ defmodule BaselinePhoenixWeb.SessionController do
 
   # docs are not applicable here.
 
-  defp login_reply({:error, reason}, conn) do
+  defp sign_in_reply({:error, reason}, conn) do
     conn
     |> put_flash(:error, to_string(reason))
     |> new(%{})

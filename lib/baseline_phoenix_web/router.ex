@@ -31,8 +31,8 @@ defmodule BaselinePhoenixWeb.Router do
 
     get "/", PageController, :index
 
-    get "/login", SessionController, :new
-    post "/login", SessionController, :login
+    get "/sign_in", SessionController, :new
+    post "/sign_in", SessionController, :login
     get "/logout", SessionController, :logout
   end
 
