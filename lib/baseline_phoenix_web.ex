@@ -83,13 +83,14 @@ defmodule BaselinePhoenixWeb do
 
   defp html_helpers do
     quote do
+      # Import LiveSvelte
+      import LiveSvelte
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
       import BaselinePhoenixWeb.CoreComponents
       import BaselinePhoenixWeb.Gettext
-      # Import LiveSvelte
-      import LiveSvelte
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

@@ -1,3 +1,9 @@
+mix setup
+mix live_svelte.setup
+mix deps.get
+mix phx.server
+
+
 # BaselinePhoenix
 
 To start your Phoenix server:
