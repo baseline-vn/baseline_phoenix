@@ -1,5 +1,6 @@
 defmodule BaselinePhoenixWeb.Router do
   use BaselinePhoenixWeb, :router
+  import PhoenixStorybook.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -40,6 +41,15 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser, :auth, :ensure_auth]
 
     get "/protected", PageController, :protected
+  end
+
+  scope "/" do
+    storybook_assets()
+  end
+
+  scope "/", Elixir.BaselinePhoenixWeb do
+    pipe_through(:browser)
+    live_storybook("/storybook", backend_module: Elixir.BaselinePhoenixWeb.Storybook)
   end
 
   # Other scopes may use custom stacks.

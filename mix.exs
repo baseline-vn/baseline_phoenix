@@ -55,6 +55,8 @@ defmodule BaselinePhoenix.MixProject do
       {:bandit, "~> 1.5"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:git_hooks, "~> 0.3.0", only: :dev, runtime: false},
+      {:phoenix_storybook, "~> 0.6.3"},
+      {:tails, "~> 0.1.5"},
       {:guardian, "~> 2.3"}
     ]
   end
@@ -76,6 +78,8 @@ defmodule BaselinePhoenix.MixProject do
       "assets.deploy": [
         "tailwind baseline_phoenix --minify",
         "esbuild baseline_phoenix --minify",
+        "phx.digest",
+        "tailwind storybook --minify",
         "phx.digest"
       ]
     ]
