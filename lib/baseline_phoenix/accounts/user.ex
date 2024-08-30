@@ -2,6 +2,7 @@ defmodule BaselinePhoenix.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string
     field :webauthn_id, :string

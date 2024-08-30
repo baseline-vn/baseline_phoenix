@@ -17,7 +17,7 @@ defmodule BaselinePhoenix.Accounts.UserToken do
     field :token, :binary
     field :context, :string
     field :sent_to, :string
-    belongs_to :user, BaselinePhoenix.Accounts.User
+    belongs_to :user, BaselinePhoenix.Accounts.User, type: Ecto.UUID
 
     timestamps(type: :utc_datetime, updated_at: false)
   end
