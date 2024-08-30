@@ -1,6 +1,8 @@
 defmodule BaselinePhoenix.Accounts.Session do
   use Ecto.Schema
+  import Ecto.Query
   import Ecto.Changeset
+  alias BaselinePhoenix.Accounts.Session
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "sessions" do
@@ -28,5 +30,18 @@ defmodule BaselinePhoenix.Accounts.Session do
 
     # |> assoc_constraint(:user)
     # |> assoc_constraint(:api_token)
+  end
+
+  def verify_session_token_query(session_id) do
+    query =
+      from session in by_token_and_context_query(session_id),
+        join: user in assoc(session, :user),
+        select: user
+
+    {:ok, query}
+  end
+
+  def by_token_and_context_query(session_id) do
+    from Session, where: [id: ^session_id]
   end
 end
