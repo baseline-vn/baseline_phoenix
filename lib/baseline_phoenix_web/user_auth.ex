@@ -26,6 +26,7 @@ defmodule BaselinePhoenixWeb.UserAuth do
   if you are not using LiveView.
   """
   def log_in_user(conn, user, params \\ %{}) do
+    # token = Accounts.create_session_for_user(user, "ip_address", "user_agent")
     token = Accounts.generate_user_session_token(user)
     user_return_to = get_session(conn, :user_return_to)
 

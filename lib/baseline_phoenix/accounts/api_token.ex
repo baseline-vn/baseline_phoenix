@@ -1,6 +1,7 @@
 defmodule BaselinePhoenix.Accounts.ApiToken do
   use Ecto.Schema
   import Ecto.Changeset
+  alias BaselinePhoenix.Accounts.ApiToken
 
   schema "api_tokens" do
     field :token, :string

@@ -6,7 +6,7 @@ defmodule BaselinePhoenix.Accounts do
   import Ecto.Query, warn: false
   alias BaselinePhoenix.Repo
 
-  alias BaselinePhoenix.Accounts.{User, UserToken, UserNotifier}
+  alias BaselinePhoenix.Accounts.{User, UserToken, UserNotifier, Session}
 
   ## Database getters
 
@@ -302,5 +302,18 @@ defmodule BaselinePhoenix.Accounts do
       {:ok, %{user: user}} -> {:ok, user}
       {:error, :user, changeset, _} -> {:error, changeset}
     end
+  end
+
+  def create_session_for_user(user, ip_address, user_agent) do
+    session =
+      %Session{}
+      |> Session.changeset(%{
+        user_id: user.id,
+        ip_address: ip_address,
+        user_agent: user_agent
+      })
+      |> Repo.insert!()
+
+    session.id
   end
 end
