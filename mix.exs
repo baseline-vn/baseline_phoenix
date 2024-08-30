@@ -58,7 +58,8 @@ defmodule BaselinePhoenix.MixProject do
       {:phoenix_storybook, "~> 0.6.3"},
       {:tails, "~> 0.1.5"},
       {:redix, "~> 1.1"},
-      {:castore, ">= 0.0.0"}
+      {:castore, ">= 0.0.0"},
+      {:telegex, "~> 1.8.0"}
     ]
   end
 
