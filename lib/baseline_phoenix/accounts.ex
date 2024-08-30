@@ -98,7 +98,7 @@ defmodule BaselinePhoenix.Accounts do
   Gets the user with the given signed token.
   """
   def get_user_by_session_token(token) do
-    {:ok, query} = Session.verify_session_token_query(token)
+    {:ok, query} = Session.verify_session_query(token)
     Repo.one(query)
   end
 
@@ -106,7 +106,7 @@ defmodule BaselinePhoenix.Accounts do
   Deletes the signed token with the given context.
   """
   def delete_user_session_token(token) do
-    Repo.delete_all(Session.by_token_and_context_query(token))
+    Repo.delete_all(Session.by_session_id_query(token))
     :ok
   end
 

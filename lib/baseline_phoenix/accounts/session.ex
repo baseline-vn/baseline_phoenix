@@ -29,16 +29,16 @@ defmodule BaselinePhoenix.Accounts.Session do
     |> validate_required([:user_id])
   end
 
-  def verify_session_token_query(session_id) do
+  def verify_session_query(session_id) do
     query =
-      from session in by_token_and_context_query(session_id),
+      from session in by_session_id_query(session_id),
         join: user in assoc(session, :user),
         select: user
 
     {:ok, query}
   end
 
-  def by_token_and_context_query(session_id) do
+  def by_session_id_query(session_id) do
     from Session, where: [id: ^session_id]
   end
 end
