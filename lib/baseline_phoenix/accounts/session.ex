@@ -27,9 +27,6 @@ defmodule BaselinePhoenix.Accounts.Session do
       :expired_at
     ])
     |> validate_required([:user_id])
-
-    # |> assoc_constraint(:user)
-    # |> assoc_constraint(:api_token)
   end
 
   def verify_session_token_query(session_id) do
