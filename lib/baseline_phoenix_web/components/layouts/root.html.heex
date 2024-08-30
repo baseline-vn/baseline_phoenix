@@ -19,15 +19,7 @@
         </li>
         <li>
           <.link
-            href={~p"/users/settings"}
-            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-          >
-            Settings
-          </.link>
-        </li>
-        <li>
-          <.link
-            href={~p"/users/log_out"}
+            href={~p"/log_out"}
             method="delete"
             class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
           >
@@ -37,7 +29,7 @@
       <% else %>
         <li>
           <.link
-            href={~p"/users/register"}
+            href={~p"/register"}
             class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
           >
             Register
@@ -45,7 +37,7 @@
         </li>
         <li>
           <.link
-            href={~p"/users/log_in"}
+            href={~p"/sign_in"}
             class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
           >
             Log in

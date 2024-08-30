@@ -60,10 +60,10 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/", BaselinePhoenixWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
-    get "/users/register", UserRegistrationController, :new
-    post "/users/register", UserRegistrationController, :create
-    get "/users/log_in", UserSessionController, :new
-    post "/users/log_in", UserSessionController, :create
+    get "/register", UserRegistrationController, :new
+    post "/register", UserRegistrationController, :create
+    get "/sign_in", UserSessionController, :new
+    post "/sign_in", UserSessionController, :create
   end
 
   scope "/", BaselinePhoenixWeb do
@@ -73,6 +73,6 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/", BaselinePhoenixWeb do
     pipe_through [:browser]
 
-    delete "/users/log_out", UserSessionController, :delete
+    delete "/log_out", UserSessionController, :delete
   end
 end
