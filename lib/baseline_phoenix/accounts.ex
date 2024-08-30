@@ -11,36 +11,36 @@ defmodule BaselinePhoenix.Accounts do
   ## Database getters
 
   @doc """
-  Gets a user by email.
+  Gets a user by phone_number.
 
   ## Examples
 
-      iex> get_user_by_email("foo@example.com")
+      iex> get_user_by_phone_number("foo@example.com")
       %User{}
 
-      iex> get_user_by_email("unknown@example.com")
+      iex> get_user_by_phone_number("unknown@example.com")
       nil
 
   """
-  def get_user_by_email(email) when is_binary(email) do
-    Repo.get_by(User, email: email)
+  def get_user_by_phone_number(phone_number) do
+    Repo.get_by(User, phone_number: phone_number)
   end
 
   @doc """
-  Gets a user by email and password.
+  Gets a user by phone_number and password.
 
   ## Examples
 
-      iex> get_user_by_email_and_password("foo@example.com", "correct_password")
+      iex> get_user_by_phone_number_and_password("foo@example.com", "correct_password")
       %User{}
 
-      iex> get_user_by_email_and_password("foo@example.com", "invalid_password")
+      iex> get_user_by_phone_number_and_password("foo@example.com", "invalid_password")
       nil
 
   """
-  def get_user_by_email_and_password(email, password)
-      when is_binary(email) and is_binary(password) do
-    user = Repo.get_by(User, email: email)
+  def get_user_by_phone_number_and_password(phone_number, password)
+      when is_binary(phone_number) and is_binary(password) do
+    user = Repo.get_by(User, phone_number: phone_number)
     if User.valid_password?(user, password), do: user
   end
 
@@ -90,7 +90,7 @@ defmodule BaselinePhoenix.Accounts do
 
   """
   def change_user_registration(%User{} = user, attrs \\ %{}) do
-    User.registration_changeset(user, attrs, hash_password: false, validate_email: false)
+    User.registration_changeset(user, attrs, hash_password: false, validate_phone_number: false)
   end
 
   ## Session

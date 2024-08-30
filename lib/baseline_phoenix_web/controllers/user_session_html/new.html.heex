@@ -13,15 +13,9 @@
   <.simple_form :let={f} for={@conn.params["user"]} as={:user} action={~p"/sign_in"}>
     <.error :if={@error_message}><%= @error_message %></.error>
 
-    <.input field={f[:email]} type="email" label="Email" required />
+    <.input field={f[:phone_number]} type="text" label="Phone Number" required />
     <.input field={f[:password]} type="password" label="Password" required />
 
-    <:actions :let={f}>
-      <.input field={f[:remember_me]} type="checkbox" label="Keep me logged in" />
-      <.link href={~p"/reset_password"} class="text-sm font-semibold">
-        Forgot your password?
-      </.link>
-    </:actions>
     <:actions>
       <.button phx-disable-with="Logging in..." class="w-full">
         Log in <span aria-hidden="true">→</span>

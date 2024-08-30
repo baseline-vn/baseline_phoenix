@@ -5,6 +5,7 @@ defmodule BaselinePhoenix.Accounts.User do
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string
+    field :phone_number, :string
     field :full_name, :string
     field :webauthn_id, :string
     field :password, :string, virtual: true, redact: true
@@ -18,8 +19,8 @@ defmodule BaselinePhoenix.Accounts.User do
   @doc """
   A user changeset for registration.
 
-  It is important to validate the length of both email and password.
-  Otherwise databases may truncate the email without warnings, which
+  It is important to validate the length of both phone_number and password.
+  Otherwise databases may truncate the phone_number without warnings, which
   could lead to unpredictable or insecure behaviour. Long passwords may
   also be very expensive to hash for certain algorithms.
 
@@ -32,32 +33,30 @@ defmodule BaselinePhoenix.Accounts.User do
       validations on a LiveView form), this option can be set to `false`.
       Defaults to `true`.
 
-    * `:validate_email` - Validates the uniqueness of the email, in case
-      you don't want to validate the uniqueness of the email (like when
+    * `:validate_phone_number` - Validates the uniqueness of the phone_number, in case
+      you don't want to validate the uniqueness of the phone_number (like when
       using this changeset for validations on a LiveView form before
       submitting the form), this option can be set to `false`.
       Defaults to `true`.
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password, :webauthn_id])
+    |> cast(attrs, [:phone_number, :password, :webauthn_id])
     |> generate_webauthn_id
-    |> validate_email(opts)
+    |> validate_phone_number(opts)
     |> validate_password(opts)
   end
 
-  defp validate_email(changeset, opts) do
+  defp validate_phone_number(changeset, opts) do
     changeset
-    |> validate_required([:email])
-    |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "must have the @ sign and no spaces")
-    |> validate_length(:email, max: 160)
-    |> maybe_validate_unique_email(opts)
+    |> validate_required([:phone_number])
+    |> maybe_validate_unique_phone_number(opts)
   end
 
   defp validate_password(changeset, opts) do
     changeset
     |> validate_required([:password])
-    |> validate_length(:password, min: 12, max: 72)
+    |> validate_length(:password, min: 6, max: 72)
     # Examples of additional password validation:
     # |> validate_format(:password, ~r/[a-z]/, message: "at least one lower case character")
     # |> validate_format(:password, ~r/[A-Z]/, message: "at least one upper case character")
@@ -82,28 +81,28 @@ defmodule BaselinePhoenix.Accounts.User do
     end
   end
 
-  defp maybe_validate_unique_email(changeset, opts) do
-    if Keyword.get(opts, :validate_email, true) do
+  defp maybe_validate_unique_phone_number(changeset, opts) do
+    if Keyword.get(opts, :validate_phone_number, true) do
       changeset
-      |> unsafe_validate_unique(:email, BaselinePhoenix.Repo)
-      |> unique_constraint(:email)
+      |> unsafe_validate_unique(:phone_number, BaselinePhoenix.Repo)
+      |> unique_constraint(:phone_number)
     else
       changeset
     end
   end
 
   @doc """
-  A user changeset for changing the email.
+  A user changeset for changing the phone_number.
 
-  It requires the email to change otherwise an error is added.
+  It requires the phone_number to change otherwise an error is added.
   """
-  def email_changeset(user, attrs, opts \\ []) do
+  def phone_number_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email])
-    |> validate_email(opts)
+    |> cast(attrs, [:phone_number])
+    |> validate_phone_number(opts)
     |> case do
-      %{changes: %{email: _}} = changeset -> changeset
-      %{} = changeset -> add_error(changeset, :email, "did not change")
+      %{changes: %{phone_number: _}} = changeset -> changeset
+      %{} = changeset -> add_error(changeset, :phone_number, "did not change")
     end
   end
 
