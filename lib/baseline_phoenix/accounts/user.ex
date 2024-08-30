@@ -5,6 +5,7 @@ defmodule BaselinePhoenix.Accounts.User do
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string
+    field :full_name, :string
     field :webauthn_id, :string
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
