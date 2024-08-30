@@ -56,7 +56,9 @@ defmodule BaselinePhoenix.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:git_hooks, "~> 0.3.0", only: :dev, runtime: false},
       {:phoenix_storybook, "~> 0.6.3"},
-      {:tails, "~> 0.1.5"}
+      {:tails, "~> 0.1.5"},
+      {:redix, "~> 1.1"},
+      {:castore, ">= 0.0.0"}
     ]
   end
 
