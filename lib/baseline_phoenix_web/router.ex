@@ -62,6 +62,7 @@ defmodule BaselinePhoenixWeb.Router do
 
     get "/sign_in", UserSessionController, :new
     post "/sign_in", UserSessionController, :create
+    post "/verify_otp", UserSessionController, :verify_otp
   end
 
   scope "/", BaselinePhoenixWeb do

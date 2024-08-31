@@ -1,0 +1,11 @@
+<div>
+  <h1>OTP</h1>
+  <.simple_form :let={f} for={@changeset} as={:user} action={~p"/verify_otp"}>
+    <.input field={f[:otp]} label="OTP" class="control-label" />
+    <input type="hidden" name={f[:phone_number].name} value={f[:phone_number].value} />
+
+    <:actions>
+      <.button>Save</.button>
+    </:actions>
+  </.simple_form>
+</div>

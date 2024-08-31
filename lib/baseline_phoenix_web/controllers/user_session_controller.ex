@@ -10,10 +10,34 @@ defmodule BaselinePhoenixWeb.UserSessionController do
 
   def create(conn, %{"user" => %{"phone_number" => phone_number} = user_params}) do
     case Accounts.get_or_insert_user_by_phone_number(phone_number) do
-      {:ok, user} ->
+      {:ok, _user} ->
         conn
-        |> put_flash(:info, "Welcome back!")
-        |> UserAuth.sign_in_user(user, user_params)
+        |> render(:otp, changeset: conn.body_params["user"])
+
+      _ ->
+        # In order to prevent user enumeration attacks, don't disclose whether the phone_number is registered.
+        render(conn, :new, error_message: "Error creating account.")
+    end
+  end
+
+  def verify_otp(conn, params) do
+    user_params = params["user"]
+    %{"phone_number" => phone_number, "otp" => otp} = user_params
+
+    case Accounts.get_or_insert_user_by_phone_number(phone_number) do
+      {:ok, user} ->
+        if otp == "123456" do
+          # Logic to log in the user
+          conn
+          |> put_flash(:info, "Logged in successfully.")
+          |> UserAuth.sign_in_user(user, user_params)
+          |> redirect(to: ~p"/")
+        else
+          # Render the form again with an error message
+          conn
+          |> put_status(:unprocessable_entity)
+          |> render(:otp, changeset: conn.body_params["user"])
+        end
 
       _ ->
         # In order to prevent user enumeration attacks, don't disclose whether the phone_number is registered.
