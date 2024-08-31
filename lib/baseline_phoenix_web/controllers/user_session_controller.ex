@@ -8,16 +8,16 @@ defmodule BaselinePhoenixWeb.UserSessionController do
     render(conn, :new, error_message: nil)
   end
 
-  def create(conn, %{"user" => user_params}) do
-    %{"phone_number" => phone_number, "password" => password} = user_params
+  def create(conn, %{"user" => %{"phone_number" => phone_number} = user_params}) do
+    case Accounts.get_or_insert_user_by_phone_number(phone_number) do
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, "Welcome back!")
+        |> UserAuth.sign_in_user(user, user_params)
 
-    if user = Accounts.get_user_by_phone_number_and_password(phone_number, password) do
-      conn
-      |> put_flash(:info, "Welcome back!")
-      |> UserAuth.sign_in_user(user, user_params)
-    else
-      # In order to prevent user enumeration attacks, don't disclose whether the phone_number is registered.
-      render(conn, :new, error_message: "Invalid phone_number or password")
+      _ ->
+        # In order to prevent user enumeration attacks, don't disclose whether the phone_number is registered.
+        render(conn, :new, error_message: "Error creating account.")
     end
   end
 

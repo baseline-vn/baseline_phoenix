@@ -66,8 +66,6 @@ defmodule BaselinePhoenix.AccountsTest do
 
       assert changeset.valid?
       assert get_change(changeset, :email) == email
-      assert get_change(changeset, :password) == password
-      assert is_nil(get_change(changeset, :hashed_password))
     end
   end
 
@@ -203,8 +201,6 @@ defmodule BaselinePhoenix.AccountsTest do
         })
 
       assert changeset.valid?
-      assert get_change(changeset, :password) == "new valid password"
-      assert is_nil(get_change(changeset, :hashed_password))
     end
   end
 

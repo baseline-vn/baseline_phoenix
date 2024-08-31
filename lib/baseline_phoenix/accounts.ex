@@ -26,6 +26,22 @@ defmodule BaselinePhoenix.Accounts do
     Repo.get_by(User, phone_number: phone_number)
   end
 
+  def get_or_insert_user_by_phone_number(phone_number) do
+    case Repo.get_by(User, phone_number: phone_number) do
+      nil ->
+        %User{}
+        |> User.sign_in_changeset(%{phone_number: phone_number})
+        |> Repo.insert()
+        |> case do
+          {:ok, user} -> {:ok, user}
+          {:error, changeset} -> {:error, changeset}
+        end
+
+      user ->
+        {:ok, user}
+    end
+  end
+
   @doc """
   Gets a user by phone_number and password.
 
