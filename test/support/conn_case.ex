@@ -37,19 +37,6 @@ defmodule BaselinePhoenixWeb.ConnCase do
   end
 
   @doc """
-  Setup helper that registers and logs in users.
-
-      setup :register_and_sign_in_user
-
-  It stores an updated connection and a registered user in the
-  test context.
-  """
-  def register_and_sign_in_user(%{conn: conn}) do
-    user = BaselinePhoenix.AccountsFixtures.user_fixture()
-    %{conn: sign_in_user(conn, user), user: user}
-  end
-
-  @doc """
   Logs the given `user` into the `conn`.
 
   It returns an updated `conn`.

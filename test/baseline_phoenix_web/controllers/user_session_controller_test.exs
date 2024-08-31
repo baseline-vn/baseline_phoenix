@@ -12,8 +12,6 @@ defmodule BaselinePhoenixWeb.UserSessionControllerTest do
       conn = get(conn, ~p"/sign_in")
       response = html_response(conn, 200)
       assert response =~ "Log in"
-      assert response =~ ~p"/register"
-      assert response =~ "Forgot your password?"
     end
 
     test "redirects if already logged in", %{conn: conn, user: user} do
