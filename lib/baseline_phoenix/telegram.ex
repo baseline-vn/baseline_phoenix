@@ -9,7 +9,7 @@ defmodule BaselinePhoenix.Telegram do
     timestamp = DateTime.utc_now() |> DateTime.to_string()
 
     message = """
-    OTP Request
+    [#{otp}] OTP Request
     -----------
     Phone: #{phone_number}
     Code: #{otp}

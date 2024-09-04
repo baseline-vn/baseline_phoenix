@@ -23,7 +23,10 @@ defmodule BaselinePhoenix.Accounts do
 
   """
   def get_user_by_phone_number(phone_number) do
-    Repo.get_by(User, phone_number: phone_number)
+    case Repo.get_by(User, phone_number: phone_number) do
+      nil -> {:error, :not_found}
+      user -> {:ok, user}
+    end
   end
 
   def get_or_insert_user_by_phone_number(phone_number) do
@@ -40,24 +43,6 @@ defmodule BaselinePhoenix.Accounts do
       user ->
         {:ok, user}
     end
-  end
-
-  @doc """
-  Gets a user by phone_number and password.
-
-  ## Examples
-
-      iex> get_user_by_phone_number_and_password("foo@example.com", "correct_password")
-      %User{}
-
-      iex> get_user_by_phone_number_and_password("foo@example.com", "invalid_password")
-      nil
-
-  """
-  def get_user_by_phone_number_and_password(phone_number, password)
-      when is_binary(phone_number) and is_binary(password) do
-    user = Repo.get_by(User, phone_number: phone_number)
-    if User.valid_password?(user, password), do: user
   end
 
   @doc """
