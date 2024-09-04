@@ -6,7 +6,16 @@ defmodule BaselinePhoenix.Telegram do
   # TELEGRAM_DEV_GROUP_CHAT_ID=-4590586218
 
   def send_otp(phone_number, otp) do
-    message = "OTP for #{phone_number}: #{otp}"
+    timestamp = DateTime.utc_now() |> DateTime.to_string()
+
+    message = """
+    OTP Request
+    -----------
+    Phone: #{phone_number}
+    Code: #{otp}
+    Sent at: #{timestamp}
+    """
+
     send_message(@dev_group_chat_id, message)
   end
 
