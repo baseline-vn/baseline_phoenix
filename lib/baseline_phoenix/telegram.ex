@@ -1,6 +1,6 @@
 defmodule BaselinePhoenix.Telegram do
-  @base_url "https://api.telegram.org/bot7074710677:AAETNGxr4LlV2D9uyiQRXIpVIECx6a2G8n4"
-  @dev_group_chat_id -4_590_586_218
+  @base_url "https://api.telegram.org/bot#{Application.compile_env!(:baseline_phoenix, :telegram)[:bot_token]}"
+  @dev_group_chat_id Application.compile_env!(:baseline_phoenix, :telegram)[:dev_group_chat_id]
 
   # TELEGRAM_BOT_TOKEN=7074710677:AAETNGxr4LlV2D9uyiQRXIpVIECx6a2G8n4
   # TELEGRAM_DEV_GROUP_CHAT_ID=-4590586218

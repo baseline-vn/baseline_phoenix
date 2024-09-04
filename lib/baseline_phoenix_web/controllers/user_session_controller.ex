@@ -45,18 +45,18 @@ defmodule BaselinePhoenixWeb.UserSessionController do
   end
 
   defp handle_user_creation(conn, phone_number, user_params) do
-    case Accounts.get_or_insert_user_by_phone_number(phone_number) do
-      {:ok, _user} ->
-        otp = Otp.generate_otp(phone_number)
+    case Accounts.get_user_by_phone_number(phone_number) do
+      nil ->
+        conn
+        |> put_flash(:error, "Error processing request")
+        |> render(:new, changeset: user_params)
+
+      _user ->
+        Otp.generate_otp(phone_number)
         # TODO: Send OTP to user's phone (implement this part separately)
         conn
         |> put_flash(:info, "OTP sent to your phone")
         |> render(:otp, changeset: user_params)
-
-      {:error, _reason} ->
-        conn
-        |> put_flash(:error, "Error processing request")
-        |> render(:new, changeset: user_params)
     end
   end
 end
