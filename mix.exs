@@ -32,6 +32,7 @@ defmodule BaselinePhoenix.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.7.14"},
       {:phoenix_ecto, "~> 4.5"},
       {:ecto_sql, "~> 3.10"},
@@ -44,13 +45,6 @@ defmodule BaselinePhoenix.MixProject do
       {:phoenix_live_dashboard, "~> 0.8.3"},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
-      {:heroicons,
-       github: "tailwindlabs/heroicons",
-       tag: "v2.1.1",
-       sparse: "optimized",
-       app: false,
-       compile: false,
-       depth: 1},
       {:swoosh, "~> 1.5"},
       {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 1.0"},
@@ -60,7 +54,12 @@ defmodule BaselinePhoenix.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:git_hooks, "~> 0.3.0", only: :dev, runtime: false}
+      {:git_hooks, "~> 0.3.0", only: :dev, runtime: false},
+      {:phoenix_storybook, "~> 0.6.3"},
+      {:tails, "~> 0.1.5"},
+      {:castore, ">= 0.0.0"},
+      {:telegex, "~> 1.8.0"},
+      {:cachex, "~> 3.6"}
     ]
   end
 
@@ -81,6 +80,8 @@ defmodule BaselinePhoenix.MixProject do
       "assets.deploy": [
         "tailwind baseline_phoenix --minify",
         "esbuild baseline_phoenix --minify",
+        "phx.digest",
+        "tailwind storybook --minify",
         "phx.digest"
       ]
     ]

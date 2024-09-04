@@ -26,7 +26,8 @@ config :baseline_phoenix, BaselinePhoenixWeb.Endpoint,
   secret_key_base: "PfD3rChjmiUzrTYml/8sIcoYgQON8l8BKa7wnw8p+zMTV/Z9kQoRWY7Vm4vgTcyw",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:baseline_phoenix, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:baseline_phoenix, ~w(--watch)]}
+    tailwind: {Tailwind, :install_and_run, [:baseline_phoenix, ~w(--watch)]},
+    storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -58,7 +59,8 @@ config :baseline_phoenix, BaselinePhoenixWeb.Endpoint,
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/baseline_phoenix_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/baseline_phoenix_web/(controllers|live|components)/.*(ex|heex)$",
+      ~r"storybook/.*(exs)$"
     ]
   ]
 

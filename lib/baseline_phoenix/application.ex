@@ -17,7 +17,8 @@ defmodule BaselinePhoenix.Application do
       # Start a worker by calling: BaselinePhoenix.Worker.start_link(arg)
       # {BaselinePhoenix.Worker, arg},
       # Start to serve requests, typically the last entry
-      BaselinePhoenixWeb.Endpoint
+      BaselinePhoenixWeb.Endpoint,
+      {Cachex, name: :otp_cache}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

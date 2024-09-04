@@ -1,6 +1,9 @@
 defmodule BaselinePhoenixWeb.Router do
   use BaselinePhoenixWeb, :router
 
+  import BaselinePhoenixWeb.UserAuth
+  import PhoenixStorybook.Router
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,6 +11,7 @@ defmodule BaselinePhoenixWeb.Router do
     plug :put_root_layout, html: {BaselinePhoenixWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_current_user
   end
 
   pipeline :api do
@@ -18,6 +22,15 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+  end
+
+  scope "/" do
+    storybook_assets()
+  end
+
+  scope "/", Elixir.BaselinePhoenixWeb do
+    pipe_through(:browser)
+    live_storybook("/storybook", backend_module: Elixir.BaselinePhoenixWeb.Storybook)
   end
 
   # Other scopes may use custom stacks.
@@ -40,5 +53,24 @@ defmodule BaselinePhoenixWeb.Router do
       live_dashboard "/dashboard", metrics: BaselinePhoenixWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  ## Authentication routes
+
+  scope "/", BaselinePhoenixWeb do
+    pipe_through [:browser, :redirect_if_user_is_authenticated]
+
+    get "/sign_in", UserSessionController, :new
+    post "/sign_in", UserSessionController, :create
+  end
+
+  scope "/", BaselinePhoenixWeb do
+    pipe_through [:browser, :require_authenticated_user]
+  end
+
+  scope "/", BaselinePhoenixWeb do
+    pipe_through [:browser]
+
+    delete "/log_out", UserSessionController, :delete
   end
 end

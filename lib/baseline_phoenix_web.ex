@@ -69,6 +69,7 @@ defmodule BaselinePhoenixWeb do
   def html do
     quote do
       use Phoenix.Component
+      import Tails
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
