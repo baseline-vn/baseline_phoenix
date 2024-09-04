@@ -1,5 +1,7 @@
 defmodule BaselinePhoenixWeb.Components.Step do
   use Phoenix.Component
+  import Tails
+  import BaselinePhoenixWeb.Components.Icon
   attr :title, :string, required: true
 
   attr :status, :string,
@@ -11,7 +13,7 @@ defmodule BaselinePhoenixWeb.Components.Step do
   def step(assigns) do
     ~H"""
     <div class={
-      Tails.classes([
+      classes([
         "flex flex-1 gap-4 h-16 border-b-4 items-center min-w-[240px]",
         [
           "border-primary-500": @status in ~w(current done)
@@ -19,7 +21,7 @@ defmodule BaselinePhoenixWeb.Components.Step do
       ])
     }>
       <div class={
-        Tails.classes([
+        classes([
           "flex items-center justify-center w-9 h-9  rounded-full border-2",
           [
             "bg-primary-500 text-white": @status == "done",
@@ -29,16 +31,7 @@ defmodule BaselinePhoenixWeb.Components.Step do
         ])
       }>
         <%= if @status == "done" do %>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
+          <.icon name="check" class="w-5 h-5" />
         <% else %>
           <%= @no |> Integer.to_string() |> String.pad_leading(2, "0") %>
         <% end %>
@@ -46,7 +39,7 @@ defmodule BaselinePhoenixWeb.Components.Step do
 
       <div class="flex flex-col items-start">
         <div class={
-          Tails.classes([
+          classes([
             "text-sm font-semibold",
             [
               "text-primary-500": @status in ~w(current done),
