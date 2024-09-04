@@ -81,6 +81,10 @@ config :git_hooks,
     ]
   ]
 
+config :baseline_phoenix, :telegram,
+  bot_token: System.get_env("TELEGRAM_BOT_TOKEN"),
+  dev_group_chat_id: System.get_env("TELEGRAM_DEV_GROUP_CHAT_ID")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

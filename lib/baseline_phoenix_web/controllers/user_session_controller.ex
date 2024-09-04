@@ -49,8 +49,6 @@ defmodule BaselinePhoenixWeb.UserSessionController do
       {:ok, _user} ->
         otp = Otp.generate_otp(phone_number)
         # TODO: Send OTP to user's phone (implement this part separately)
-        send_otp_to_phone(phone_number, otp)
-
         conn
         |> put_flash(:info, "OTP sent to your phone")
         |> render(:otp, changeset: user_params)
@@ -60,11 +58,5 @@ defmodule BaselinePhoenixWeb.UserSessionController do
         |> put_flash(:error, "Error processing request")
         |> render(:new, changeset: user_params)
     end
-  end
-
-  defp send_otp_to_phone(phone_number, otp) do
-    # Implement the logic to send OTP via SMS
-    # This is a placeholder function
-    IO.puts("Sending OTP #{otp} to #{phone_number}")
   end
 end
