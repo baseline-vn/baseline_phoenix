@@ -1,8 +1,3 @@
-```
-Redix.command(:redix, ["PING"])
-```
-
-
 # BaselinePhoenix
 
 To start your Phoenix server:

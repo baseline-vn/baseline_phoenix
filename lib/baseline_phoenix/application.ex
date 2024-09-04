@@ -18,7 +18,7 @@ defmodule BaselinePhoenix.Application do
       # {BaselinePhoenix.Worker, arg},
       # Start to serve requests, typically the last entry
       BaselinePhoenixWeb.Endpoint,
-      {Redix, name: :redix}
+      {Cachex, name: :otp_cache}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
