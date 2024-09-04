@@ -4,6 +4,7 @@
     "pantajoe.vscode-elixir-credo",
     "phoenixframework.phoenix",
     "RoyalMist.vscode-eex-format",
-    "aziz-abdullaev.heex-snippets"
+    "florinpatrascu.vscode-elixir-snippets",
+    "stefanjarina.vscode-eex-snippets"
   ],
 }
