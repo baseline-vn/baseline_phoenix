@@ -14,20 +14,25 @@
   <body class="bg-white antialiased baseline-phoenix-web">
     <div class="flex gap-4">
       <BaselinePhoenixWeb.Components.Step.step no={1} status="done" title="DONE" />
-      <BaselinePhoenixWeb.Components.Step.step no={2} status="current" title="CURRENT" />
+      <BaselinePhoenixWeb.Components.Step.step no={2} title="CURRENT" />
       <BaselinePhoenixWeb.Components.Step.step no={3} status="upcoming" title="UPCOMING" />
       <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
       <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
       <BaselinePhoenixWeb.Components.Step.step no={4} status="upcoming" title="UPCOMING" />
     </div>
     <div class="mt-6 p-10">
-      <BaselinePhoenixWeb.Components.Card.card
-        avatar_url="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-        name="Đỗ Tâm Hiền Dương"
-        id={76_728_364}
-        rank={200}
-        verified="true"
+      <BaselinePhoenixWeb.Components.TeamCard.team_card
+        player1_avatar_url="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+        player1_name="Đỗ Tâm Hiền Dương"
+        player1_id={76_728_364}
+        player1_rank={200}
+        player2_avatar_url="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+        player2_name="Đoàn Đức Bửu"
+        player2_id={76_728_364}
+        player2_rank={200}
+        status_draw="done"
         branch="Nhánh 1"
+        verified_rank={true}
       />
     </div>
   </body>
