@@ -1,0 +1,42 @@
+<.link navigate={~p"/admin/users"}>
+  <p>Back</p>
+</.link>
+<h1>New</h1>
+
+<.header>
+  Personal details
+  <:subtitle>Update your personal information</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} action={~p"/admin/users"} multipart={true}>
+  <%!-- <.input field={f[:profile_picture]} type="file" label="Profile picture" /> --%>
+
+  <.input field={f[:full_name]} type="text" label="Full name" required />
+  <.input field={f[:nickname]} type="text" label="Nickname" required />
+
+  <.input field={f[:phone_number]} type="tel" label="Phone number" required />
+
+  <.input field={f[:email]} type="email" label="Email address" />
+
+  <.input
+    field={f[:gender]}
+    type="radio"
+    label="Gender"
+    options={[{"Male", "male"}, {"Female", "female"}]}
+  />
+
+  <.input field={f[:date_of_birth]} type="date" label="Date of Birth" />
+
+  <.input
+    field={f[:province]}
+    type="select"
+    label="Province"
+    options={["Province 1", "Province 2"]}
+    prompt="Select a province"
+    required
+  />
+
+  <:actions>
+    <.button phx-disable-with="Saving...">Save information</.button>
+  </:actions>
+</.simple_form>

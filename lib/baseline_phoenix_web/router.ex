@@ -85,7 +85,6 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser, :admin]
 
     get "/dashboard", DashboardController, :index
-    get "/players", UserController, :index
     get "/clubs", ClubController, :index
     get "/matches", MatchController, :index
     get "/tournaments", TournamentController, :index
@@ -95,5 +94,9 @@ defmodule BaselinePhoenixWeb.Router do
     get "/articles", ArticleController, :index
     get "/changelog", ChangelogController, :index
     get "/campaigns", CampaignController, :index
+    resources "/users", UserController
+    get "/users/merge", UserController, :merge
+    get "/users/imports", UserController, :imports
+    get "/users/potential_dupes", UserController, :potential_dupes
   end
 end
