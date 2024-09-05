@@ -9,6 +9,7 @@ defmodule BaselinePhoenix.Accounts.User do
     field :full_name, :string
     field :webauthn_id, :string
     field :confirmed_at, :utc_datetime
+    field :admin, :boolean, default: false
 
     timestamps(type: :utc_datetime)
   end

@@ -73,4 +73,12 @@ defmodule BaselinePhoenixWeb.Router do
 
     delete "/log_out", UserSessionController, :delete
   end
+
+  ## Admin routes
+  scope "/admin", BaselinePhoenixWeb.Admin, as: :admin do
+    pipe_through [:browser, :require_authenticated_user, :require_admin_user]
+
+    get "/dashboard", DashboardController, :index
+    # Add more admin routes here
+  end
 end

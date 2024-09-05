@@ -17,6 +17,16 @@
         <li class="text-[0.8125rem] leading-6 text-zinc-900">
           <%= @current_user.full_name || @current_user.email || @current_user.phone_number %>
         </li>
+        <%= if @current_user.admin do %>
+          <li>
+            <.link
+              href={~p"/admin/dashboard"}
+              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+            >
+              Admin
+            </.link>
+          </li>
+        <% end %>
         <li>
           <.link
             href={~p"/log_out"}
