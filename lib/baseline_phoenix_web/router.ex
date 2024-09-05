@@ -85,6 +85,15 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser, :admin]
 
     get "/dashboard", DashboardController, :index
-    # Add more admin routes here
+    get "/players", PlayerController, :index
+    get "/clubs", ClubController, :index
+    get "/matches", MatchController, :index
+    get "/tournaments", TournamentController, :index
+    get "/facilities", FacilityController, :index
+    get "/recording_devices", RecordingDeviceController, :index
+    get "/feedback", FeedbackController, :index
+    get "/articles", ArticleController, :index
+    get "/changelog", ChangelogController, :index
+    get "/campaigns", CampaignController, :index
   end
 end

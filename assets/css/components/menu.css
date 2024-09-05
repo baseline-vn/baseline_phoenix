@@ -1,0 +1,130 @@
+  .nav-link {
+    @apply block no-underline text-gray-500 hover:text-gray-800 px-2 py-1 text-base font-medium whitespace-nowrap;
+    line-height: 30px;
+  
+    &.active {
+      @apply font-semibold;
+    }
+  
+    &:focus {
+      @apply text-gray-900;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .nav-link {
+      @apply inline-flex my-0 mr-3;
+      line-height: 40px;
+    }
+  }
+  
+  /* Highlights unread notifications with background color */
+  [data-notifications-target="notification"]:not([data-read-at]) {
+    @apply bg-gray-100;
+  }
+  
+  /* Highlights uninteracted notifications with blue dot */
+  [data-notifications-target="notification"]:not([data-interacted-at]) {
+    [uninteracted] {
+      @apply block;
+    }
+  }
+  
+  .dropdown-menu {
+    min-width: 100%;
+  
+    @screen lg {
+      min-width: 200px;
+    }
+  }
+
+  .dropdown-link {
+    @apply px-3 py-2 block rounded-md font-medium; 
+    @apply hover:bg-gray-100 text-carbon-500 hover:text-carbon-500; /* Light theme */
+    @apply dark:hover:bg-carbon-500 dark:text-white; /* Dark theme */
+  }
+  
+  .sidebar .active {
+    @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
+    @apply bg-alto-400 text-carbon-500; /* Light theme */
+    @apply flex justify-center lg:justify-between items-center rounded lg:px-2.5 py-1 font-semibold;
+    @apply transition ease-in-out delay-150;
+  
+    &:hover {
+        @apply dark:bg-carbon-light; /* Dark theme */
+        @apply bg-alto-500; /* Light theme */
+    }
+
+    & span {
+      @apply hidden lg:inline;
+    }
+
+    & i {
+      @apply text-court-600;
+      @apply dark:text-court-500;
+      @apply lg:w-4 text-center lg:mr-4;
+    }
+  }
+
+  .sidebar-mobile .active {
+    @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
+    @apply bg-alto-400 text-carbon-500; /* Light theme */
+    @apply flex justify-start items-center rounded px-4 py-1 font-semibold;
+    @apply transition ease-in-out delay-150;
+  
+    &:hover {
+        @apply dark:bg-carbon-light; /* Dark theme */
+        @apply bg-alto-500; /* Light theme */
+    }
+
+    & i {
+      @apply text-court-600;
+      @apply dark:text-court-500;
+      @apply w-4 text-center mr-4;
+    }
+  }
+  
+  .sidebar .inactive {
+    @apply dark:text-carbon-200; /* Dark theme */
+    @apply text-carbon-400; /* Light theme */
+    @apply flex items-center justify-center lg:justify-between rounded lg:px-2.5 py-1 font-medium;
+  
+    &:hover {
+        @apply bg-alto-400 text-carbon-500;  /* Light theme */
+        @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
+    }
+
+    & span {
+      @apply hidden lg:inline;
+    }
+  
+    & i {
+      @apply lg:w-4 text-center text-carbon-200 lg:mr-4;
+    }
+  }
+
+  .sidebar-mobile .inactive {
+    @apply dark:text-carbon-200; /* Dark theme */
+    @apply text-carbon-400; /* Light theme */
+    @apply flex justify-start items-center rounded px-4 py-1 font-semibold;
+  
+    &:hover {
+        @apply bg-alto-400 text-carbon-500;  /* Light theme */
+        @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
+    }
+  
+    & i {
+      @apply w-4 text-center text-carbon-200 mr-4;
+    }
+  }
+  
+  .sidebar .disabled {
+    @apply dark:text-carbon-200 dark:opacity-40; /* Dark theme */
+    @apply text-carbon-400 opacity-40; /* Light theme */
+    @apply !cursor-not-allowed flex items-center justify-center lg:justify-between rounded lg:px-2.5 py-1 font-medium;
+  
+    & i {
+      @apply w-4 text-center text-gray-300 opacity-80 text-sm mr-4;
+    }
+  }
+  
