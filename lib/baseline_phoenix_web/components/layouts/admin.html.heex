@@ -3,17 +3,17 @@
     <div class="sticky top-6 text-carbon-500 dark:text-carbon-200">
       <div class="text-carbon-500 dark:text-carbon-200 space-y-1.5">
         <.link_sidebar
-          path={~p"/admin/players"}
-          text="Players / Users"
-          icon_name="users"
-          starts_with="/admin/players"
-          request_path={@conn.request_path}
-        />
-        <.link_sidebar
           path={~p"/admin/dashboard"}
           text="Dashboard"
           icon_name="newspaper"
           starts_with="/admin/dashboard"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/players"}
+          text="Players / Users"
+          icon_name="users"
+          starts_with="/admin/players"
           request_path={@conn.request_path}
         />
         <.link_sidebar
