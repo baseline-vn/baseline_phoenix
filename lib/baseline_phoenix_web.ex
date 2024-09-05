@@ -86,6 +86,7 @@ defmodule BaselinePhoenixWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import BaselinePhoenixWeb.CoreComponents
+      import BaselinePhoenixWeb.LayoutComponents
       import BaselinePhoenixWeb.Gettext
 
       # Shortcut for generating JS commands

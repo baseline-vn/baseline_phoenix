@@ -18,6 +18,12 @@ defmodule BaselinePhoenixWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug :require_authenticated_user
+    plug :require_admin_user
+    plug :put_layout, html: {BaselinePhoenixWeb.Layouts, :admin}
+  end
+
   scope "/", BaselinePhoenixWeb do
     pipe_through :browser
 
@@ -76,7 +82,7 @@ defmodule BaselinePhoenixWeb.Router do
 
   ## Admin routes
   scope "/admin", BaselinePhoenixWeb.Admin, as: :admin do
-    pipe_through [:browser, :require_authenticated_user, :require_admin_user]
+    pipe_through [:browser, :admin]
 
     get "/dashboard", DashboardController, :index
     # Add more admin routes here
