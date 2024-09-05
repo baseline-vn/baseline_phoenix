@@ -53,7 +53,7 @@ defmodule BaselinePhoenixWeb.UserSessionController do
   defp validate_and_process_phone_number(phone_number) do
     with {:ok, parsed_number} <- ExPhoneNumber.parse(phone_number, "VN"),
          true <- ExPhoneNumber.is_valid_number?(parsed_number),
-         {:ok, _user} <- Accounts.get_user_by_phone_number(phone_number) do
+         {:ok, _user} <- Accounts.get_or_insert_user_by_phone_number(phone_number) do
       :ok
     else
       false -> {:error, "Invalid phone number"}
