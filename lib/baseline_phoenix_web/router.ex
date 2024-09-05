@@ -85,7 +85,7 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser, :admin]
 
     get "/dashboard", DashboardController, :index
-    get "/players", PlayerController, :index
+    get "/players", UserController, :index
     get "/clubs", ClubController, :index
     get "/matches", MatchController, :index
     get "/tournaments", TournamentController, :index

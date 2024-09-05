@@ -20,6 +20,14 @@ defmodule BaselinePhoenix.Accounts.User do
     |> maybe_validate_unique_phone_number(opts)
   end
 
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [:phone_number])
+    |> validate_required([:phone_number])
+
+    # Add other validations as needed
+  end
+
   def sign_in_changeset(user, attrs, opts \\ []) do
     user
     |> cast(attrs, [:phone_number, :webauthn_id])
