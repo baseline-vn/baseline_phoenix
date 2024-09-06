@@ -1,6 +1,7 @@
 defmodule BaselinePhoenixWeb.LayoutComponents do
   use Phoenix.Component
   import Phoenix.Component
+  import BaselinePhoenixWeb.Gettext
 
   attr :path_info, :list, default: []
   attr :current_user, :map
@@ -43,7 +44,7 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
             method="delete"
             class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
           >
-            Log out
+            <%= gettext("Log out") %>
           </.link>
         </li>
       <% else %>
@@ -52,7 +53,7 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
             href="/sign_in"
             class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
           >
-            Sign in
+            <%= gettext("Sign in") %>
           </.link>
         </li>
       <% end %>

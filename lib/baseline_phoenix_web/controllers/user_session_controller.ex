@@ -11,7 +11,7 @@ defmodule BaselinePhoenixWeb.UserSessionController do
 
   def delete(conn, _params) do
     conn
-    |> put_flash(:info, "Logged out successfully.")
+    |> put_flash(:info, gettext("Logged out successfully."))
     |> UserAuth.log_out_user()
   end
 
@@ -28,7 +28,7 @@ defmodule BaselinePhoenixWeb.UserSessionController do
       {:ok, user} ->
         if Otp.verify_otp(phone_number, otp) do
           conn
-          |> put_flash(:info, "Logged in successfully.")
+          |> put_flash(:info, gettext("Logged in successfully."))
           |> UserAuth.sign_in_user(user, user_params)
           |> redirect(to: "/")
         else
@@ -66,7 +66,7 @@ defmodule BaselinePhoenixWeb.UserSessionController do
     Otp.generate_otp(phone_number)
     # TODO: Send OTP to user's phone (implement this part separately)
     conn
-    |> put_flash(:info, "OTP sent to your phone")
+    |> put_flash(:info, gettext("OTP sent to your phone"))
     |> render(:otp, changeset: user_params)
   end
 
