@@ -18,7 +18,7 @@ defmodule BaselinePhoenixWeb.UserAuth do
   disconnected on log out. The line can be safely removed
   if you are not using LiveView.
   """
-  def sign_in_user(conn, user, params \\ %{}) do
+  def sign_in_user(conn, user, _params \\ %{}) do
     token = Accounts.create_session_for_user(user, "ip_address", "user_agent")
     user_return_to = get_session(conn, :user_return_to)
 

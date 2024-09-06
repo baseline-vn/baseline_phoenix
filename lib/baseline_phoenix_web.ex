@@ -82,10 +82,14 @@ defmodule BaselinePhoenixWeb do
 
   defp html_helpers do
     quote do
+      # Import LiveSvelte
+      import LiveSvelte
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
       import BaselinePhoenixWeb.CoreComponents
+      import BaselinePhoenixWeb.Components.Example
       import BaselinePhoenixWeb.LayoutComponents
       import BaselinePhoenixWeb.Gettext
 

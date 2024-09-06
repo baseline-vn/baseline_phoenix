@@ -31,15 +31,16 @@ config :baseline_phoenix, BaselinePhoenixWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :baseline_phoenix, BaselinePhoenix.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.17.11",
-  baseline_phoenix: [
-    args:
-      ~w(js/app.js js/storybook.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
-    cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
+# Commented out for Svelte configuration
+# # Configure esbuild (the version is required)
+# config :esbuild,
+#   version: "0.17.11",
+#   baseline_phoenix: [
+#     args:
+#       ~w(js/app.js js/storybook.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+#     cd: Path.expand("../assets", __DIR__),
+#     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+#   ]
 
 # Configure tailwind (the version is required)
 config :tailwind,

@@ -9,7 +9,8 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/baseline_phoenix_web.ex",
-    "../lib/baseline_phoenix_web/**/*.*ex"
+    "../lib/baseline_phoenix_web/**/*.*ex",
+    "./svelte/**/*.svelte"
   ],
   theme: {
     extend: {

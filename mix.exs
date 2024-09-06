@@ -54,12 +54,13 @@ defmodule BaselinePhoenix.MixProject do
       {:phoenix_live_view, "~> 1.0.0-rc.1", override: true},
       {:phoenix_storybook, "~> 0.6.3"},
       {:postgrex, ">= 0.0.0"},
+      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.5"},
       {:tails, "~> 0.1.5"},
-      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:telegex, "~> 1.8.0"},
       {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.0"}
+      {:telemetry_poller, "~> 1.0"},
+      {:live_svelte, "~> 0.13.3"}
     ]
   end
 
@@ -71,7 +72,11 @@ defmodule BaselinePhoenix.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+      setup: [
+        "deps.get",
+        "ecto.setup",
+        "live_svelte.setup"
+      ],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
@@ -79,8 +84,7 @@ defmodule BaselinePhoenix.MixProject do
       "assets.build": ["tailwind baseline_phoenix", "esbuild baseline_phoenix"],
       "assets.deploy": [
         "tailwind baseline_phoenix --minify",
-        "esbuild baseline_phoenix --minify",
-        "phx.digest",
+        "node build.js --deploy --prefix assets",
         "tailwind storybook --minify",
         "phx.digest"
       ]
