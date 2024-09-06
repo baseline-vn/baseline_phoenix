@@ -1,0 +1,89 @@
+<main class="min-h-screen container mx-auto flex">
+  <sidebar class="nav hidden border-r-2 border-alto-500 dark:border-carbon-400 md:block shrink-0 py-8 pe-8 sidebar w-[76px] lg:w-[240px]">
+    <div class="sticky top-6 text-carbon-500 dark:text-carbon-200">
+      <div class="text-carbon-500 dark:text-carbon-200 space-y-1.5">
+        <.link_sidebar
+          path={~p"/admin/dashboard"}
+          text="Dashboard"
+          icon_name="newspaper"
+          starts_with="/admin/dashboard"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/users"}
+          text="Players / Users"
+          icon_name="users"
+          starts_with="/admin/users"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/clubs"}
+          text="Clubs"
+          icon_name="building-user"
+          starts_with="/admin/clubs"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/matches"}
+          text="Matches"
+          icon_name="magnifying-glass"
+          starts_with="/admin/matches"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/tournaments"}
+          text="Tournaments"
+          icon_name="trophy"
+          starts_with="/admin/tournaments"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/facilities"}
+          text="Facilities"
+          icon_name="building"
+          starts_with="/admin/facilities"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/recording_devices"}
+          text="Recording Devices"
+          icon_name="video"
+          starts_with="/admin/recording_devices"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/feedback"}
+          text="Feedback"
+          icon_name="comment"
+          starts_with="/admin/feedback"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/articles"}
+          text="Articles"
+          icon_name="rss"
+          starts_with="/admin/articles"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/changelog"}
+          text="Changelog"
+          icon_name="list"
+          starts_with="/admin/changelog"
+          request_path={@conn.request_path}
+        />
+        <.link_sidebar
+          path={~p"/admin/campaigns"}
+          text="Campaigns"
+          icon_name="bell"
+          starts_with="/admin/campaigns"
+          request_path={@conn.request_path}
+        />
+      </div>
+    </div>
+  </sidebar>
+  <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>

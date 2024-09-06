@@ -18,6 +18,12 @@ defmodule BaselinePhoenixWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug :require_authenticated_user
+    plug :require_admin_user
+    plug :put_layout, html: {BaselinePhoenixWeb.Layouts, :admin}
+  end
+
   scope "/", BaselinePhoenixWeb do
     pipe_through :browser
 
@@ -72,5 +78,25 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser]
 
     delete "/log_out", UserSessionController, :delete
+  end
+
+  ## Admin routes
+  scope "/admin", BaselinePhoenixWeb.Admin, as: :admin do
+    pipe_through [:browser, :admin]
+
+    get "/dashboard", DashboardController, :index
+    get "/clubs", ClubController, :index
+    get "/matches", MatchController, :index
+    get "/tournaments", TournamentController, :index
+    get "/facilities", FacilityController, :index
+    get "/recording_devices", RecordingDeviceController, :index
+    get "/feedback", FeedbackController, :index
+    get "/articles", ArticleController, :index
+    get "/changelog", ChangelogController, :index
+    get "/campaigns", CampaignController, :index
+    resources "/users", UserController
+    get "/users/merge", UserController, :merge
+    get "/users/imports", UserController, :imports
+    get "/users/potential_dupes", UserController, :potential_dupes
   end
 end

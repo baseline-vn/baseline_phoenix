@@ -3,3 +3,27 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+/* My own components */
+@import "components/base";
+@import "components/buttons";
+@import "components/typography";
+@import "components/forms";
+@import "components/animation";
+@import "components/utils";
+@import "components/menu";
+@import "components/cards";
+@import "components/badge";
+/* @import "components/toast"; */
+@import "components/combobox";
+@import "components/brackets";
+/* @import "components/swiper";
+@import "components/pagy"; */
+
+/* External Libraries */
+/* @import "components/intl-tel-input"; */
+/* @import "components/tomselect.css"; */
+
+/* Imported after standard quill styling so it overwrites without !important */
+/* @import "components/quill"; */
+/* @import "components/tinymde"; */

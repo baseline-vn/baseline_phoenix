@@ -1,0 +1,21 @@
+<.header>
+  Edit User
+  <:subtitle>Update user information</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} method="put" action={~p"/admin/users/#{@user}"}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+
+  <.input field={f[:email]} type="email" label="Email" required />
+  <.input field={f[:phone_number]} type="tel" label="Phone Number" required />
+  <.input field={f[:full_name]} type="text" label="Full Name" />
+  <.input field={f[:admin]} type="checkbox" label="Admin" />
+
+  <:actions>
+    <.button type="submit" class="button-primary">Save Changes</.button>
+  </:actions>
+</.simple_form>
+
+<.back navigate={~p"/admin/users"}>Back to users</.back>

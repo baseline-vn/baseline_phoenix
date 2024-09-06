@@ -1,0 +1,18 @@
+.badge {
+    @apply rounded-full font-medium;
+    @apply bg-gray-200; /* Light mode */
+    @apply dark:bg-carbon-light dark:text-carbon-100; /* Light mode */
+
+    &.badge-sm {
+        @apply px-2 py-0.5 text-[9px] md:text-xs;
+    }
+
+    &.badge-md {
+        @apply px-2.5 py-1 text-xs md:text-sm;
+    }
+
+    &.badge-in-card {
+        @apply bg-gray-100 flex justify-center items-center; /* Light mode */
+        @apply dark:bg-carbon-500; /* Light mode */
+    }
+}

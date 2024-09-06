@@ -1,0 +1,292 @@
+.form-group {
+  @apply mb-4 relative;
+}
+
+.form-input {
+  &[disabled] {
+    @apply bg-gray-200;
+  }
+}
+
+/* non-input elements (like the Stripe card form) can be styled to look like an input */
+div.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-width: 1px;
+  padding-top: .5rem;
+  padding-right: .75rem;
+  padding-bottom: .5rem;
+  padding-left: .75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@layer components {
+  .form-control {
+    @apply form-input block w-full rounded-sm border-0 py-1.5 text-gray-900 shadow-inner ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-alto-600 sm:text-sm sm:leading-6;
+
+
+    &[disabled],
+    &[readonly] {
+      @apply bg-gray-200;
+    }
+
+    &.error {
+      @apply ring-red-400;
+    }
+
+    &.dark {
+      @apply bg-carbon-500 ring-carbon-400 text-white;
+    }
+  }
+}
+
+select {
+  @apply sm:text-sm;
+}
+
+select:not([multiple]) {
+  @apply w-full mt-1 rounded-sm border-0 py-1.5 text-gray-900 shadow-inner ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6;
+
+  &[disabled] {
+    @apply bg-gray-200;
+  }
+}
+
+select[multiple] {
+  @apply w-full mt-1 rounded-sm border-0 py-1.5 text-gray-900 shadow-inner ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6;
+
+  &[disabled] {
+    @apply bg-gray-200;
+  }
+}
+
+label,
+.label {
+  @apply block text-sm font-medium leading-5 text-carbon-500 mb-1;
+  @apply dark:text-carbon-100;
+
+  &.required::after {
+    @apply text-red-600;
+    content: " *"
+  }
+}
+
+.form-hint {
+  @apply text-gray-600 text-xs italic;
+
+  &.error {
+    @apply text-red-500 text-sm italic leading-normal mt-1;
+  }
+}
+
+.caret {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-800;
+}
+
+form.inline {
+  .form-group {
+    @apply flex justify-start items-center;
+  }
+
+  .form-group .input {
+    @apply flex-1;
+  }
+
+  .form-group .label {
+    @apply w-1/4;
+  }
+}
+
+/* Fix flatpickr */
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  display: inline-block;
+}
+
+.form-checkbox {
+  @apply rounded border-gray-300 text-primary-600 focus:ring-primary-600;
+}
+
+.form-checkbox[disabled] {
+  @apply bg-gray-200;
+}
+
+[type='checkbox'] {
+  @apply rounded border-gray-300 text-primary-600 focus:ring-primary-600;
+}
+
+[type='checkbox']:disabled {
+  @apply bg-gray-200;
+}
+
+.form-radio {
+  @apply border-gray-300 text-primary-600 focus:ring-primary-600;
+}
+
+.form-radio[disabled] {
+  @apply bg-gray-200;
+}
+
+[type='radio'] {
+  @apply border-gray-300 text-primary-600 focus:ring-primary-600;
+}
+
+[type='radio']:disabled {
+  @apply bg-gray-200;
+}
+
+.radio-label {
+  @apply inline-flex items-center justify-between p-3 w-full rounded-lg cursor-pointer;
+  @apply bg-alto-200 hover:bg-slate-200 peer-checked:bg-alto-600 peer-checked:ring-2 peer-checked:ring-alto-700 text-carbon-500;
+}
+
+/* LIGHT THEME */
+.dark .radio-label {
+  @apply bg-carbon-light hover:bg-carbon-400 peer-checked:bg-carbon-400 peer-checked:ring-2 peer-checked:ring-alto-600 text-white;
+}
+
+.input-file {
+  height: auto;
+  z-index: 2;
+  cursor: pointer;
+
+  @apply opacity-0 inline-block pl-0 pr-0 py-3 px-3 overflow-hidden absolute border-none;
+
+  +label {
+    @apply inline-flex text-sm font-bold text-center px-4 py-0 rounded no-underline items-center justify-between cursor-pointer;
+
+    height: 40px;
+    line-height: 40px;
+    transition: ease 0.3s background, ease 0.3s transform, ease 0.2s color;
+
+    @apply btn;
+    @apply btn-tertiary;
+
+    &:focus {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}
+
+
+.checkbox-wrapper-4 * {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-4 .cbx {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.checkbox-wrapper-4 .cbx:not(:last-child) {
+  margin-right: 6px;
+}
+
+.checkbox-wrapper-4 .cbx:hover {
+  background: rgba(0, 119, 255, 0.06);
+}
+
+.checkbox-wrapper-4 .cbx span {
+  float: left;
+  vertical-align: middle;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-4 .cbx span:first-child {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  transform: scale(1);
+  border: 1px solid #cccfdb;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 1px rgba(0, 16, 75, 0.05);
+}
+
+.checkbox-wrapper-4 .cbx span:first-child svg {
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: 16px;
+  transition: all 0.3s ease;
+  transition-delay: 0.1s;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-4 .cbx span:last-child {
+  padding-left: 8px;
+  line-height: 18px;
+}
+
+.checkbox-wrapper-4 .cbx:hover span:first-child {
+  border-color: #07f;
+}
+
+.checkbox-wrapper-4 .inp-cbx {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child {
+  background: #07f;
+  border-color: #07f;
+  animation: wave-4 0.4s ease;
+}
+
+.checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child svg {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-4 .inline-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 640px) {
+  .checkbox-wrapper-4 .cbx {
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+@-moz-keyframes wave-4 {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@-webkit-keyframes wave-4 {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@-o-keyframes wave-4 {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes wave-4 {
+  50% {
+    transform: scale(0.9);
+  }
+}
