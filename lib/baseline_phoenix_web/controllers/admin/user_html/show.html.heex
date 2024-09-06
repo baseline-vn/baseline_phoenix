@@ -1,12 +1,17 @@
+<.back navigate={~p"/admin/users"}>Back to users</.back>
+
 <.header>
   User Details
   <:subtitle>View information for this user</:subtitle>
 </.header>
 
 <.list>
-  <:item title="Email"><%= @user.email %></:item>
-  <:item title="Phone Number"><%= @user.phone_number %></:item>
   <:item title="Full Name"><%= @user.full_name %></:item>
+  <:item title="Nickname"><%= @user.nickname %></:item>
+  <:item title="Phone Number"><%= @user.phone_number %></:item>
+  <:item title="Email"><%= @user.email %></:item>
+  <:item title="Date of Birth"><%= @user.date_of_birth %></:item>
+  <:item title="Gender"><%= @user.gender %></:item>
   <:item title="Admin?"><%= if @user.admin, do: "Yes", else: "No" %></:item>
   <:item title="Confirmed At">
     <%= if @user.confirmed_at,
@@ -20,5 +25,3 @@
     <%= Calendar.strftime(@user.updated_at, "%Y-%m-%d %H:%M:%S") %>
   </:item>
 </.list>
-
-<.back navigate={~p"/admin/users"}>Back to users</.back>

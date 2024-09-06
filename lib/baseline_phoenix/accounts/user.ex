@@ -91,7 +91,7 @@ defmodule BaselinePhoenix.Accounts.User do
       :last_active_at
     ])
     |> generate_webauthn_id()
-    |> validate_required([:phone_number, :email])
+    |> validate_required([:phone_number, :full_name])
     |> validate_phone_number(opts)
     |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "must have the @ sign and no spaces")
     |> validate_length(:email, max: 160)

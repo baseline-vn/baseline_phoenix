@@ -13,28 +13,11 @@
 
   <.input field={f[:full_name]} type="text" label="Full name" required />
   <.input field={f[:nickname]} type="text" label="Nickname" required />
-
   <.input field={f[:phone_number]} type="tel" label="Phone number" required />
-
-  <%!-- <.input field={f[:email]} type="email" label="Email address" />
-
-  <.input
-    field={f[:gender]}
-    type="radio"
-    label="Gender"
-    options={[{"Male", "male"}, {"Female", "female"}]}
-  />
-
-  <.input field={f[:date_of_birth]} type="date" label="Date of Birth" />
-
-  <.input
-    field={f[:province]}
-    type="select"
-    label="Province"
-    options={["Province 1", "Province 2"]}
-    prompt="Select a province"
-    required
-  /> --%>
+  <.input field={f[:email]} type="email" label="Email" />
+  <.input field={f[:date_of_birth]} type="date" label="Date of Birth" required />
+  <.input field={f[:gender]} type="select" label="Gender" options={["Male", "Female", "Other"]} />
+  <%!-- <.input field={f[:province]} type="text" label="Province" required /> --%>
 
   <:actions>
     <.button phx-disable-with="Saving...">Save information</.button>

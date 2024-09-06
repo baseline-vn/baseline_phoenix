@@ -13,9 +13,12 @@
     </div>
   </div>
   <.table id="users" rows={@users}>
-    <:col :let={user} label="Email"><%= user.email %></:col>
-    <:col :let={user} label="Phone Number"><%= user.phone_number %></:col>
     <:col :let={user} label="Full Name"><%= user.full_name %></:col>
+    <:col :let={user} label="Nickname"><%= user.nickname %></:col>
+    <:col :let={user} label="Phone Number"><%= user.phone_number %></:col>
+    <:col :let={user} label="Email"><%= user.email %></:col>
+    <:col :let={user} label="Date of Birth"><%= user.date_of_birth %></:col>
+    <:col :let={user} label="Gender"><%= user.gender %></:col>
     <:col :let={user} label="Admin">
       <%= if user.admin, do: "Yes", else: "No" %>
     </:col>

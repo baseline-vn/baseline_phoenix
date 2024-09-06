@@ -22,7 +22,14 @@ defmodule BaselinePhoenixWeb.Admin.UserController do
         |> redirect(to: ~p"/admin/users/#{user}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, :new, changeset: changeset)
+        error_message =
+          Enum.map_join(changeset.errors, ", ", fn {field, {message, _}} ->
+            "#{Phoenix.Naming.humanize(field)} #{message}"
+          end)
+
+        conn
+        |> put_flash(:error, "Failed to create user: #{error_message}")
+        |> render(:new, changeset: changeset)
     end
   end
 
