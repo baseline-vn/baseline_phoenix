@@ -27,7 +27,7 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/", BaselinePhoenixWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", DashboardController, :index
   end
 
   scope "/" do
