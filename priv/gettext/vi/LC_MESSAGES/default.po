@@ -1,0 +1,18 @@
+# Translate Flash user seesion
+msgid "Logged out successfully."
+msgstr "Đăng xuất thành công."
+
+msgid "Logged in successfully."
+msgstr "Đăng nhập thành công."
+
+msgid "OTP sent to your phone"
+msgstr "Mã OPT gửi tới số điện thoại của bạn." 
+
+msgid "Sign in"
+msgstr "Đăng nhập"
+
+msgid "Log out"
+msgstr "Đăng xuất"
+
+msgid "Log in"
+msgstr "Đăng nhập"

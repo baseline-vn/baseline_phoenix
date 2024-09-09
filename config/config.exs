@@ -82,6 +82,10 @@ config :git_hooks,
     ]
   ]
 
+config :baseline_phoenix, BaselinePhoenixWeb.Gettext,
+  locales: ~w(en vi),
+  default_locale: "vi"
+
 config :baseline_phoenix, :telegram,
   bot_token: "7074710677:AAETNGxr4LlV2D9uyiQRXIpVIECx6a2G8n4",
   dev_group_chat_id: -4_590_586_218
