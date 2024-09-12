@@ -1,7 +1,10 @@
 defmodule BaselinePhoenix.Club do
-  use Ecto.Schema
   import Ecto.Changeset
   import Ecto.Query
+  use Ecto.Schema
+
+  alias BaselinePhoenix.Club
+  alias BaselinePhoenix.Repo
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "clubs" do
@@ -38,12 +41,14 @@ defmodule BaselinePhoenix.Club do
       :verified_organizer,
       :website
     ])
-    |> validate_required([:name, :email, :slug, :status])
-    # |> validate_format(:email, ~r/^\s]+@[^\s]+$/, message: "must have the @ sign and no spaces")
+    |> validate_required([:name, :email, :status])
+    # Add this line for debugging
     |> validate_length(:email, max: 160)
     |> validate_length(:name, max: 160)
     |> validate_length(:address, max: 255)
-    |> unique_constraint(:slug)
+    |> put_change(:slug, generate_slug(attrs["name"]))
+
+    # Add this line for debugging
   end
 
   def verified_organizer(query \\ __MODULE__) do
@@ -54,5 +59,27 @@ defmodule BaselinePhoenix.Club do
     record
     |> Ecto.Changeset.change(status: :active, verified_organizer: true)
     |> BaselinePhoenix.Repo.update!()
+  end
+
+  def change_club!(%Club{} = club, attrs \\ %{}) do
+    Club.changeset(club, attrs)
+  end
+
+  def create_club(attrs \\ %{}) do
+    %Club{}
+    |> Club.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def generate_slug(name) do
+    if is_binary(name) and byte_size(name) > 0 do
+      name
+      |> String.downcase()
+      |> String.replace(~r/[^a-z0-9\s-]/, "")
+      |> String.replace(~r/[\s-]+/, "-")
+      |> String.trim("-")
+    else
+      :crypto.strong_rand_bytes(8) |> Base.url_encode64(padding: false)
+    end
   end
 end

@@ -16,12 +16,14 @@
     <:col :let={club} label="Since">
       <%= Calendar.strftime(club.since, "%d-%m-%Y") %>
     </:col>
+    <:col :let={club} label="Address"><%= club.address %></:col>
     <:col :let={club} label="Status"><%= club.status %></:col>
+    <:col :let={club} label="Verified"><%= club.verified_organizer %></:col>
     <:action :let={club}>
       <div class="sr-only">
         <.link navigate={~p"/admin/clubs/#{club}"}>Show</.link>
       </div>
-      <.link navigate={~p"/admin/clubs/#{club}/edit"}>Edit</.link>
+      <.link navigate={~p"/admin/clubs/#{club}"}>Show</.link>
     </:action>
     <:action :let={club}>
       <.link href={~p"/admin/clubs/#{club}"} method="delete" data-confirm="Are you sure?">

@@ -1,0 +1,14 @@
+<.back navigate="~p/admin/clubs">Back to clubs</.back>
+
+<.header>
+  Club Details
+</.header>
+
+<.list>
+  <:item title="Name Club"><%= @club.name %></:item>
+  <:item title="Email"><%= @club.email %></:item>
+  <:item title="Phone Number"><%= @club.phone_number %></:item>
+  <:item title="Address"><%= @club.address %></:item>
+  <:item title="Since"><%= Calendar.strftime(@club.since, "%d-%m-%Y") %></:item>
+  <:item title="Website Clubs"><%= @club.website %></:item>
+</.list>
