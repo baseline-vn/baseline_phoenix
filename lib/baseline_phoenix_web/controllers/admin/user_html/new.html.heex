@@ -1,25 +1,30 @@
 <.link navigate={~p"/admin/users"}>
-  <p>Back</p>
+  <p><%= gettext("Back") %></p>
 </.link>
-<h1>New</h1>
+<h1><%= gettext("New") %></h1>
 
 <.header>
-  Personal details
-  <:subtitle>Update your personal information</:subtitle>
+  <%= gettext("Personal details") %>
+  <:subtitle><%= gettext("Update your personal information") %></:subtitle>
 </.header>
 
 <.simple_form :let={f} for={@changeset} action={~p"/admin/users"} multipart={true}>
-  <%!-- <.input field={f[:profile_picture]} type="file" label="Profile picture" /> --%>
+  <%!-- <.input field={f[:profile_picture]} type="file" label={gettext("Profile picture")} /> --%>
 
-  <.input field={f[:full_name]} type="text" label="Full name" required />
-  <.input field={f[:nickname]} type="text" label="Nickname" required />
-  <.input field={f[:phone_number]} type="tel" label="Phone number" required />
-  <.input field={f[:email]} type="email" label="Email" />
-  <.input field={f[:date_of_birth]} type="date" label="Date of Birth" required />
-  <.input field={f[:gender]} type="select" label="Gender" options={["Male", "Female", "Other"]} />
-  <%!-- <.input field={f[:province]} type="text" label="Province" required /> --%>
+  <.input field={f[:full_name]} type="text" label={gettext("Full name")} required />
+  <.input field={f[:nickname]} type="text" label={gettext("Nickname")} required />
+  <.input field={f[:phone_number]} type="tel" label={gettext("Phone number")} required />
+  <.input field={f[:email]} type="email" label={gettext("Email")} />
+  <.input field={f[:date_of_birth]} type="date" label={gettext("Date of Birth")} required />
+  <.input
+    field={f[:gender]}
+    type="select"
+    label={gettext("Gender")}
+    options={[gettext("Male"), gettext("Female"), gettext("Other")]}
+  />
+  <%!-- <.input field={f[:province]} type="text" label={gettext("Province")} required /> --%>
 
   <:actions>
-    <.button phx-disable-with="Saving...">Save information</.button>
+    <.button phx-disable-with={gettext("Saving...")}><%= gettext("Save information") %></.button>
   </:actions>
 </.simple_form>

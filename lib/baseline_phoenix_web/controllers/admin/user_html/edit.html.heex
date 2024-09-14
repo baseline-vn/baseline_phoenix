@@ -1,23 +1,28 @@
-<.back navigate={~p"/admin/users"}>Back to users</.back>
+<.back navigate={~p"/admin/users"}><%= gettext("Back to users") %></.back>
 
 <.header>
-  Edit User
-  <:subtitle>Update user information</:subtitle>
+  <%= gettext("Edit User") %>
+  <:subtitle><%= gettext("Update user information") %></:subtitle>
 </.header>
 
 <.simple_form :let={f} for={@changeset} method="put" action={~p"/admin/users/#{@user}"}>
   <.error :if={@changeset.action}>
-    Oops, something went wrong! Please check the errors below.
+    <%= gettext("Oops, something went wrong! Please check the errors below.") %>
   </.error>
 
-  <.input field={f[:full_name]} type="text" label="Full name" />
-  <.input field={f[:nickname]} type="text" label="Nickname" />
-  <.input field={f[:phone_number]} type="tel" label="Phone number" />
-  <.input field={f[:email]} type="email" label="Email" />
-  <.input field={f[:date_of_birth]} type="date" label="Date of Birth" />
-  <.input field={f[:gender]} type="select" label="Gender" options={["Male", "Female", "Other"]} />
+  <.input field={f[:full_name]} type="text" label={gettext("Full name")} />
+  <.input field={f[:nickname]} type="text" label={gettext("Nickname")} />
+  <.input field={f[:phone_number]} type="tel" label={gettext("Phone number")} />
+  <.input field={f[:email]} type="email" label={gettext("Email")} />
+  <.input field={f[:date_of_birth]} type="date" label={gettext("Date of Birth")} />
+  <.input
+    field={f[:gender]}
+    type="select"
+    label={gettext("Gender")}
+    options={[gettext("Male"), gettext("Female"), gettext("Other")]}
+  />
 
   <:actions>
-    <.button type="submit" class="button-primary">Save Changes</.button>
+    <.button type="submit" class="button-primary"><%= gettext("Save Changes") %></.button>
   </:actions>
 </.simple_form>

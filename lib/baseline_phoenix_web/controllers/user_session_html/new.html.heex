@@ -1,10 +1,10 @@
 <div class="mx-auto max-w-sm">
   <.simple_form :let={f} for={@conn.params["user"]} as={:user} action={~p"/sign_in"}>
-    <.input field={f[:phone_number]} type="text" label="Phone Number" required />
+    <.input field={f[:phone_number]} type="text" label={gettext("Phone Number")} required />
 
     <:actions>
-      <.button phx-disable-with="Logging in..." class="w-full">
-        Log in <span aria-hidden="true">→</span>
+      <.button phx-disable-with={gettext("Logging in...")} class="w-full">
+        <%= gettext("Log in") %> <span aria-hidden="true">→</span>
       </.button>
     </:actions>
   </.simple_form>

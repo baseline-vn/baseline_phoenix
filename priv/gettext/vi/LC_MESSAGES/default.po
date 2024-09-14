@@ -1,18 +1,268 @@
-# Translate Flash user seesion
-msgid "Logged out successfully."
-msgstr "Đăng xuất thành công."
+msgid ""
+msgstr ""
 
-msgid "Logged in successfully."
-msgstr "Đăng nhập thành công."
+#: lib/baseline_phoenix_web/components/core_components.ex:482
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr "Hành động"
 
-msgid "OTP sent to your phone"
-msgstr "Mã OPT gửi tới số điện thoại của bạn." 
+#: lib/baseline_phoenix_web/components/core_components.ex:160
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr "Đang cố gắng kết nối lại"
 
-msgid "Sign in"
-msgstr "Đăng nhập"
+#: lib/baseline_phoenix_web/components/core_components.ex:151
+#, elixir-autogen, elixir-format
+msgid "Error!"
+msgstr "Lỗi!"
 
+#: lib/baseline_phoenix_web/components/core_components.ex:172
+#, elixir-autogen, elixir-format
+msgid "Hang in there while we get back on track"
+msgstr "Hãy kiên nhẫn trong khi chúng tôi khôi phục lại"
+
+#: lib/baseline_phoenix_web/components/core_components.ex:167
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr "Đã xảy ra lỗi!"
+
+#: lib/baseline_phoenix_web/components/core_components.ex:150
+#, elixir-autogen, elixir-format
+msgid "Success!"
+msgstr "Thành công!"
+
+#: lib/baseline_phoenix_web/components/core_components.ex:155
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr "Chúng tôi không thể kết nối internet"
+
+#: lib/baseline_phoenix_web/components/core_components.ex:76
+#: lib/baseline_phoenix_web/components/core_components.ex:130
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr "đóng"
+
+#: lib/baseline_phoenix_web/components/layout_components.ex:47
+#, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr "Đăng xuất"
 
+#: lib/baseline_phoenix_web/controllers/user_session_controller.ex:31
+#, elixir-autogen, elixir-format
+msgid "Logged in successfully."
+msgstr "Đăng nhập thành công."
+
+#: lib/baseline_phoenix_web/controllers/user_session_controller.ex:14
+#, elixir-autogen, elixir-format
+msgid "Logged out successfully."
+msgstr "Đăng xuất thành công."
+
+#: lib/baseline_phoenix_web/controllers/user_session_controller.ex:69
+#, elixir-autogen, elixir-format
+msgid "OTP sent to your phone"
+msgstr "OTP đã được gửi đến điện thoại của bạn"
+
+#: lib/baseline_phoenix_web/components/layout_components.ex:56
+#, elixir-autogen, elixir-format
+msgid "Sign in"
+msgstr "Đăng nhập"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Admin?"
+msgstr "Quản trị viên?"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Confirmed At"
+msgstr "Xác nhận lúc"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Created At"
+msgstr "Tạo lúc"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Date of Birth"
+msgstr "Ngày sinh"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "Email"
+msgstr "Email"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:9
+#, elixir-autogen, elixir-format
+msgid "Full Name"
+msgstr "Họ và tên"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Gender"
+msgstr "Giới tính"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:10
+#, elixir-autogen, elixir-format
+msgid "Nickname"
+msgstr "Biệt danh"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "No"
+msgstr "Không"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Not confirmed"
+msgstr "Chưa xác nhận"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:24
+#, elixir-autogen, elixir-format
+msgid "Updated At"
+msgstr "Cập nhật lúc"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Yes"
+msgstr "Có"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:8
+#, elixir-autogen, elixir-format
+msgid "Add player"
+msgstr "Thêm người chơi"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:22
+#, elixir-autogen, elixir-format
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:35
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr "Bạn có chắc chắn không?"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:2
+#, elixir-autogen, elixir-format
+msgid "Back"
+msgstr "Quay lại"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:1
+#, elixir-autogen, elixir-format
+msgid "Back to users"
+msgstr "Quay lại danh sách người dùng"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:25
+#, elixir-autogen, elixir-format
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:36
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Xóa"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:32
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "Edit User"
+msgstr "Chỉnh sửa người dùng"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Female"
+msgstr "Nữ"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:13
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Full name"
+msgstr "Họ và tên"
+
+#: lib/baseline_phoenix_web/controllers/user_session_html/new.html.heex:7
+#, elixir-autogen, elixir-format
 msgid "Log in"
 msgstr "Đăng nhập"
+
+#: lib/baseline_phoenix_web/controllers/user_session_html/new.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "Logging in..."
+msgstr "Đang đăng nhập..."
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Male"
+msgstr "Nam"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "New"
+msgstr "Mới"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:10
+#, elixir-autogen, elixir-format
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr "Rất tiếc, đã xảy ra lỗi! Vui lòng kiểm tra các lỗi bên dưới."
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "Other"
+msgstr "Khác"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "Pagination"
+msgstr "Phân trang"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Personal details"
+msgstr "Thông tin cá nhân"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Phone number"
+msgstr "Số điện thoại"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#, elixir-autogen, elixir-format
+msgid "Save information"
+msgstr "Lưu thông tin"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#, elixir-autogen, elixir-format
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:30
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr "Hiển thị"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:5
+#, elixir-autogen, elixir-format
+msgid "Update user information"
+msgstr "Cập nhật thông tin người dùng"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:8
+#, elixir-autogen, elixir-format
+msgid "Update your personal information"
+msgstr "Cập nhật thông tin cá nhân của bạn"

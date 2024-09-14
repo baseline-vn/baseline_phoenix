@@ -1,39 +1,43 @@
 <div class="w-full">
   <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
     <div class="flex gap-4">
-      Pagination
+      <%= gettext("Pagination") %>
     </div>
     <div class="flex gap-2">
       <.link href={~p"/admin/users/new"} class="button button-small button-primary">
-        Add player
+        <%= gettext("Add player") %>
       </.link>
-      <%!-- <.link href={~p"/admin/users/merge?id=select"} class="button button-small bg-blue-500 hover:bg-blue-600 text-white hover:text-white">Merge Users</.link>
-      <.link href={~p"/admin/users/imports"} class="button button-small button-tertiary">Manage imports</.link>
-      <.link href={~p"/admin/users/potential_dupes"} class="button button-small button-tertiary">Duplicate Manager</.link> --%>
+      <%!-- <.link href={~p"/admin/users/merge?id=select"} class="button button-small bg-blue-500 hover:bg-blue-600 text-white hover:text-white"><%= gettext("Merge Users") %></.link>
+      <.link href={~p"/admin/users/imports"} class="button button-small button-tertiary"><%= gettext("Manage imports") %></.link>
+      <.link href={~p"/admin/users/potential_dupes"} class="button button-small button-tertiary"><%= gettext("Duplicate Manager") %></.link> --%>
     </div>
   </div>
   <.table id="users" rows={@users}>
-    <:col :let={user} label="Full Name"><%= user.full_name %></:col>
-    <:col :let={user} label="Nickname"><%= user.nickname %></:col>
-    <:col :let={user} label="Phone Number"><%= user.phone_number %></:col>
-    <:col :let={user} label="Email"><%= user.email %></:col>
-    <:col :let={user} label="Date of Birth"><%= user.date_of_birth %></:col>
-    <:col :let={user} label="Gender"><%= user.gender %></:col>
-    <:col :let={user} label="Admin">
-      <%= if user.admin, do: "Yes", else: "No" %>
+    <:col :let={user} label={gettext("Full Name")}><%= user.full_name %></:col>
+    <:col :let={user} label={gettext("Nickname")}><%= user.nickname %></:col>
+    <:col :let={user} label={gettext("Phone Number")}><%= user.phone_number %></:col>
+    <:col :let={user} label={gettext("Email")}><%= user.email %></:col>
+    <:col :let={user} label={gettext("Date of Birth")}><%= user.date_of_birth %></:col>
+    <:col :let={user} label={gettext("Gender")}><%= user.gender %></:col>
+    <:col :let={user} label={gettext("Admin")}>
+      <%= if user.admin, do: gettext("Yes"), else: gettext("No") %>
     </:col>
-    <:col :let={user} label="Confirmed">
-      <%= if user.confirmed_at, do: "Yes", else: "No" %>
+    <:col :let={user} label={gettext("Confirmed")}>
+      <%= if user.confirmed_at, do: gettext("Yes"), else: gettext("No") %>
     </:col>
     <:action :let={user}>
       <div class="sr-only">
-        <.link navigate={~p"/admin/users/#{user}"}>Show</.link>
+        <.link navigate={~p"/admin/users/#{user}"}><%= gettext("Show") %></.link>
       </div>
-      <.link navigate={~p"/admin/users/#{user}/edit"}>Edit</.link>
+      <.link navigate={~p"/admin/users/#{user}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={user}>
-      <.link href={~p"/admin/users/#{user}"} method="delete" data-confirm="Are you sure?">
-        Delete
+      <.link
+        href={~p"/admin/users/#{user}"}
+        method="delete"
+        data-confirm={gettext("Are you sure?")}
+      >
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

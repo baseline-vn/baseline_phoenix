@@ -6,22 +6,24 @@
 </.header>
 
 <.list>
-  <:item title="Full Name"><%= @user.full_name %></:item>
-  <:item title="Nickname"><%= @user.nickname %></:item>
-  <:item title="Phone Number"><%= @user.phone_number %></:item>
-  <:item title="Email"><%= @user.email %></:item>
-  <:item title="Date of Birth"><%= @user.date_of_birth %></:item>
-  <:item title="Gender"><%= @user.gender %></:item>
-  <:item title="Admin?"><%= if @user.admin, do: "Yes", else: "No" %></:item>
-  <:item title="Confirmed At">
+  <:item title={gettext("Full Name")}><%= @user.full_name %></:item>
+  <:item title={gettext("Nickname")}><%= @user.nickname %></:item>
+  <:item title={gettext("Phone Number")}><%= @user.phone_number %></:item>
+  <:item title={gettext("Email")}><%= @user.email %></:item>
+  <:item title={gettext("Date of Birth")}><%= @user.date_of_birth %></:item>
+  <:item title={gettext("Gender")}><%= @user.gender %></:item>
+  <:item title={gettext("Admin?")}>
+    <%= if @user.admin, do: gettext("Yes"), else: gettext("No") %>
+  </:item>
+  <:item title={gettext("Confirmed At")}>
     <%= if @user.confirmed_at,
       do: Calendar.strftime(@user.confirmed_at, "%Y-%m-%d %H:%M:%S"),
-      else: "Not confirmed" %>
+      else: gettext("Not confirmed") %>
   </:item>
-  <:item title="Created At">
+  <:item title={gettext("Created At")}>
     <%= Calendar.strftime(@user.inserted_at, "%Y-%m-%d %H:%M:%S") %>
   </:item>
-  <:item title="Updated At">
+  <:item title={gettext("Updated At")}>
     <%= Calendar.strftime(@user.updated_at, "%Y-%m-%d %H:%M:%S") %>
   </:item>
 </.list>
