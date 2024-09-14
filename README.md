@@ -1,7 +1,18 @@
+```
 mix setup
 mix live_svelte.setup
 mix deps.get
 mix phx.server
+```
+
+```
+mix gettext.extract
+```
+
+```
+mix data.fake_users
+mix data.regenerate_names
+```
 
 
 # BaselinePhoenix

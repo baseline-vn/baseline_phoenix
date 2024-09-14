@@ -60,7 +60,8 @@ defmodule BaselinePhoenix.MixProject do
       {:telegex, "~> 1.8.0"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
-      {:live_svelte, "~> 0.13.3"}
+      {:live_svelte, "~> 0.13.3"},
+      {:faker, "~> 0.18.0", only: [:dev, :test]}
     ]
   end
 

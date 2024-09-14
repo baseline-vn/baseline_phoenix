@@ -11,7 +11,10 @@
   <:item title={gettext("Phone Number")}><%= @user.phone_number %></:item>
   <:item title={gettext("Email")}><%= @user.email %></:item>
   <:item title={gettext("Date of Birth")}><%= @user.date_of_birth %></:item>
-  <:item title={gettext("Gender")}><%= @user.gender %></:item>
+  <:item title={gettext("Gender")}>
+    <%= if @user.gender == "male", do: gettext("male") %>
+    <%= if @user.gender == "female", do: gettext("female") %>
+  </:item>
   <:item title={gettext("Admin?")}>
     <%= if @user.admin, do: gettext("Yes"), else: gettext("No") %>
   </:item>

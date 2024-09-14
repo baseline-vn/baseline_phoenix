@@ -183,6 +183,9 @@ msgstr "Chỉnh sửa người dùng"
 msgid "Female"
 msgstr "Nữ"
 
+msgid "female"
+msgstr "Nữ"
+
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:13
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:14
 #, elixir-autogen, elixir-format
@@ -203,6 +206,9 @@ msgstr "Đang đăng nhập..."
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "Male"
+msgstr "Nam"
+
+msgid "male"
 msgstr "Nam"
 
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:4
