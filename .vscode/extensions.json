@@ -5,6 +5,5 @@
     "phoenixframework.phoenix",
     "RoyalMist.vscode-eex-format",
     "florinpatrascu.vscode-elixir-snippets",
-    "stefanjarina.vscode-eex-snippets"
   ],
 }

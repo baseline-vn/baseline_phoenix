@@ -24,8 +24,12 @@ defmodule BaselinePhoenixWeb.Router do
     plug :put_layout, html: {BaselinePhoenixWeb.Layouts, :admin}
   end
 
+  pipeline :dashboard do
+    plug :put_layout, html: {BaselinePhoenixWeb.Layouts, :dashboard}
+  end
+
   scope "/", BaselinePhoenixWeb do
-    pipe_through :browser
+    pipe_through [:browser, :dashboard]
 
     get "/", DashboardController, :index
   end
