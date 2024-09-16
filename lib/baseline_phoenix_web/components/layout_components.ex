@@ -1,7 +1,6 @@
 defmodule BaselinePhoenixWeb.LayoutComponents do
   use Phoenix.Component
   import Phoenix.Component
-  import BaselinePhoenixWeb.Gettext
 
   attr :path_info, :list, default: []
   attr :current_user, :map
@@ -23,7 +22,7 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
         </div>
       </div>
     <% end %>
-    <ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+    <%!-- <ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
       <%= if @current_user do %>
         <li class="text-[0.8125rem] leading-6 text-zinc-900">
           <%= @current_user.full_name || @current_user.email || @current_user.phone_number %>
@@ -57,7 +56,7 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
           </.link>
         </li>
       <% end %>
-    </ul>
+    </ul> --%>
     """
   end
 
@@ -75,7 +74,7 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
   attr :class, :string, default: nil
   attr :rest, :global
 
-  def link_sidebar(assigns) do
+  def link_sidebar_old(assigns) do
     active =
       if String.length(assigns.starts_with) > 0,
         do: String.starts_with?(assigns.request_path, assigns.starts_with),

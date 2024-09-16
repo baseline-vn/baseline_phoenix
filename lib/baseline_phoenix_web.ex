@@ -92,6 +92,7 @@ defmodule BaselinePhoenixWeb do
       import BaselinePhoenixWeb.Components.Example
       import BaselinePhoenixWeb.LayoutComponents
       import BaselinePhoenixWeb.Gettext
+      import BaselinePhoenixWeb.Components.BaselineUI.LinkSidebar
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

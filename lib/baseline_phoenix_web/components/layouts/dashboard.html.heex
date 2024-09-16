@@ -1,6 +1,6 @@
 <main>
   <div class="flex">
-    <aside class="w-64 border pt-4 flex flex-col min-h-screen">
+    <aside class="w-64 border-r border-gray-200 pt-4 flex flex-col min-h-screen">
       <div class="space-y-4 flex-grow">
         <div>
           <img
@@ -45,6 +45,12 @@
           <% end %>
         </div>
         <div class="hidden md:flex flex-col">
+          <.link_sidebar
+            href="#"
+            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
+          >
+            Trang chủ
+          </.link_sidebar>
           <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Quản lý</div>
           <.link
             href="#"
@@ -111,9 +117,15 @@
       </div>
     </aside>
 
-    <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
+    <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0 bg-gray-100">
       <.flash_group flash={@flash} />
       <%= @inner_content %>
     </div>
+  </div>
+</main>
+<main>
+  <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
   </div>
 </main>
