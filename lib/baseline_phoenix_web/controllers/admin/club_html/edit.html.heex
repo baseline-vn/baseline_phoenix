@@ -1,14 +1,16 @@
-<.link navigate={~p"/admin/clubs"}>
-  <p>Back</p>
-</.link>
+<.back navigate={~p"/admin/clubs"}>Back to clubs</.back>
 
 <.header>
-  Club details
-  <:subtitle>Update your club infomation</:subtitle>
+  Edit club
+  <:subtitle>Update club information</:subtitle>
 </.header>
 
-<.simple_form :let={f} for={@changeset} action={~p"/admin/clubs"} multipart={true}>
-  <.input field={f[:name]} type="text" label="Name"></.input>
+<.simple_form :let={f} for={@changeset} method="put" action={~p"/admin/clubs/#{@club}"}>
+  <.error :if={@changeset.action}>
+    Opps, something went wrong! Please check the errors below.
+  </.error>
+
+  <.input field={f[:name]} type="text" label="Name" />
   <.input field={f[:address]} type="text" label="Address"></.input>
   <.input field={f[:email]} type="email" label="Email"></.input>
   <.input field={f[:phone_number]} type="tel" label="Phone number"></.input>
@@ -17,6 +19,6 @@
   <.input field={f[:website]} type="text" label="Website"></.input>
 
   <:actions>
-    <.button phx-disable-with="Saving">Save information</.button>
+    <.button type="submit" class="button-priamry">Save Change</.button>
   </:actions>
 </.simple_form>

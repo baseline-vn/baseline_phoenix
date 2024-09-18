@@ -5,6 +5,7 @@ defmodule BaselinePhoenix.Club do
 
   alias BaselinePhoenix.Club
   alias BaselinePhoenix.Repo
+  alias BaselinePhoenix.ClubUser
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "clubs" do
@@ -21,8 +22,7 @@ defmodule BaselinePhoenix.Club do
     field :verified_organizer, :boolean, default: false
     field :website, :string
 
-    has_many :club_user, BaselinePhoenix.ClubUser, on_delete: :delete_all
-    has_many :user, BaselinePhoenix.Accounts.User, on_delete: :delete_all
+    has_many :club_user, ClubUser, on_delete: :delete_all
 
     timestamps(type: :utc_datetime)
   end
@@ -61,6 +61,8 @@ defmodule BaselinePhoenix.Club do
     |> BaselinePhoenix.Repo.update!()
   end
 
+  def get_club!(id), do: Repo.get!(Club, id)
+
   def change_club!(%Club{} = club, attrs \\ %{}) do
     Club.changeset(club, attrs)
   end
@@ -69,6 +71,16 @@ defmodule BaselinePhoenix.Club do
     %Club{}
     |> Club.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def update_club(%Club{} = club, attrs) do
+    club
+    |> Club.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_club(%Club{} = club) do
+    Repo.delete(club)
   end
 
   def generate_slug(name) do

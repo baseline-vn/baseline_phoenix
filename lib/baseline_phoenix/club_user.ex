@@ -3,11 +3,12 @@ defmodule BaselinePhoenix.ClubUser do
   import Ecto.Changeset
 
   @roles ~w[member admin owner]
-
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "club_users" do
     field :role, :string
-    field :user_id, :id
-    field :club_id, :id
+
+    belongs_to :user, BaselinePhoenix.User, type: Ecto.UUID
+    belongs_to :club, BaselinePhoenix.Club, type: Ecto.UUID
 
     timestamps(type: :utc_datetime)
   end
