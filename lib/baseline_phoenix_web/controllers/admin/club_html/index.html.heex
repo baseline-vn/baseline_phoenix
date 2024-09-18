@@ -1,1 +1,34 @@
 <h1>Clubs</h1>
+<div class="w-full">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+    <div class="flex gap-4">
+      Pagination
+    </div>
+    <div class="flex gap-2">
+      <.link href={~p"/admin/clubs/new"} class="button button-small button-primary">
+        Add club
+      </.link>
+    </div>
+  </div>
+  <.table id="clubs" rows={@clubs}>
+    <:col :let={club} label="Name"><%= club.name %></:col>
+    <:col :let={club} label="Email"><%= club.email %></:col>
+    <:col :let={club} label="Since">
+      <%= Calendar.strftime(club.since, "%d-%m-%Y") %>
+    </:col>
+    <:col :let={club} label="Address"><%= club.address %></:col>
+    <:col :let={club} label="Status"><%= club.status %></:col>
+    <:col :let={club} label="Verified"><%= club.verified_organizer %></:col>
+    <:action :let={club}>
+      <div class="sr-only">
+        <.link navigate={~p"/admin/clubs/#{club}"}>Show</.link>
+      </div>
+      <.link navigate={~p"/admin/clubs/#{club}/edit"}>Edit</.link>
+    </:action>
+    <:action :let={club}>
+      <.link href={~p"/admin/clubs/#{club}"} method="delete" data-confirm="Are you sure?">
+        Delete
+      </.link>
+    </:action>
+  </.table>
+</div>

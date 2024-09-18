@@ -1,0 +1,24 @@
+<.back navigate={~p"/admin/clubs"}>Back to clubs</.back>
+
+<.header>
+  Edit club
+  <:subtitle>Update club information</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} method="put" action={~p"/admin/clubs/#{@club}"}>
+  <.error :if={@changeset.action}>
+    Opps, something went wrong! Please check the errors below.
+  </.error>
+
+  <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:address]} type="text" label="Address"></.input>
+  <.input field={f[:email]} type="email" label="Email"></.input>
+  <.input field={f[:phone_number]} type="tel" label="Phone number"></.input>
+  <.input field={f[:since]} type="date" label="Since"></.input>
+  <%!-- <.input field={f[:about]} type="textarea" label="About"></.input> --%>
+  <.input field={f[:website]} type="text" label="Website"></.input>
+
+  <:actions>
+    <.button type="submit" class="button-priamry">Save Change</.button>
+  </:actions>
+</.simple_form>

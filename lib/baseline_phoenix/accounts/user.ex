@@ -41,6 +41,7 @@ defmodule BaselinePhoenix.Accounts.User do
     field :last_active_at, :utc_datetime
 
     has_many :sessions, BaselinePhoenix.Accounts.Session, on_delete: :delete_all
+    has_many :club_user, BaselinePhoenix.ClubUser, on_delete: :delete_all
 
     timestamps(type: :utc_datetime)
   end
