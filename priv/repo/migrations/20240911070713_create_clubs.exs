@@ -3,7 +3,7 @@ defmodule BaselinePhoenix.Repo.Migrations.CreateClubs do
 
   def change do
     create table(:clubs, primary_key: false) do
-      add :id, :binary_id, primary_key: true
+      add :id, :uuid, primary_key: true, default: fragment("gen_random_uuid()")
       add :about, :map
       add :address, :string
       add :cover_data, :string
