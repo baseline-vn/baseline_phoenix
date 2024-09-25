@@ -1,0 +1,18 @@
+<.header>
+  <%= @court.identifier %>
+  <:subtitle>This is a court record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/admin/facilities/#{@facility.id}/courts/#{@court}/edit"}>
+      <.button>Edit court</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Identifier"><%= @court.identifier %></:item>
+  <:item title="Location type"><%= @court.location_type %></:item>
+  <:item title="Photo data"><%= @court.photo_data %></:item>
+  <:item title="Surface type"><%= @court.surface_type %></:item>
+</.list>
+
+<.back navigate={~p"/courts"}>Back to courts</.back>

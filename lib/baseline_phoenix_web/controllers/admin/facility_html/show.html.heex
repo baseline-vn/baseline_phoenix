@@ -1,0 +1,23 @@
+<.back navigate={~p"/admin/facilities"}><%= gettext("Back to facility") %></.back>
+
+<.header>
+  <%= gettext("Facility Details") %>
+  <:actions>
+    <.link navigate={~p"/admin/facilities/#{@facility}/courts"}>
+      <.button>Show courts</.button>
+    </.link>
+
+    <.link navigate={~p"/admin/facilities/#{@facility}/edit"}>
+      <.button>Edit</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title={gettext("Name facility")}><%= @facility.name %></:item>
+  <:item title={gettext("Pic email")}><%= @facility.pic_email %></:item>
+  <:item title={gettext("Pic phone")}><%= @facility.pic_phone %></:item>
+  <:item title={gettext("Pic name")}><%= @facility.pic_name %></:item>
+  <:item title={gettext("Province")}><%= @facility.province %></:item>
+  <:item title={gettext("Website")}><%= @facility.url %></:item>
+</.list>

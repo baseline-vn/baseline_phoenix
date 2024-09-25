@@ -11,7 +11,9 @@
     </div>
   </div>
   <.table id="clubs" rows={@clubs}>
-    <:col :let={club} label="Name"><%= club.name %></:col>
+    <:col :let={club} label="Name">
+      <.link navigate={~p"/admin/clubs/#{club}"}><%= club.name %></.link>
+    </:col>
     <:col :let={club} label="Email"><%= club.email %></:col>
     <:col :let={club} label="Since">
       <%= Calendar.strftime(club.since, "%d-%m-%Y") %>

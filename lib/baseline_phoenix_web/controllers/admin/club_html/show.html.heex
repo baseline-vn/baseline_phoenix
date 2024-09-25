@@ -1,7 +1,12 @@
 <.back navigate={~p"/admin/clubs"}>Back to clubs</.back>
 
 <.header>
-  Club Details
+  Club Detailsdd
+  <:actions>
+    <.link href={~p"/admin/clubs/#{@club.id}/edit"} class="button button-primary">
+      <.button>Edit Club</.button>
+    </.link>
+  </:actions>
 </.header>
 
 <.list>

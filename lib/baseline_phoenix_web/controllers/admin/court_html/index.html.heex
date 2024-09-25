@@ -1,0 +1,35 @@
+<.header>
+  Listing Courts
+  <:actions>
+    <.link href={~p"/admin/facilities/#{@facility.id}/courts/new"} class="button">
+      New Court
+    </.link>
+  </:actions>
+
+  <h2><%= @facility.name %></h2>
+</.header>
+
+<.table id="courts" rows={@courts}>
+  <:col :let={court} label="Identifier">
+    <.link navigate={~p"/admin/facilities/#{@facility.id}/courts/#{court}"}>
+      <%= court.identifier %>
+    </.link>
+  </:col>
+
+  <:col :let={court} label="Location type"><%= court.location_type %></:col>
+  <:col :let={court} label="Photo data"><%= court.photo_data %></:col>
+  <:col :let={court} label="Surface type"><%= court.surface_type %></:col>
+  <:action :let={court}>
+    <div class="sr-only"></div>
+    <.link navigate={~p"/admin/facilities/#{@facility.id}/courts/#{court}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={court}>
+    <.link
+      href={~p"/admin/facilities/#{@facility.id}/courts/#{court}"}
+      method="delete"
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>

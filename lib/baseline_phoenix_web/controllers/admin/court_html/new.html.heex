@@ -1,0 +1,28 @@
+<.header>
+  New Court
+  <:subtitle>Use this form to manage court records in your database.</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} action={~p"/admin/facilities/#{@facility.id}/courts"}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:identifier]} type="text" label="Identifier" />
+  <.input
+    field={f[:location_type]}
+    type="select"
+    label="Location type"
+    options={["Indor", "Outdor"]}
+  />
+  <.input
+    field={f[:surface_type]}
+    type="select"
+    label="Surface type"
+    options={["Hard", "Grass", "Clay"]}
+  />
+  <:actions>
+    <.button>Save Court</.button>
+  </:actions>
+</.simple_form>
+
+<.back navigate={~p"/admin/courts"}>Back to courts</.back>
