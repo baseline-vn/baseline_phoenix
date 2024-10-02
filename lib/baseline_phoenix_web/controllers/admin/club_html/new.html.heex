@@ -8,13 +8,13 @@
 </.header>
 
 <.simple_form :let={f} for={@changeset} action={~p"/admin/clubs"} multipart={true}>
-  <.input field={f[:name]} type="text" label="Name"></.input>
-  <.input field={f[:address]} type="text" label="Address"></.input>
-  <.input field={f[:email]} type="email" label="Email"></.input>
-  <.input field={f[:phone_number]} type="tel" label="Phone number"></.input>
-  <.input field={f[:since]} type="date" label="Since"></.input>
+  <.input field={f[:name]} type="text" label={gettext("Name")}></.input>
+  <.input field={f[:address]} type="text" label={gettext("Address")}></.input>
+  <.input field={f[:email]} type="email" label={gettext("Email")}></.input>
+  <.input field={f[:phone_number]} type="tel" label={gettext("Phone number")}></.input>
+  <.input field={f[:since]} type="date" label={gettext("Since")}></.input>
   <%!-- <.input field={f[:about]} type="textarea" label="About"></.input> --%>
-  <.input field={f[:website]} type="text" label="Website"></.input>
+  <.input field={f[:website]} type="text" label={gettext("Website")}></.input>
 
   <:actions>
     <.button phx-disable-with="Saving">Save information</.button>

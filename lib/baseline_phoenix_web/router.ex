@@ -92,7 +92,12 @@ defmodule BaselinePhoenixWeb.Router do
     resources "/clubs", ClubController
     get "/matches", MatchController, :index
     get "/tournaments", TournamentController, :index
-    get "/facilities", FacilityController, :index
+
+    resources "/facilities", FacilityController do
+      resources "/courts", CourtController do
+      end
+    end
+
     get "/recording_devices", RecordingDeviceController, :index
     get "/feedback", FeedbackController, :index
     get "/articles", ArticleController, :index

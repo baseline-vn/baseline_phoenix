@@ -1,1 +1,50 @@
-<h1>Facilities</h1>
+<h1><%= gettext("Facilities") %></h1>
+<div class="w-full">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+    <div class="flex gap-4">
+      <%= gettext("Pagination") %>
+    </div>
+    <div class="flex gap-2">
+      <.link href={~p"/admin/facilities/new"} class="button button-small button-primary">
+        <%= gettext("Add facility") %>
+      </.link>
+    </div>
+  </div>
+</div>
+<.table id="facilities" rows={@facilities}>
+  <:col :let={facility} label={gettext("Name facility")}>
+    <.link navigate={~p"/admin/facilities/#{facility}"}>
+      <%= facility.name %>
+    </.link>
+  </:col>
+  <:col :let={facility} label={gettext("Email")}><%= facility.pic_email %></:col>
+  <:col :let={facility} label={gettext("Provice")}><%= facility.province %></:col>
+  <:col :let={facility} label={gettext("Status")}><%= facility.status %></:col>
+  <:col :let={facility} label={gettext("Website")}>
+    <.link href={facility.url}>
+      <%= if facility.url do %>
+        <%= String.slice(facility.url, 0..20) %>
+      <% else %>
+        <%= gettext("No website") %>
+      <% end %>
+    </.link>
+  </:col>
+  <%!-- <:col :let={facility} label={gettext("Count Court")}>
+    <%= length(facility.courts) %>
+  </:col> --%>
+  <:action :let={facility}>
+    <div class="sr-only">
+      <.link navigate={~p"/admin/facilities/#{facility}"}><%= gettext("Show") %></.link>
+    </div>
+    <.link navigate={~p"/admin/facilities/#{facility}/edit"}><%= gettext("Edit") %></.link>
+  </:action>
+  <:action :let={facility}>
+    <.link
+      href={~p"/admin/facilities/#{facility}"}
+      method="delete"
+      data-confirm={gettext("Are you sure?")}
+    >
+      <%= gettext("Delete") %>
+    </.link>
+  </:action>
+</.table>

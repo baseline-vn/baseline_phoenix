@@ -1,0 +1,22 @@
+<.link navigate={~p"/admin/facilities"}>
+  <p><%= gettext("Back") %></p>
+</.link>
+
+<.header>
+  <%= gettext("Facility details") %>
+  <:subtitle><%= gettext("Update your facility information") %></:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} method="put" action={~p"/admin/facilities/#{@facility}"}>
+  <%!-- <.error :if={@changeset.action} --%>
+  <.input field={f[:name]} type="text" label={gettext("Facility Name")}></.input>
+  <.input field={f[:pic_email]} type="email" label={gettext("PIC Email")}></.input>
+  <.input field={f[:pic_phone]} type="tel" label={gettext("PIC Phone")}></.input>
+  <.input field={f[:pic_name]} type="text" label={gettext("PIC Name")}></.input>
+  <.input field={f[:province]} type="text" label={gettext("Province")}></.input>
+  <.input field={f[:url]} type="text" label={gettext("Website")}></.input>
+
+  <:actions>
+    <.button phx-disable-with={gettext("Saving..")}>Save information</.button>
+  </:actions>
+</.simple_form>

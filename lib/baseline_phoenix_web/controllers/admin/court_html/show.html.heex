@@ -1,0 +1,17 @@
+<.header>
+  <%= @court.identifier %>
+  <:actions>
+    <.link href={~p"/admin/facilities/#{@facility.id}/courts/#{@court}/edit"}>
+      <.button><%= gettext("Edit") %></.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title={gettext("Identifier")}><%= @court.identifier %></:item>
+  <:item title={gettext("Location type")}><%= @court.location_type %></:item>
+  <:item title={gettext("Photo data")}><%= @court.photo_data %></:item>
+  <:item title={gettext("Surface type")}><%= @court.surface_type %></:item>
+</.list>
+
+<.back navigate={~p"/courts"}><%= gettext("Back to courts") %></.back>

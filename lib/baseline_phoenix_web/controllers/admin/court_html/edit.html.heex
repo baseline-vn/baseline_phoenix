@@ -1,0 +1,35 @@
+<.header>
+  <%= gettext("Edit Court") %>
+  <br />
+  <%= @court.identifier %>
+</.header>
+
+<.simple_form
+  :let={f}
+  for={@changeset}
+  action={~p"/admin/facilities/#{@facility.id}/courts/#{@court}"}
+>
+  <.error :if={@changeset.action}>
+    <%= gettext("Oops, something went wrong! Please check the errors below.") %>>
+  </.error>
+  <.input field={f[:identifier]} type="text" label={gettext("Identifier")} />
+  <.input
+    field={f[:location_type]}
+    type="select"
+    label={gettext("Location type")}
+    options={["Indor", "Outdor"]}
+  />
+  <.input
+    field={f[:surface_type]}
+    type="select"
+    label={gettext("Surface type")}
+    options={["Hard", "Grass", "Clay"]}
+  />
+  <:actions>
+    <.button><%= gettext("Save Court") %></.button>
+  </:actions>
+</.simple_form>
+
+<.back navigate={~p"/admin/facilities/#{@facility.id}/courts"}>
+  <%= gettext("Back to courts") %>
+</.back>

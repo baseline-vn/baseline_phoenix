@@ -42,7 +42,7 @@ msgstr "Chúng tôi không thể kết nối internet"
 msgid "close"
 msgstr "đóng"
 
-#: lib/baseline_phoenix_web/components/layout_components.ex:47
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:33
 #, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr "Đăng xuất"
@@ -62,72 +62,95 @@ msgstr "Đăng xuất thành công."
 msgid "OTP sent to your phone"
 msgstr "OTP đã được gửi đến điện thoại của bạn"
 
-#: lib/baseline_phoenix_web/components/layout_components.ex:56
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:42
 #, elixir-autogen, elixir-format
 msgid "Sign in"
 msgstr "Đăng nhập"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:18
 #, elixir-autogen, elixir-format
 msgid "Admin?"
 msgstr "Quản trị viên?"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:16
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "Confirmed At"
 msgstr "Xác nhận lúc"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:21
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Created At"
 msgstr "Tạo lúc"
 
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:17
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:20
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:18
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Date of Birth"
 msgstr "Ngày sinh"
 
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:13
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:20
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:12
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:16
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:19
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:17
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:12
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr "Email"
 
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:16
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:9
 #, elixir-autogen, elixir-format
 msgid "Full Name"
 msgstr "Họ và tên"
 
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:21
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:21
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:22
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:14
 #, elixir-autogen, elixir-format
 msgid "Gender"
 msgstr "Giới tính"
 
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:14
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:17
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:15
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:10
 #, elixir-autogen, elixir-format
 msgid "Nickname"
 msgstr "Biệt danh"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:26
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "No"
 msgstr "Không"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:19
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "Not confirmed"
 msgstr "Chưa xác nhận"
 
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:13
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:18
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:11
+#: lib/baseline_phoenix_web/controllers/user_session_html/new.html.heex:3
 #, elixir-autogen, elixir-format
 msgid "Phone Number"
 msgstr "Số điện thoại"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:24
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:29
 #, elixir-autogen, elixir-format
 msgid "Updated At"
 msgstr "Cập nhật lúc"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:26
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "Yes"
 msgstr "Có"
@@ -142,11 +165,14 @@ msgstr "Thêm người chơi"
 msgid "Admin"
 msgstr "Quản trị viên"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:35
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:45
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:38
 #, elixir-autogen, elixir-format
 msgid "Are you sure?"
 msgstr "Bạn có chắc chắn không?"
 
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:2
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:2
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:2
 #, elixir-autogen, elixir-format
 msgid "Back"
@@ -162,11 +188,16 @@ msgstr "Quay lại danh sách người dùng"
 msgid "Confirmed"
 msgstr "Đã xác nhận"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:36
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:34
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:47
+#: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:40
 #, elixir-autogen, elixir-format
 msgid "Delete"
 msgstr "Xóa"
 
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:25
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:6
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:39
 #: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:32
 #, elixir-autogen, elixir-format
 msgid "Edit"
@@ -176,15 +207,6 @@ msgstr "Chỉnh sửa"
 #, elixir-autogen, elixir-format
 msgid "Edit User"
 msgstr "Chỉnh sửa người dùng"
-
-#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
-#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
-#, elixir-autogen, elixir-format
-msgid "Female"
-msgstr "Nữ"
-
-msgid "female"
-msgstr "Nữ"
 
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:13
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:14
@@ -202,31 +224,19 @@ msgstr "Đăng nhập"
 msgid "Logging in..."
 msgstr "Đang đăng nhập..."
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
-#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
-#, elixir-autogen, elixir-format
-msgid "Male"
-msgstr "Nam"
-
-msgid "male"
-msgstr "Nam"
-
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:4
 #, elixir-autogen, elixir-format
 msgid "New"
 msgstr "Mới"
 
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:13
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:8
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:10
 #, elixir-autogen, elixir-format
 msgid "Oops, something went wrong! Please check the errors below."
 msgstr "Rất tiếc, đã xảy ra lỗi! Vui lòng kiểm tra các lỗi bên dưới."
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:18
-#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:19
-#, elixir-autogen, elixir-format
-msgid "Other"
-msgstr "Khác"
-
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:5
 #: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:4
 #, elixir-autogen, elixir-format
 msgid "Pagination"
@@ -237,27 +247,30 @@ msgstr "Phân trang"
 msgid "Personal details"
 msgstr "Thông tin cá nhân"
 
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:14
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:15
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Phone number"
 msgstr "Số điện thoại"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:21
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Save Changes"
 msgstr "Lưu thay đổi"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:19
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:28
 #, elixir-autogen, elixir-format
 msgid "Save information"
 msgstr "Lưu thông tin"
 
-#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:28
 #, elixir-autogen, elixir-format
 msgid "Saving..."
 msgstr "Đang lưu..."
 
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:37
 #: lib/baseline_phoenix_web/controllers/admin/user_html/index.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Show"
@@ -272,3 +285,185 @@ msgstr "Cập nhật thông tin người dùng"
 #, elixir-autogen, elixir-format
 msgid "Update your personal information"
 msgstr "Cập nhật thông tin cá nhân của bạn"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:9
+#, elixir-autogen, elixir-format
+msgid "Add facility"
+msgstr "Thêm cụm sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "Address"
+msgstr "Địa chỉ"
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:34
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:28
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:18
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Back to courts"
+msgstr "Quay lại danh sách sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/show.html.heex:1
+#, elixir-autogen, elixir-format
+msgid "Back to facility"
+msgstr "Quay lại"
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:2
+#, elixir-autogen, elixir-format
+msgid "Edit Court"
+msgstr "Chỉnh sửa sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:1
+#, elixir-autogen, elixir-format
+msgid "Facilities"
+msgstr "Các cụm sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/show.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "Facility Details"
+msgstr "Chi tiết cụm sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "Facility Name"
+msgstr "Tên cụm sân"
+
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:10
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "Identifier"
+msgstr "Mã sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:19
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:19
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:14
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Location type"
+msgstr "Loại sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr "Tên"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "Name facility"
+msgstr "Tên cụm sân"
+
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:5
+#, elixir-autogen, elixir-format
+msgid "New Court"
+msgstr "Sân mới"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "No website"
+msgstr "Không có trang web"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "PIC Email"
+msgstr "Email"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:15
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "PIC Name"
+msgstr "Tên"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "PIC Phone"
+msgstr "Số điện thoại"
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:20
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Photo data"
+msgstr "Ảnh bìa"
+
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/show.html.heex:20
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Pic name"
+msgstr "Biệt danh"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Provice"
+msgstr "Tỉnh thành"
+
+
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:29
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:24
+#, elixir-autogen, elixir-format
+msgid "Save Court"
+msgstr "Lưu sân"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:20
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:19
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Saving.."
+msgstr "Đang lưu..."
+
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Since"
+msgstr "Ngày"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:22
+#, elixir-autogen, elixir-format
+msgid "Status"
+msgstr "Trạng thái"
+
+#: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:25
+#: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:21
+#: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:20
+#: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Surface type"
+msgstr "Loại bề mặt"
+
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:7
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:7
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Update your facility information"
+msgstr "Cập nhật thông tin cá nhân của bạn"
+
+#: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:17
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:17
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:16
+#: lib/baseline_phoenix_web/controllers/admin/facility_html/show.html.heex:22
+#, elixir-autogen, elixir-format
+msgid "Website"
+msgstr "Trang web"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:16
+#, elixir-autogen, elixir-format, fuzzy
+msgid "female"
+msgstr "Nữ"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
+#, elixir-autogen, elixir-format, fuzzy
+msgid "male"
+msgstr "Nam"
+
+#: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
+#: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
+#, elixir-autogen, elixir-format, fuzzy
+msgid "other"
+msgstr "Khác"
+
+msgid "Show courts"
+msgstr "Hiển thị các sân"
