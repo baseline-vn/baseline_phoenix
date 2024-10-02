@@ -20,6 +20,7 @@ defmodule BaselinePhoenix.Facility do
     field :url, :string
 
     timestamps(type: :utc_datetime)
+    has_many :courts, BaselinePhoenix.Court, on_delete: :delete_all
   end
 
   def changeset(facility, attrs) do

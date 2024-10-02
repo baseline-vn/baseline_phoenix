@@ -29,6 +29,9 @@
       <% end %>
     </.link>
   </:col>
+  <%!-- <:col :let={facility} label={gettext("Count Court")}>
+    <%= length(facility.courts) %>
+  </:col> --%>
   <:action :let={facility}>
     <div class="sr-only">
       <.link navigate={~p"/admin/facilities/#{facility}"}><%= gettext("Show") %></.link>

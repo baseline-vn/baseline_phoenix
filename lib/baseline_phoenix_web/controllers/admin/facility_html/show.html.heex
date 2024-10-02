@@ -4,11 +4,11 @@
   <%= gettext("Facility Details") %>
   <:actions>
     <.link navigate={~p"/admin/facilities/#{@facility}/courts"}>
-      <.button>Show courts</.button>
+      <.button><%= gettext("Show courts") %></.button>
     </.link>
 
     <.link navigate={~p"/admin/facilities/#{@facility}/edit"}>
-      <.button>Edit</.button>
+      <.button><%= gettext("Edit") %></.button>
     </.link>
   </:actions>
 </.header>
