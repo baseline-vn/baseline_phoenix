@@ -2,6 +2,10 @@ defmodule BaselinePhoenix.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {
+    Flop.Schema,
+    filterable: [:full_name, :phone_number], sortable: [:full_name, :phone_number]
+  }
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string

@@ -3,10 +3,17 @@ defmodule BaselinePhoenixWeb.Admin.UserController do
 
   alias BaselinePhoenix.Accounts
   alias BaselinePhoenix.Accounts.User
+  alias Flop
+
+  def index(conn, %{"search" => search}) do
+    {users, meta} = Accounts.list_users(search)
+    render(conn, :index, users: users, search: search, meta: meta)
+  end
 
   def index(conn, _params) do
-    users = Accounts.list_users()
-    render(conn, :index, users: users)
+    {users, meta} = Accounts.list_users()
+    # Set search to an empty string
+    render(conn, :index, users: users, search: "", meta: meta)
   end
 
   def new(conn, _params) do

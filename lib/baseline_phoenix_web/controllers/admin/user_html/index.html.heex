@@ -7,12 +7,9 @@
       <.link href={~p"/admin/users/new"} class="button button-small button-primary">
         <%= gettext("Add player") %>
       </.link>
-      <%!-- <.link href={~p"/admin/users/merge?id=select"} class="button button-small bg-blue-500 hover:bg-blue-600 text-white hover:text-white"><%= gettext("Merge Users") %></.link>
-      <.link href={~p"/admin/users/imports"} class="button button-small button-tertiary"><%= gettext("Manage imports") %></.link>
-      <.link href={~p"/admin/users/potential_dupes"} class="button button-small button-tertiary"><%= gettext("Duplicate Manager") %></.link> --%>
     </div>
   </div>
-  <.table id="users" rows={@users}>
+  <.table id="user" rows={@users}>
     <:col :let={user} label={gettext("Full Name")}><%= user.full_name %></:col>
     <:col :let={user} label={gettext("Nickname")}><%= user.nickname %></:col>
     <:col :let={user} label={gettext("Phone Number")}><%= user.phone_number %></:col>
@@ -41,4 +38,45 @@
       </.link>
     </:action>
   </.table>
+
+  <div class="filter-controls">
+    <form action={~p"/admin/users"} method="get">
+      <input type="text" name="search" placeholder="Search..." value={@search} />
+      <button type="submit">Filter</button>
+    </form>
+  </div>
+
+  <nav>
+    <div class="pagination-controls">
+      <%= if @meta.has_previous_page? do %>
+        <a
+          href={~p"/admin/users?page=#{@meta.previous_page}&search=#{@search}"}
+          class="pagination-link"
+        >
+          ‹ Prev
+        </a>
+      <% end %>
+
+      <%= for page <- 1..@meta.total_pages do %>
+        <%= if page == @meta.current_page do %>
+          <span class="current-page"><%= page %></span>
+          <!-- Current page -->
+        <% else %>
+          <a href={~p"/admin/users?page=#{page}&search=#{@search}"} class="pagination-link">
+            <%= page %>
+          </a>
+          <!-- Link to other pages -->
+        <% end %>
+      <% end %>
+
+      <%= if @meta.has_next_page? do %>
+        <a
+          href={~p"/admin/users?page=#{@meta.next_page}&search=#{@search}"}
+          class="pagination-link"
+        >
+          Next ›
+        </a>
+      <% end %>
+    </div>
+  </nav>
 </div>

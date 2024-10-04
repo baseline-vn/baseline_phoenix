@@ -61,7 +61,9 @@ defmodule BaselinePhoenix.MixProject do
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:live_svelte, "~> 0.13.3"},
-      {:faker, "~> 0.18.0", only: [:dev, :test]}
+      {:faker, "~> 0.18.0", only: [:dev, :test]},
+      {:flop, "~> 0.20"},
+      {:flop_phoenix, "~> 0.23.0"}
     ]
   end
 
