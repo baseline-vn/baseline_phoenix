@@ -1,5 +1,6 @@
 defmodule BaselinePhoenix.Facility do
   import Ecto.Changeset
+  import Ecto.Query
   use Ecto.Schema
 
   alias BaselinePhoenix.Facility
@@ -46,6 +47,36 @@ defmodule BaselinePhoenix.Facility do
   end
 
   def get_facility!(id), do: Repo.get!(Facility, id)
+
+  def list_facility(search \\ nil) do
+    query = from(f in Facility)
+
+    query =
+      if search && search != "" do
+        from f in query,
+          where: ilike(f.name, ^"%#{search}%")
+      else
+        query
+      end
+
+    total_count = Repo.aggregate(query, :count, :id)
+    facilities = query |> limit(10) |> Repo.all()
+
+    current_page = 1
+    total_pages = div(total_count + 9, 10)
+    next_page = if current_page < total_pages, do: current_page + 1, else: nil
+
+    meta = %{
+      total_count: total_count,
+      total_pages: total_pages,
+      current_page: current_page,
+      has_next_page?: current_page < total_pages,
+      has_previous_page?: current_page > 1,
+      next_page: next_page
+    }
+
+    {facilities, meta}
+  end
 
   def change_facility!(%Facility{} = facility, attrs \\ %{}) do
     Facility.changeset(facility, attrs)

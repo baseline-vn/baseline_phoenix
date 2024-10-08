@@ -6,9 +6,14 @@ defmodule BaselinePhoenixWeb.Admin.ClubController do
   alias BaselinePhoenix.Repo
   alias BaselinePhoenix.ClubUser
 
+  def index(conn, %{"search" => search}) do
+    {clubs, meta} = Club.list_club(search)
+    render(conn, :index, clubs: clubs, search: search, meta: meta)
+  end
+
   def index(conn, _params) do
-    clubs = Repo.all(Club)
-    render(conn, :index, clubs: clubs)
+    {clubs, meta} = Club.list_club()
+    render(conn, :index, clubs: clubs, search: "", meta: meta)
   end
 
   def new(conn, _params) do

@@ -1,6 +1,6 @@
 defmodule BaselinePhoenix.Club do
   import Ecto.Changeset
-  import Ecto.Query
+  import Ecto.Query, warn: false
   use Ecto.Schema
 
   alias BaselinePhoenix.Club
@@ -62,6 +62,36 @@ defmodule BaselinePhoenix.Club do
   end
 
   def get_club!(id), do: Repo.get!(Club, id)
+
+  def list_club(search \\ nil) do
+    query = from(c in Club)
+
+    query =
+      if search && search != "" do
+        from c in query,
+          where: ilike(c.name, ^"%#{search}%")
+      else
+        query
+      end
+
+    total_count = Repo.aggregate(query, :count, :id)
+    clubs = query |> limit(10) |> Repo.all()
+
+    current_page = 1
+    total_pages = div(total_count + 9, 10)
+    next_page = if current_page < total_pages, do: current_page + 1, else: nil
+
+    meta = %{
+      total_count: total_count,
+      total_pages: total_pages,
+      current_page: current_page,
+      has_next_page?: current_page < total_pages,
+      has_previous_page?: current_page > 1,
+      next_page: next_page
+    }
+
+    {clubs, meta}
+  end
 
   def change_club!(%Club{} = club, attrs \\ %{}) do
     Club.changeset(club, attrs)

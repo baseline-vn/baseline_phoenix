@@ -5,58 +5,68 @@
     </div>
     <div class="flex gap-2">
       <.link href={~p"/admin/users/new"} class="button button-small button-primary">
-        <%= gettext("Add player") %>
+        +<%= gettext("Add player") %>
       </.link>
     </div>
   </div>
-  <.table id="user" rows={@users}>
-    <:col :let={user} label={gettext("Full Name")}><%= user.full_name %></:col>
-    <:col :let={user} label={gettext("Nickname")}><%= user.nickname %></:col>
-    <:col :let={user} label={gettext("Phone Number")}><%= user.phone_number %></:col>
-    <:col :let={user} label={gettext("Email")}><%= user.email %></:col>
-    <:col :let={user} label={gettext("Date of Birth")}><%= user.date_of_birth %></:col>
-    <:col :let={user} label={gettext("Gender")}><%= user.gender %></:col>
-    <:col :let={user} label={gettext("Admin")}>
-      <%= if user.admin, do: gettext("Yes"), else: gettext("No") %>
-    </:col>
-    <:col :let={user} label={gettext("Confirmed")}>
-      <%= if user.confirmed_at, do: gettext("Yes"), else: gettext("No") %>
-    </:col>
-    <:action :let={user}>
-      <div class="sr-only">
-        <.link navigate={~p"/admin/users/#{user}"}><%= gettext("Show") %></.link>
-      </div>
-      <.link navigate={~p"/admin/users/#{user}/edit"}><%= gettext("Edit") %></.link>
-    </:action>
-    <:action :let={user}>
-      <.link
-        href={~p"/admin/users/#{user}"}
-        method="delete"
-        data-confirm={gettext("Are you sure?")}
-      >
-        <%= gettext("Delete") %>
-      </.link>
-    </:action>
-  </.table>
 
-  <div class="filter-controls">
-    <form action={~p"/admin/users"} method="get">
-      <input type="text" name="search" placeholder="Search..." value={@search} />
-      <button type="submit">Filter</button>
-    </form>
+  <div class="flex flex-col">
+    <div class="flex justify-end mr-4">
+      <form action={~p"/admin/users"} method="get" class="flex gap-2">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="Search by Name, Phone, Nickname or ID"
+          value={@search}
+          class="border border-gray-300 bg-white h-10 px-8 pr-16 rounded-lg text-sm focus:outline-none"
+        />
+      </form>
+    </div>
+    <.table id="user" rows={@users} class="w-full">
+      <:col :let={user} label={gettext("Full Name")} class="text-left">
+        <%= user.full_name %>
+      </:col>
+      <:col :let={user} label={gettext("Nickname")} class="text-left"><%= user.nickname %></:col>
+      <:col :let={user} label={gettext("Phone Number")} class="text-left">
+        <%= user.phone_number %>
+      </:col>
+      <:col :let={user} label={gettext("Email")} class="text-left"><%= user.email %></:col>
+      <:col :let={user} label={gettext("Date of Birth")} class="text-left">
+        <%= user.date_of_birth %>
+      </:col>
+      <:col :let={user} label={gettext("Gender")} class="text-left"><%= user.gender %></:col>
+      <:col :let={user} label={gettext("Admin")} class="text-left">
+        <%= if user.admin, do: gettext("Yes"), else: gettext("No") %>
+      </:col>
+      <:col :let={user} label={gettext("Confirmed")} class="text-left">
+        <%= if user.confirmed_at, do: gettext("Yes"), else: gettext("No") %>
+      </:col>
+      <:action :let={user} class="flex gap-2">
+        <div class="sr-only">
+          <.link navigate={~p"/admin/users/#{user}"} class="text-blue-500 hover:text-blue-700">
+            <%= gettext("Show") %>
+          </.link>
+        </div>
+        <.link navigate={~p"/admin/users/#{user}/edit"} class="text-blue-500 hover:text-blue-700">
+          <%= gettext("Edit") %>
+        </.link>
+      </:action>
+      <:action :let={user} class="flex gap-2">
+        <.link
+          href={~p"/admin/users/#{user}"}
+          method="delete"
+          data-confirm={gettext("Are you sure?")}
+          class="text-red-500 hover:text-red-700"
+        >
+          <%= gettext("Delete") %>
+        </.link>
+      </:action>
+    </.table>
   </div>
 
   <nav>
     <div class="pagination-controls">
-      <%= if @meta.has_previous_page? do %>
-        <a
-          href={~p"/admin/users?page=#{@meta.previous_page}&search=#{@search}"}
-          class="pagination-link"
-        >
-          ‹ Prev
-        </a>
-      <% end %>
-
       <%= for page <- 1..@meta.total_pages do %>
         <%= if page == @meta.current_page do %>
           <span class="current-page"><%= page %></span>
@@ -67,15 +77,6 @@
           </a>
           <!-- Link to other pages -->
         <% end %>
-      <% end %>
-
-      <%= if @meta.has_next_page? do %>
-        <a
-          href={~p"/admin/users?page=#{@meta.next_page}&search=#{@search}"}
-          class="pagination-link"
-        >
-          Next ›
-        </a>
       <% end %>
     </div>
   </nav>

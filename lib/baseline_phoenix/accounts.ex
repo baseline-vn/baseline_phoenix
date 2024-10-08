@@ -103,7 +103,9 @@ defmodule BaselinePhoenix.Accounts do
     query =
       if search && search != "" do
         from u in query,
-          where: ilike(u.full_name, ^"%#{search}%") or ilike(u.phone_number, ^"%#{search}%")
+          where:
+            ilike(u.full_name, ^"%#{search}%") or ilike(u.phone_number, ^"%#{search}%") or
+              ilike(u.nickname, ^"%#{search}%")
       else
         query
       end

@@ -1,12 +1,16 @@
 defmodule BaselinePhoenixWeb.Admin.FacilityController do
   use BaselinePhoenixWeb, :controller
 
-  alias BaselinePhoenix.Repo
   alias BaselinePhoenix.Facility
 
+  def index(conn, %{"search" => search}) do
+    {facilities, meta} = Facility.list_facility(search)
+    render(conn, :index, facilities: facilities, search: search, meta: meta)
+  end
+
   def index(conn, _params) do
-    facilities = Repo.all(Facility)
-    render(conn, :index, facilities: facilities)
+    {facilities, meta} = Facility.list_facility()
+    render(conn, :index, facilities: facilities, search: "", meta: meta)
   end
 
   def new(conn, _params) do
