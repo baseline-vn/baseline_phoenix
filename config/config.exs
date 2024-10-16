@@ -76,8 +76,15 @@ config :git_hooks,
   hooks: [
     pre_commit: [
       tasks: [
-        "mix format",
-        "git add ."
+        {:cmd, "mix format --check-formatted"}
+      ]
+    ],
+    pre_push: [
+      verbose: false,
+      tasks: [
+        {:cmd, "mix dialyzer"},
+        {:cmd, "mix test --color"},
+        {:cmd, "echo 'success!'"}
       ]
     ]
   ]
