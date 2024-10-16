@@ -2,11 +2,15 @@
   <div class="h-[282px] bg-yellow-200">Wallpaper</div>
   <div class="flex py-6 px-8 gap-6">
     <div class="rounded-full object-cover shadow-[0_1px_2px_0_rgba(16,24,40,0.06),0_1px_3px_0_rgba(16,24,40,0.1)]">
-      <img
-        src={~p"/images/avatar-placeholder.png"}
-        alt="Avatar placeholder"
-        class="w-24 h-24 p-1"
-      />
+      <%= if BaselinePhoenix.AvatarUploader.url({@user.avatar, @user}, :thumb) do %>
+        <img
+          src={BaselinePhoenix.AvatarUploader.url({@user.avatar, @user}, :thumb)}
+          alt="Avatar"
+          class="w-24 h-24 p-1 rounded-full"
+        />
+      <% else %>
+        <img src={~p"/images/avatar-placeholder.png"} alt="Avatar" class="w-24 h-24 p-1" />
+      <% end %>
     </div>
     <div class="flex grow">
       <div>
@@ -21,6 +25,27 @@
     </div>
   </div>
 </div>
+
 <div class="p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
-  body
+  <h2 class="text-lg font-semibold mb-4">Update Avatar</h2>
+  <.simple_form
+    :let={f}
+    for={@conn}
+    action={~p"/users/update_avatar"}
+    method="post"
+    enctype="multipart/form-data"
+    phx-change="validate_avatar"
+    phx-submit="save_avatar"
+  >
+    <.input
+      field={f[:avatar]}
+      type="file"
+      label="Avatar"
+      class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+    />
+
+    <:actions>
+      <.button class="w-full">Upload Avatar</.button>
+    </:actions>
+  </.simple_form>
 </div>

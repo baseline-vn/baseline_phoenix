@@ -37,6 +37,7 @@ defmodule BaselinePhoenixWeb.Router do
     get "/clubs", DashboardController, :clubs
     get "/tournaments", DashboardController, :tournaments
     get "/me", UserController, :me
+    post "/users/update_avatar", UserController, :update_avatar
   end
 
   scope "/" do

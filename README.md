@@ -6,6 +6,10 @@ mix phx.server
 ```
 
 ```
+ source .env && iex -S mix phx.server
+```
+
+```
 mix gettext.extract
 ```
 

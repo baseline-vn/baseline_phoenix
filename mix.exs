@@ -61,7 +61,11 @@ defmodule BaselinePhoenix.MixProject do
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:live_svelte, "~> 0.13.3"},
-      {:faker, "~> 0.18.0", only: [:dev, :test]}
+      {:faker, "~> 0.18.0", only: [:dev, :test]},
+      {:waffle, "~> 1.1"},
+      {:waffle_ecto, "~> 0.0.12"},
+      {:ex_aws, "~> 2.5"},
+      {:ex_aws_s3, "~> 2.5"}
     ]
   end
 

@@ -3,9 +3,10 @@ defmodule BaselinePhoenix.Accounts do
   The Accounts context.
   """
 
+  require Logger
   import Ecto.Query, warn: false
   alias BaselinePhoenix.Repo
-
+  alias BaselinePhoenix.AvatarUploader
   alias BaselinePhoenix.Accounts.{User, Session}
 
   ## Database getters
@@ -130,5 +131,35 @@ defmodule BaselinePhoenix.Accounts do
   """
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
+  end
+
+  def update_user_avatar(%User{} = user, attrs) do
+    result = AvatarUploader.store({attrs["avatar"], user})
+    Logger.info("Avatar.store result: #{inspect(result)}")
+
+    case result do
+      {:ok, filename} ->
+        user
+        |> User.avatar_changeset(%{avatar: filename})
+        |> Repo.update()
+        |> case do
+          {:ok, updated_user} ->
+            Logger.info("User avatar changeset: #{inspect(updated_user)}")
+            Logger.info("User avatar updated successfully. Changeset: #{inspect(updated_user)}")
+            {:ok, updated_user}
+
+          {:error, changeset} ->
+            Logger.error("Failed to update user avatar: #{inspect(changeset.errors)}")
+            {:error, changeset}
+        end
+
+      {:error, reason} ->
+        Logger.error("Failed to store avatar: #{inspect(reason)}")
+        {:error, :avatar_store_failed}
+    end
+  end
+
+  def change_user_avatar(%User{} = user) do
+    User.avatar_changeset(user, %{})
   end
 end
