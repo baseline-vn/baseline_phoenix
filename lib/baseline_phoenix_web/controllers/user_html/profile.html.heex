@@ -1,1 +1,20 @@
-<h1><%= gettext("Profile") %></h1>
+<div class="bg-white">
+  <div class="h-[282px] bg-yellow-200">Wallpaper</div>
+  <div class="flex py-6 px-8 gap-6">
+    <div>Avatar</div>
+    <div class="flex grow">
+      <div>
+        <p class="text-d-xs text-gray-900 text-semibold">
+          <%= @user.full_name || "Chưa cập nhật" %>
+        </p>
+        <div>Email</div>
+      </div>
+      <div class="ml-auto">
+        <button class="text-sm text-blue-600 hover:text-blue-800"><%= gettext("Edit") %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
+  body
+</div>

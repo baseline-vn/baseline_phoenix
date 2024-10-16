@@ -231,6 +231,7 @@ module.exports = {
         'h-md': ['1.5rem', { lineHeight: '2rem' }],      // 24px, 32px
         'h-lg': ['1.875rem', { lineHeight: '2.375rem' }],// 30px, 38px
         //display
+        'd-xs': ['1.5rem', { lineHeight: '2rem' }],    // 24px, 32px
         'd-sm': ['2.25rem', { lineHeight: '2.75rem' }],   // 36px, 44px
         'd-md': ['3rem', { lineHeight: '3.75rem' }],      // 48px, 60px
         'd-lg': ['3.75rem', { lineHeight: '4.5rem' }],    // 60px, 72px
