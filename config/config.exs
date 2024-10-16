@@ -79,14 +79,6 @@ config :git_hooks,
         {:cmd, "mix format"},
         {:cmd, "git diff --name-only --cached -- | xargs git add"}
       ]
-    ],
-    pre_push: [
-      verbose: false,
-      tasks: [
-        {:cmd, "mix dialyzer"},
-        {:cmd, "mix test --color"},
-        {:cmd, "echo 'success!'"}
-      ]
     ]
   ]
 
