@@ -7,7 +7,7 @@ defmodule BaselinePhoenix.Otp do
 
   def verify_otp(phone_number, otp) do
     case Cachex.get(:otp_cache, phone_number) do
-      {:ok, ^otp} ->
+        {:ok, ^otp} ->
         Cachex.del(:otp_cache, phone_number)
         true
 
