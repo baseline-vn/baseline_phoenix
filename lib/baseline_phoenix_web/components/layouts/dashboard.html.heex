@@ -12,16 +12,16 @@
         <div class="hidden md:flex flex-col">
           <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Quản lý</div>
           <.link_sidebar path={~p"/dashboard"} starts_with="/dashboard">
-            Trang chủ
+            <%= gettext("Home") %>
           </.link_sidebar>
           <.link_sidebar path={~p"/rankings"} starts_with="/rankings">
-            Bảng xếp hạng
+            <%= gettext("Rankings") %>
           </.link_sidebar>
           <.link_sidebar path={~p"/tournaments"} starts_with="/tournaments">
-            Giải đấu
+            <%= gettext("Tournaments") %>
           </.link_sidebar>
           <.link_sidebar path={~p"/clubs"} starts_with="/clubs">
-            Câu lạc bộ
+            <%= gettext("Clubs") %>
           </.link_sidebar>
         </div>
 

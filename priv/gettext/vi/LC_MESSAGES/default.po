@@ -299,7 +299,7 @@ msgstr "Địa chỉ"
 #: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:34
 #: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:28
 #: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:18
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "Back to courts"
 msgstr "Quay lại danh sách sân"
 
@@ -328,7 +328,6 @@ msgstr "Chi tiết cụm sân"
 msgid "Facility Name"
 msgstr "Tên cụm sân"
 
-
 #: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:15
 #: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:10
 #: lib/baseline_phoenix_web/controllers/admin/court_html/show.html.heex:12
@@ -353,7 +352,6 @@ msgstr "Tên"
 #, elixir-autogen, elixir-format
 msgid "Name facility"
 msgstr "Tên cụm sân"
-
 
 #: lib/baseline_phoenix_web/controllers/admin/court_html/index.html.heex:5
 #, elixir-autogen, elixir-format
@@ -387,18 +385,15 @@ msgstr "Số điện thoại"
 msgid "Photo data"
 msgstr "Ảnh bìa"
 
-
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/show.html.heex:20
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "Pic name"
-msgstr "Biệt danh"
+msgstr "Tên người liên hệ"
 
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "Provice"
 msgstr "Tỉnh thành"
-
-
 
 #: lib/baseline_phoenix_web/controllers/admin/court_html/edit.html.heex:29
 #: lib/baseline_phoenix_web/controllers/admin/court_html/new.html.heex:24
@@ -408,14 +403,14 @@ msgstr "Lưu sân"
 
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:20
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:19
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "Saving.."
 msgstr "Đang lưu..."
 
 #: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:15
 #, elixir-autogen, elixir-format
 msgid "Since"
-msgstr "Ngày"
+msgstr "Ngày thành lập"
 
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/index.html.heex:22
 #, elixir-autogen, elixir-format
@@ -432,9 +427,9 @@ msgstr "Loại bề mặt"
 
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:7
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/new.html.heex:7
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "Update your facility information"
-msgstr "Cập nhật thông tin cá nhân của bạn"
+msgstr "Cập nhật thông tin cụm sân"
 
 #: lib/baseline_phoenix_web/controllers/admin/club_html/new.html.heex:17
 #: lib/baseline_phoenix_web/controllers/admin/facility_html/edit.html.heex:17
@@ -448,22 +443,42 @@ msgstr "Trang web"
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:16
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "female"
 msgstr "Nữ"
 
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
 #: lib/baseline_phoenix_web/controllers/admin/user_html/show.html.heex:15
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "male"
 msgstr "Nam"
 
 #: lib/baseline_phoenix_web/controllers/admin/user_html/edit.html.heex:22
 #: lib/baseline_phoenix_web/controllers/admin/user_html/new.html.heex:23
-#, elixir-autogen, elixir-format, fuzzy
+#, elixir-autogen, elixir-format
 msgid "other"
 msgstr "Khác"
 
 msgid "Show courts"
 msgstr "Hiển thị các sân"
+
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:24
+#, elixir-autogen, elixir-format
+msgid "Clubs"
+msgstr "Câu lạc bộ"
+
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "Home"
+msgstr "Trang chủ"
+
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "Rankings"
+msgstr "Bảng xếp hạng"
+
+#: lib/baseline_phoenix_web/components/layouts/dashboard.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Tournaments"
+msgstr "Giải đấu"

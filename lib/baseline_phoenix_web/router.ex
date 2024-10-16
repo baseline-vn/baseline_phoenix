@@ -33,6 +33,9 @@ defmodule BaselinePhoenixWeb.Router do
 
     get "/", DashboardController, :index
     get "/dashboard", DashboardController, :index
+    get "/rankings", DashboardController, :rankings
+    get "/clubs", DashboardController, :clubs
+    get "/tournaments", DashboardController, :tournaments
   end
 
   scope "/" do
