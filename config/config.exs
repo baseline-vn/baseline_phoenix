@@ -76,7 +76,8 @@ config :git_hooks,
   hooks: [
     pre_commit: [
       tasks: [
-        {:cmd, "mix format --check-formatted"}
+        {:cmd, "mix format"},
+        {:cmd, "git diff --name-only --cached -- | xargs git add"}
       ]
     ],
     pre_push: [

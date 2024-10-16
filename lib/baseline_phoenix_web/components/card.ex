@@ -5,7 +5,7 @@ defmodule BaselinePhoenixWeb.Components.Card do
   attr :id, :integer, required: true
 
   attr :rank, :integer, required: true
-  attr :verfied, :boolean, default: false
+    attr :verfied, :boolean, default: false
   attr :branch, :string, required: true
 
   def card(assigns) do
