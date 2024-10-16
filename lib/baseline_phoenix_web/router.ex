@@ -33,18 +33,19 @@ defmodule BaselinePhoenixWeb.Router do
 
     get "/", DashboardController, :index
     get "/dashboard", DashboardController, :index
-    get "/rankings", DashboardController, :rankings
-    get "/clubs", DashboardController, :clubs
-    get "/tournaments", DashboardController, :tournaments
+    get "/dashboard/rankings", DashboardController, :rankings
+    get "/dashboard/clubs", DashboardController, :clubs
+    get "/dashboard/tournaments", DashboardController, :tournaments
+    get "/profile", UserController, :profile
   end
 
   scope "/" do
     storybook_assets()
   end
 
-  scope "/", Elixir.BaselinePhoenixWeb do
+  scope "/", BaselinePhoenixWeb do
     pipe_through(:browser)
-    live_storybook("/storybook", backend_module: Elixir.BaselinePhoenixWeb.Storybook)
+    live_storybook("/storybook", backend_module: BaselinePhoenixWeb.Storybook)
   end
 
   # Other scopes may use custom stacks.
@@ -54,11 +55,6 @@ defmodule BaselinePhoenixWeb.Router do
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:baseline_phoenix, :dev_routes) do
-    # If you want to use the LiveDashboard in production, you should put
-    # it behind authentication and allow only admins to access it.
-    # If your application does not have an admins-only section yet,
-    # you can use Plug.BasicAuth to set up some basic authentication
-    # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
@@ -74,12 +70,13 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/", BaselinePhoenixWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
-    get "/sign_in", UserSessionController, :new
-    post "/sign_in", UserSessionController, :create
+    resources "/sessions", UserSessionController, only: [:new, :create], singleton: true
   end
 
   scope "/", BaselinePhoenixWeb do
     pipe_through [:browser, :require_authenticated_user]
+
+    resources "/profile", UserController, only: [:show], singleton: true
   end
 
   scope "/", BaselinePhoenixWeb do
@@ -92,24 +89,25 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/admin", BaselinePhoenixWeb.Admin, as: :admin do
     pipe_through [:browser, :admin]
 
-    get "/dashboard", DashboardController, :index
+    resources "/dashboard", DashboardController, only: [:index]
     resources "/clubs", ClubController
-    get "/matches", MatchController, :index
-    get "/tournaments", TournamentController, :index
+    resources "/matches", MatchController, only: [:index]
+    resources "/tournaments", TournamentController, only: [:index]
 
     resources "/facilities", FacilityController do
-      resources "/courts", CourtController do
-      end
+      resources "/courts", CourtController
     end
 
-    get "/recording_devices", RecordingDeviceController, :index
-    get "/feedback", FeedbackController, :index
-    get "/articles", ArticleController, :index
-    get "/changelog", ChangelogController, :index
-    get "/campaigns", CampaignController, :index
-    resources "/users", UserController
-    get "/users/merge", UserController, :merge
-    get "/users/imports", UserController, :imports
-    get "/users/potential_dupes", UserController, :potential_dupes
+    resources "/recording_devices", RecordingDeviceController, only: [:index]
+    resources "/feedback", FeedbackController, only: [:index]
+    resources "/articles", ArticleController, only: [:index]
+    resources "/changelog", ChangelogController, only: [:index]
+    resources "/campaigns", CampaignController, only: [:index]
+
+    resources "/users", UserController do
+      get "/merge", UserController, :merge
+      get "/imports", UserController, :imports
+      get "/potential_dupes", UserController, :potential_dupes
+    end
   end
 end
