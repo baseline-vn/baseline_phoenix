@@ -9,104 +9,45 @@
             class="w-auto pl-7"
           />
         </div>
-        <div class="pl-7">
-          <%= if @current_user do %>
-            <li class="text-[0.8125rem] leading-6 text-zinc-900">
-              <%= @current_user.full_name || @current_user.email || @current_user.phone_number %>
-            </li>
-            <%= if @current_user.admin do %>
-              <li>
-                <.link
-                  href="/admin/dashboard"
-                  class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-                >
-                  Admin
-                </.link>
-              </li>
-            <% end %>
-            <li>
-              <.link
-                href="/log_out"
-                method="delete"
-                class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-              >
-                <%= gettext("Log out") %>
-              </.link>
-            </li>
-          <% else %>
-            <li>
-              <.link
-                href="/sign_in"
-                class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-              >
-                <%= gettext("Sign in") %>
-              </.link>
-            </li>
-          <% end %>
-        </div>
         <div class="hidden md:flex flex-col">
-          <.link_sidebar
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Quản lý</div>
+          <.link_sidebar path={~p"/dashboard"} starts_with="/dashboard">
             Trang chủ
           </.link_sidebar>
-          <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Quản lý</div>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
-            Trang chủ
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          <.link_sidebar path={~p"/rankings"} starts_with="/rankings">
             Bảng xếp hạng
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          </.link_sidebar>
+          <.link_sidebar path={~p"/tournaments"} starts_with="/tournaments">
             Giải đấu
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          </.link_sidebar>
+          <.link_sidebar path={~p"/clubs"} starts_with="/clubs">
             Câu lạc bộ
-          </.link>
+          </.link_sidebar>
         </div>
 
         <div class="hidden md:flex flex-col">
           <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Baseline</div>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          <.link_sidebar path={~p"/download"} starts_with="/download">
             Tải ứng dụng
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
-          >
+          </.link_sidebar>
+          <.link_sidebar path={~p"/contact"} starts_with="/contact">
             Liên hệ với Baseline
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
+          </.link_sidebar>
+          <.link_sidebar
+            path="https://www.facebook.com/baselineapp"
+            starts_with="https://www.facebook.com/baselineapp"
           >
             Facebook
-          </.link>
-          <.link
-            href="#"
-            class="border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600"
+          </.link_sidebar>
+          <.link_sidebar
+            path="https://zalo.me/baselineapp"
+            starts_with="https://zalo.me/baselineapp"
           >
             Zalo
-          </.link>
+          </.link_sidebar>
         </div>
       </div>
-      <div class="mt-auto p-4 mb-6">
+      <div class="mt-auto p-4 mb-4">
         <img src={~p"/images/download-app.png"} alt="Download App" class="w-auto" />
         <p class="text-gray-700 text-bd-md font-medium">
           Baseline Service Trading Company Limited
@@ -115,17 +56,44 @@
           216 Xô Viết Nghệ Tĩnh, Phường 7, Thành Phố Đà Lạt
         </p>
       </div>
+      <div class="border-t border-gray-200 py-4 mx-4">
+        <%= if @current_user do %>
+          <li class="text-[0.8125rem] leading-6 text-zinc-900">
+            <%= @current_user.full_name || @current_user.email || @current_user.phone_number %>
+          </li>
+          <%= if @current_user.admin do %>
+            <li>
+              <.link
+                href="/admin/dashboard"
+                class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+              >
+                Admin
+              </.link>
+            </li>
+          <% end %>
+          <li>
+            <.link
+              href="/log_out"
+              method="delete"
+              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+            >
+              <%= gettext("Log out") %>
+            </.link>
+          </li>
+        <% else %>
+          <.link
+            href="/sign_in"
+            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+          >
+            <%= gettext("Sign in") %>
+          </.link>
+        <% end %>
+      </div>
     </aside>
 
     <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0 bg-gray-100">
       <.flash_group flash={@flash} />
       <%= @inner_content %>
     </div>
-  </div>
-</main>
-<main>
-  <div class="grow p-3 md:py-8 md:pl-8 pe-4 md:pe-0">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
   </div>
 </main>

@@ -3,17 +3,30 @@ defmodule BaselinePhoenixWeb.Components.BaselineUI.LinkSidebar do
 
   use Phoenix.Component
 
-  attr :href, :string, required: true
+  attr :path, :string, required: true
   attr :class, :string, default: ""
   slot :inner_block, required: true
+  attr :starts_with, :string, default: ""
+  attr :active_class, :string, default: "active"
+  attr :inactive_class, :string, default: "inactive"
 
   def link_sidebar(assigns) do
+    active =
+      if String.length(assigns.starts_with) > 0,
+        do: String.starts_with?(assigns.path, assigns.starts_with),
+        else: assigns.path == Phoenix.Controller.current_path(assigns.conn)
+
+    classes =
+      if(active, do: assigns.active_class, else: assigns.inactive_class)
+
+    assigns = assign(assigns, active: active, classes: classes)
+
     ~H"""
     <.link
-      href={@href}
+      navigate={@path}
       class={[
         "border-l-[3px] font-medium hover:bg-primary-100 hover:border-primary-500 hover:text-green-500 pl-7 py-2 text-gray-600",
-        @class
+        @classes
       ]}
     >
       <%= render_slot(@inner_block) %>

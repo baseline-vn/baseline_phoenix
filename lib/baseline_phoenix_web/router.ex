@@ -32,6 +32,7 @@ defmodule BaselinePhoenixWeb.Router do
     pipe_through [:browser, :dashboard]
 
     get "/", DashboardController, :index
+    get "/dashboard", DashboardController, :index
   end
 
   scope "/" do
