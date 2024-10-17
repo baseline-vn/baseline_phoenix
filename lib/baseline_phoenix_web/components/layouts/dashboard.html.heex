@@ -9,37 +9,39 @@
             class="w-auto pl-7"
           />
         </div>
-        <div class="hidden md:flex flex-col">
+        <div class="hidden md:flex flex-col sidebar">
           <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Quản lý</div>
-          <.link_sidebar path={~p"/dashboard"} starts_with="/dashboard">
+          <.link_sidebar conn={@conn} path={~p"/dashboard"} starts_with="/dashboard">
             <%= gettext("Home") %>
           </.link_sidebar>
-          <.link_sidebar path={~p"/rankings"} starts_with="/rankings">
+          <.link_sidebar conn={@conn} path={~p"/rankings"} starts_with="/rankings">
             <%= gettext("Rankings") %>
           </.link_sidebar>
-          <.link_sidebar path={~p"/tournaments"} starts_with="/tournaments">
+          <.link_sidebar conn={@conn} path={~p"/tournaments"} starts_with="/tournaments">
             <%= gettext("Tournaments") %>
           </.link_sidebar>
-          <.link_sidebar path={~p"/clubs"} starts_with="/clubs">
+          <.link_sidebar conn={@conn} path={~p"/clubs"} starts_with="/clubs">
             <%= gettext("Clubs") %>
           </.link_sidebar>
         </div>
 
         <div class="hidden md:flex flex-col">
           <div class="pl-7 text-gray-700 text-t-sm uppercase font-bold py-3 my-1">Baseline</div>
-          <.link_sidebar path={~p"/download"} starts_with="/download">
+          <.link_sidebar conn={@conn} path={~p"/download"} starts_with="/download">
             Tải ứng dụng
           </.link_sidebar>
-          <.link_sidebar path={~p"/contact"} starts_with="/contact">
+          <.link_sidebar conn={@conn} path={~p"/contact"} starts_with="/contact">
             Liên hệ với Baseline
           </.link_sidebar>
           <.link_sidebar
+            conn={@conn}
             path="https://www.facebook.com/baselineapp"
             starts_with="https://www.facebook.com/baselineapp"
           >
             Facebook
           </.link_sidebar>
           <.link_sidebar
+            conn={@conn}
             path="https://zalo.me/baselineapp"
             starts_with="https://zalo.me/baselineapp"
           >

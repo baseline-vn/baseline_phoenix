@@ -16,4 +16,12 @@ defmodule BaselinePhoenixWeb.DashboardController do
   def tournaments(conn, _params) do
     render(conn, :tournaments)
   end
+
+  def download(conn, _params) do
+    render(conn, :download)
+  end
+
+  def contact(conn, _params) do
+    render(conn, :contact)
+  end
 end

@@ -9,12 +9,14 @@ defmodule BaselinePhoenixWeb.Components.BaselineUI.LinkSidebar do
   attr :starts_with, :string, default: ""
   attr :active_class, :string, default: "active"
   attr :inactive_class, :string, default: "inactive"
+  attr :conn, :map, required: false
 
   def link_sidebar(assigns) do
+    current_path = Phoenix.Controller.current_path(assigns.conn)
     active =
       if String.length(assigns.starts_with) > 0,
-        do: String.starts_with?(assigns.path, assigns.starts_with),
-        else: assigns.path == Phoenix.Controller.current_path(assigns.conn)
+        do: String.starts_with?(current_path, assigns.starts_with),
+        else: current_path == assigns.path
 
     classes =
       if(active, do: assigns.active_class, else: assigns.inactive_class)

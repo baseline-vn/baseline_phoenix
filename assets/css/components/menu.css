@@ -45,25 +45,7 @@
   }
   
   .sidebar .active {
-    @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
-    @apply bg-alto-400 text-carbon-500; /* Light theme */
-    @apply flex justify-center lg:justify-between items-center rounded lg:px-2.5 py-1 font-semibold;
-    @apply transition ease-in-out delay-150;
-  
-    &:hover {
-        @apply dark:bg-carbon-light; /* Dark theme */
-        @apply bg-alto-500; /* Light theme */
-    }
-
-    & span {
-      @apply hidden lg:inline;
-    }
-
-    & i {
-      @apply text-court-600;
-      @apply dark:text-court-500;
-      @apply lg:w-4 text-center lg:mr-4;
-    }
+    @apply border-primary-500 text-green-500 bg-primary-100;
   }
 
   .sidebar-mobile .active {
@@ -82,26 +64,7 @@
       @apply dark:text-court-500;
       @apply w-4 text-center mr-4;
     }
-  }
-  
-  .sidebar .inactive {
-    @apply dark:text-carbon-200; /* Dark theme */
-    @apply text-carbon-400; /* Light theme */
-    @apply flex items-center justify-center lg:justify-between rounded lg:px-2.5 py-1 font-medium;
-  
-    &:hover {
-        @apply bg-alto-400 text-carbon-500;  /* Light theme */
-        @apply dark:bg-carbon-light dark:text-white; /* Dark theme */
-    }
-
-    & span {
-      @apply hidden lg:inline;
-    }
-  
-    & i {
-      @apply lg:w-4 text-center text-carbon-200 lg:mr-4;
-    }
-  }
+        }
 
   .sidebar-mobile .inactive {
     @apply dark:text-carbon-200; /* Dark theme */
