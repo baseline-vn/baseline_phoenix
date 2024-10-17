@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col">
+  <%!-- <div class="flex flex-col">
     <div class="flex justify-end mr-4">
       <form action={~p"/admin/clubs"} method="get" class="flex gap-2">
         <input
@@ -24,7 +24,7 @@
         />
       </form>
     </div>
-  </div>
+  </div> --%>
   <.table id="clubs" rows={@clubs}>
     <:col :let={club} label="Name">
       <.link navigate={~p"/admin/clubs/#{club}"}><%= club.name %></.link>
@@ -51,15 +51,9 @@
   <nav>
     <div class="pagination-controls">
       <%= for page <- 1..@meta.total_pages do %>
-        <%= if page == @meta.current_page do %>
-          <span class="current-page"><%= page %></span>
-          <!-- Current page -->
-        <% else %>
-          <a href={~p"/admin/clubs?page=#{page}&search=#{@search}"} class="pagination-link">
-            <%= page %>
-          </a>
-          <!-- Link to other pages -->
-        <% end %>
+        <.link href={~p"/admin/clubs?page=#{page}"} class="page-link">
+          <%= page %>
+        </.link>
       <% end %>
     </div>
   </nav>

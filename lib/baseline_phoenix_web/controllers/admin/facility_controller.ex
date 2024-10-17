@@ -3,14 +3,21 @@ defmodule BaselinePhoenixWeb.Admin.FacilityController do
 
   alias BaselinePhoenix.Facility
 
-  def index(conn, %{"search" => search}) do
-    {facilities, meta} = Facility.list_facility(search)
-    render(conn, :index, facilities: facilities, search: search, meta: meta)
-  end
+  def index(conn, params) do
+    params =
+      params
+      |> Map.put("page_size", 20)
+      |> Map.drop(["limit"])
 
-  def index(conn, _params) do
-    {facilities, meta} = Facility.list_facility()
-    render(conn, :index, facilities: facilities, search: "", meta: meta)
+    case Facility.list_facility(params) do
+      {:ok, {facilities, meta}} ->
+        render(conn, :index, meta: meta, facilities: facilities)
+
+      {:error, flop_meta} ->
+        conn
+        |> put_flash(:error, "Failed to fetch facilities.")
+        |> render(:error, meta: flop_meta)
+    end
   end
 
   def new(conn, _params) do

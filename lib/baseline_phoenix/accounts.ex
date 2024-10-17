@@ -96,43 +96,11 @@ defmodule BaselinePhoenix.Accounts do
   @doc """
   Returns the list of users.
   """
-  def list_users(search \\ nil) do
-    query = from(u in User)
 
-    # Apply filtering if a search term is provided
-    query =
-      if search && search != "" do
-        from u in query,
-          where:
-            ilike(u.full_name, ^"%#{search}%") or ilike(u.phone_number, ^"%#{search}%") or
-              ilike(u.nickname, ^"%#{search}%")
-      else
-        query
-      end
+  #
 
-    # Get the total count and paginate
-    total_count = Repo.aggregate(query, :count, :id)
-    users = query |> limit(10) |> Repo.all()
-
-    # Calculate pagination metadata
-    # Adjust this based on your pagination logic
-    current_page = 1
-    # Assuming 10 users per page
-    total_pages = div(total_count + 9, 10)
-    next_page = if current_page < total_pages, do: current_page + 1, else: nil
-
-    # Create meta information
-    meta = %{
-      total_count: total_count,
-      total_pages: total_pages,
-      current_page: current_page,
-      has_next_page?: current_page < total_pages,
-      has_previous_page?: current_page > 1,
-      # Add next_page to the meta
-      next_page: next_page
-    }
-
-    {users, meta}
+  def list_user(params) do
+    Flop.validate_and_run(User, params, for: User)
   end
 
   @doc """

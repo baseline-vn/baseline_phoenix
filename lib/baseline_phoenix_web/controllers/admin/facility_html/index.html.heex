@@ -11,20 +11,7 @@
     </div>
   </div>
 </div>
-<div class="flex flex-col">
-  <div class="flex justify-end mr-4">
-    <form action={~p"/admin/facilities"} method="get" class="flex gap-2">
-      <input
-        type="text"
-        id="search"
-        name="search"
-        placeholder="Search by name facility"
-        value={@search}
-        class="boder boder-gray-300 bg-white h-10 px-8 pr-16 rounded-lg text-sm focus:outline-none"
-      />
-    </form>
-  </div>
-</div>
+
 <.table id="facilities" rows={@facilities}>
   <:col :let={facility} label={gettext("Name facility")}>
     <.link navigate={~p"/admin/facilities/#{facility}"}>
@@ -65,15 +52,9 @@
 <nav>
   <div class="pagination-controls">
     <%= for page <- 1..@meta.total_pages do %>
-      <%= if page == @meta.current_page do %>
-        <span class="current-page"><%= page %></span>
-        <!-- Current page -->
-      <% else %>
-        <a href={~p"/admin/facilities?page=#{page}&search=#{@search}"} class="pagination-link">
-          <%= page %>
-        </a>
-        <!-- Link to other pages -->
-      <% end %>
+      <.link href={~p"/admin/facilities?page=#{page}"} class="page-link">
+        <%= page %>
+      </.link>
     <% end %>
   </div>
 </nav>
