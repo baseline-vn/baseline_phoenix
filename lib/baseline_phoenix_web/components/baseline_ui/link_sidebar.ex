@@ -13,6 +13,7 @@ defmodule BaselinePhoenixWeb.Components.BaselineUI.LinkSidebar do
 
   def link_sidebar(assigns) do
     current_path = Phoenix.Controller.current_path(assigns.conn)
+
     active =
       if String.length(assigns.starts_with) > 0,
         do: String.starts_with?(current_path, assigns.starts_with),
