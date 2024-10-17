@@ -71,7 +71,8 @@ defmodule BaselinePhoenixWeb.Router do
   scope "/", BaselinePhoenixWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
-    resources "/sessions", UserSessionController, only: [:new, :create], singleton: true
+    get "/sign_in", UserSessionController, :new
+    post "/sign_in", UserSessionController, :create
   end
 
   scope "/", BaselinePhoenixWeb do
