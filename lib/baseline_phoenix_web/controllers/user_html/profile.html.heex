@@ -2,15 +2,11 @@
   <div class="h-[282px] bg-yellow-200">Wallpaper</div>
   <div class="flex py-6 px-8 gap-6">
     <div class="rounded-full object-cover shadow-[0_1px_2px_0_rgba(16,24,40,0.06),0_1px_3px_0_rgba(16,24,40,0.1)]">
-      <%= if BaselinePhoenix.AvatarUploader.url({@user.avatar, @user}, :thumb) do %>
-        <img
-          src={BaselinePhoenix.AvatarUploader.url({@user.avatar, @user}, :thumb)}
-          alt="Avatar"
-          class="w-24 h-24 p-1 rounded-full"
-        />
-      <% else %>
-        <img src={~p"/images/avatar-placeholder.png"} alt="Avatar" class="w-24 h-24 p-1" />
-      <% end %>
+      <img
+        src={BaselinePhoenix.AvatarUploader.url({@user.avatar, @user}, :thumb)}
+        alt="Avatar"
+        class="w-24 h-24 p-1 rounded-full"
+      />
     </div>
     <div class="flex grow">
       <div>

@@ -58,47 +58,7 @@
           216 Xô Viết Nghệ Tĩnh, Phường 7, Thành Phố Đà Lạt
         </p>
       </div>
-      <div class="border-t border-gray-200 py-4 mx-4">
-        <%= if @current_user do %>
-          <li class="text-[0.8125rem] leading-6 text-zinc-900">
-            <%= @current_user.full_name || @current_user.email || @current_user.phone_number %>
-          </li>
-          <li>
-            <.link
-              href={~p"/me"}
-              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-            >
-              <%= gettext("Profile") %>
-            </.link>
-          </li>
-          <%= if @current_user.admin do %>
-            <li>
-              <.link
-                href="/admin/dashboard"
-                class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-              >
-                Admin
-              </.link>
-            </li>
-          <% end %>
-          <li>
-            <.link
-              href="/log_out"
-              method="delete"
-              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-            >
-              <%= gettext("Log out") %>
-            </.link>
-          </li>
-        <% else %>
-          <.link
-            href="/sign_in"
-            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-          >
-            <%= gettext("Sign in") %>
-          </.link>
-        <% end %>
-      </div>
+      <.user_info current_user={@current_user} />
     </aside>
 
     <div class="grow bg-gray-100">
