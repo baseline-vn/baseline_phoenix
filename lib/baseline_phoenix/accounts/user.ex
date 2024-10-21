@@ -3,6 +3,10 @@ defmodule BaselinePhoenix.Accounts.User do
   import Ecto.Changeset
   use Waffle.Ecto.Schema
 
+  @derive {
+    Flop.Schema,
+    filterable: [:full_name, :phone_number], sortable: [:full_name, :phone_number]
+  }
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string

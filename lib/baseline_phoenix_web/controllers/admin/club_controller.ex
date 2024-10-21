@@ -6,9 +6,21 @@ defmodule BaselinePhoenixWeb.Admin.ClubController do
   alias BaselinePhoenix.Repo
   alias BaselinePhoenix.ClubUser
 
-  def index(conn, _params) do
-    clubs = Repo.all(Club)
-    render(conn, :index, clubs: clubs)
+  def index(conn, params) do
+    params =
+      params
+      |> Map.put("page_size", 20)
+      |> Map.drop(["limit"])
+
+    case Club.list_club(params) do
+      {:ok, {clubs, meta}} ->
+        render(conn, :index, meta: meta, clubs: clubs)
+
+      {:error, flop_meta} ->
+        conn
+        |> put_flash(:error, "failed to detch clubs.")
+        |> render(:error, meta: flop_meta)
+    end
   end
 
   def new(conn, _params) do

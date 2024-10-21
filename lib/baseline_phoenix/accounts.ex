@@ -97,8 +97,11 @@ defmodule BaselinePhoenix.Accounts do
   @doc """
   Returns the list of users.
   """
-  def list_users do
-    Repo.all(User)
+
+  #
+
+  def list_user(params) do
+    Flop.validate_and_run(User, params, for: User)
   end
 
   @doc """

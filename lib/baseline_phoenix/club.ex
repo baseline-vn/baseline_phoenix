@@ -1,11 +1,16 @@
 defmodule BaselinePhoenix.Club do
   import Ecto.Changeset
-  import Ecto.Query
+  import Ecto.Query, warn: false
   use Ecto.Schema
 
   alias BaselinePhoenix.Club
   alias BaselinePhoenix.Repo
   alias BaselinePhoenix.ClubUser
+
+  @derive {
+    Flop.Schema,
+    filterable: [:name, :phone_number], sortable: [:name]
+  }
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "clubs" do
@@ -62,6 +67,10 @@ defmodule BaselinePhoenix.Club do
   end
 
   def get_club!(id), do: Repo.get!(Club, id)
+
+  def list_club(params) do
+    Flop.validate_and_run(Club, params, for: Club)
+  end
 
   def change_club!(%Club{} = club, attrs \\ %{}) do
     Club.changeset(club, attrs)

@@ -3,10 +3,24 @@ defmodule BaselinePhoenixWeb.Admin.UserController do
 
   alias BaselinePhoenix.Accounts
   alias BaselinePhoenix.Accounts.User
+  alias Flop
 
-  def index(conn, _params) do
-    users = Accounts.list_users()
-    render(conn, :index, users: users)
+  def index(conn, params) do
+    params =
+      params
+      |> Map.put("page_size", 20)
+      # Remove limit to avoid conflicts
+      |> Map.drop(["limit"])
+
+    case Accounts.list_user(params) do
+      {:ok, {users, meta}} ->
+        render(conn, :index, meta: meta, users: users)
+
+      {:error, flop_meta} ->
+        conn
+        |> put_flash(:error, "Failed to fetch users.")
+        |> render(:error, meta: flop_meta)
+    end
   end
 
   def new(conn, _params) do

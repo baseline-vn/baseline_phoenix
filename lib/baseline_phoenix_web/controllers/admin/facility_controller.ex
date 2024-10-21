@@ -1,12 +1,23 @@
 defmodule BaselinePhoenixWeb.Admin.FacilityController do
   use BaselinePhoenixWeb, :controller
 
-  alias BaselinePhoenix.Repo
   alias BaselinePhoenix.Facility
 
-  def index(conn, _params) do
-    facilities = Repo.all(Facility)
-    render(conn, :index, facilities: facilities)
+  def index(conn, params) do
+    params =
+      params
+      |> Map.put("page_size", 20)
+      |> Map.drop(["limit"])
+
+    case Facility.list_facility(params) do
+      {:ok, {facilities, meta}} ->
+        render(conn, :index, meta: meta, facilities: facilities)
+
+      {:error, flop_meta} ->
+        conn
+        |> put_flash(:error, "Failed to fetch facilities.")
+        |> render(:error, meta: flop_meta)
+    end
   end
 
   def new(conn, _params) do

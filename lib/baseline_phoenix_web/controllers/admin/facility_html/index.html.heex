@@ -11,6 +11,7 @@
     </div>
   </div>
 </div>
+
 <.table id="facilities" rows={@facilities}>
   <:col :let={facility} label={gettext("Name facility")}>
     <.link navigate={~p"/admin/facilities/#{facility}"}>
@@ -48,3 +49,12 @@
     </.link>
   </:action>
 </.table>
+<nav>
+  <div class="pagination-controls">
+    <%= for page <- 1..@meta.total_pages do %>
+      <.link href={~p"/admin/facilities?page=#{page}"} class="page-link">
+        <%= page %>
+      </.link>
+    <% end %>
+  </div>
+</nav>

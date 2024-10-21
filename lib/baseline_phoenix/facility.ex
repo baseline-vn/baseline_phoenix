@@ -5,6 +5,11 @@ defmodule BaselinePhoenix.Facility do
   alias BaselinePhoenix.Facility
   alias BaselinePhoenix.Repo
 
+  @derive {
+    Flop.Schema,
+    filterable: [:name], sortable: [:name]
+  }
+
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "facilities" do
     field :address, :map
@@ -46,6 +51,10 @@ defmodule BaselinePhoenix.Facility do
   end
 
   def get_facility!(id), do: Repo.get!(Facility, id)
+
+  def list_facility(params) do
+    Flop.validate_and_run(Facility, params, for: Facility)
+  end
 
   def change_facility!(%Facility{} = facility, attrs \\ %{}) do
     Facility.changeset(facility, attrs)
