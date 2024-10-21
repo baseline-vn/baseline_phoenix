@@ -1,6 +1,7 @@
 defmodule BaselinePhoenix.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  use Waffle.Ecto.Schema
 
   @derive {
     Flop.Schema,
@@ -15,6 +16,7 @@ defmodule BaselinePhoenix.Accounts.User do
     field :gender, :string
     field :phone_number, :string
     field :province, :string
+    field :avatar, :string
     field :city, :string
     field :date_of_birth, :date
     field :onboarded, :boolean, default: false
@@ -137,6 +139,11 @@ defmodule BaselinePhoenix.Accounts.User do
       %{changes: %{phone_number: _}} = changeset -> changeset
       %{} = changeset -> add_error(changeset, :phone_number, "did not change")
     end
+  end
+
+  def avatar_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:avatar])
   end
 
   defp generate_webauthn_id(changeset) do

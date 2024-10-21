@@ -17,7 +17,7 @@ defmodule BaselinePhoenixWeb do
   those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+  def static_paths, do: ~w(assets fonts images data icons favicon.ico robots.txt)
 
   def router do
     quote do
@@ -93,6 +93,7 @@ defmodule BaselinePhoenixWeb do
       import BaselinePhoenixWeb.LayoutComponents
       import BaselinePhoenixWeb.Gettext
       import BaselinePhoenixWeb.Components.BaselineUI.LinkSidebar
+      import BaselinePhoenixWeb.Components.UserInfo
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

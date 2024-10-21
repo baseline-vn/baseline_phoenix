@@ -19,8 +19,9 @@
     field={f[:gender]}
     type="select"
     label={gettext("Gender")}
-    options={[gettext("male"), gettext("female"), gettext("other")]}
+    options={["male", "female", "other"]}
   />
+  <%!-- options={[gettext("male"), gettext("female"), gettext("other")]} --%>
 
   <:actions>
     <.button type="submit" class="button-primary"><%= gettext("Save Changes") %></.button>

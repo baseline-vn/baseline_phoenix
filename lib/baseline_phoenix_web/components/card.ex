@@ -3,7 +3,6 @@ defmodule BaselinePhoenixWeb.Components.Card do
   attr :avatar_url, :string, required: true
   attr :name, :string, required: true
   attr :id, :integer, required: true
-
   attr :rank, :integer, required: true
   attr :verfied, :boolean, default: false
   attr :branch, :string, required: true

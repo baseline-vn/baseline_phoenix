@@ -76,8 +76,8 @@ config :git_hooks,
   hooks: [
     pre_commit: [
       tasks: [
-        "mix format",
-        "git add ."
+        {:cmd, "mix format"},
+        {:cmd, "git diff --name-only --cached -- | xargs git add"}
       ]
     ]
   ]
@@ -90,8 +90,26 @@ config :baseline_phoenix, :telegram,
   bot_token: "7074710677:AAETNGxr4LlV2D9uyiQRXIpVIECx6a2G8n4",
   dev_group_chat_id: -4_590_586_218
 
+
 config :flop, repo: BaselinePhoenix.Repo
 config :flop_phoenix, repo: BaselinePhoenix.Repo
+
+config :waffle,
+  storage: Waffle.Storage.S3,
+  bucket: System.get_env("WAFFLE_BUCKET"),
+  asset_host: System.get_env("WAFFLE_ASSET_HOST")
+
+config :ex_aws,
+  json_codec: Jason,
+  access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
+  secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
+  region: "auto",
+  s3: [
+    scheme: "https://",
+    host: System.get_env("AWS_S3_HOST"),
+    region: "auto"
+  ]
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
