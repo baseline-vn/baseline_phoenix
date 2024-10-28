@@ -1,10 +1,10 @@
 <.link navigate={~p"/admin/clubs"}>
-  <p>Back</p>
+  <p><%= gettext("Back") %></p>
 </.link>
 
 <.header>
-  Club details
-  <:subtitle>Update your club infomation</:subtitle>
+  <%= gettext("Club details") %>
+  <:subtitle><%= gettext("Update your club infomation") %></:subtitle>
 </.header>
 
 <.simple_form :let={f} for={@changeset} action={~p"/admin/clubs"} multipart={true}>
@@ -17,6 +17,6 @@
   <.input field={f[:website]} type="text" label={gettext("Website")}></.input>
 
   <:actions>
-    <.button phx-disable-with="Saving">Save information</.button>
+    <.button phx-disable-with="Saving"><%= gettext("Save information") %></.button>
   </:actions>
 </.simple_form>

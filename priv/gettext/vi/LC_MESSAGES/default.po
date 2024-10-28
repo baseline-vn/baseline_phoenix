@@ -482,3 +482,27 @@ msgstr "Bảng xếp hạng"
 #, elixir-autogen, elixir-format
 msgid "Tournaments"
 msgstr "Giải đấu"
+
+msgid "Verified"
+msgstr "Xác Thực"
+
+msgid "Add club"
+msgstr "Thêm câu lạc bộ"
+
+msgid "Club details"
+msgstr "Chi tiết câu lạc bộ"
+
+msgid "Update your club infomation"
+msgstr "Cập nhật thông tin câu lạc bộ của bạn"
+
+msgid "Edit club"
+msgstr "Chỉnh sửa câu lạc bộ"
+
+msgid "Facility details"
+msgstr "Chi tiết cụm sân"
+
+msgid "Name Facility"
+msgstr "Tên cụm sân"
+
+msgid "Province"
+msgstr "Tỉnh thành"

@@ -14,4 +14,6 @@
   <:item title={gettext("Surface type")}><%= @court.surface_type %></:item>
 </.list>
 
-<.back navigate={~p"/courts"}><%= gettext("Back to courts") %></.back>
+<.back navigate={~p"/admin/facilities/#{@facility.id}/courts"}>
+  <%= gettext("Back to courts") %>
+</.back>
