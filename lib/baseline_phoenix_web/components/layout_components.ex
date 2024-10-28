@@ -18,7 +18,15 @@ defmodule BaselinePhoenixWeb.LayoutComponents do
               <i class="fa-regular fa-arrow-left mr-2"></i>Go back to platform
             </.link>
           </div>
-          <div>Baseline Admin Panel</div>
+          <div class="flex justify-end gap-2">
+            <a href="?locale=en" class="button button-small text-white">
+              English
+            </a>
+            <a href="?locale=vi" class="button button-small text-white">
+              VietNam
+            </a>
+            <%!-- <div class="ml-4">Baseline Admin Panel</div> --%>
+          </div>
         </div>
       </div>
     <% end %>

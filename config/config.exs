@@ -82,14 +82,16 @@ config :git_hooks,
     ]
   ]
 
-config :baseline_phoenix, BaselinePhoenixWeb.Gettext,
-  locales: ~w(en vi),
-  default_locale: "vi"
+config :baseline_phoenix, BaselinePhoenixWeb.Gettext, default_locale: "en", locales: ["en", "vi"]
+
+# config :baseline_phoenix, BaselinePhoenixWeb.Setlocale,
+#   cookie_key: "locale",
+#   default_locale: "en",
+#   supported_locales: ["en", "vi"]
 
 config :baseline_phoenix, :telegram,
   bot_token: "7074710677:AAETNGxr4LlV2D9uyiQRXIpVIECx6a2G8n4",
   dev_group_chat_id: -4_590_586_218
-
 
 config :flop, repo: BaselinePhoenix.Repo
 config :flop_phoenix, repo: BaselinePhoenix.Repo
@@ -109,7 +111,6 @@ config :ex_aws,
     host: System.get_env("AWS_S3_HOST"),
     region: "auto"
   ]
-
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

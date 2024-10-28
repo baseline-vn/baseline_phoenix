@@ -1,50 +1,40 @@
-<h1>Clubs</h1>
+<h1><%= gettext("Clubs") %></h1>
 <div class="w-full">
   <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
     <div class="flex gap-4">
-      Pagination
+      <%= gettext("Pagination") %>
     </div>
     <div class="flex gap-2">
       <.link href={~p"/admin/clubs/new"} class="button button-small button-primary">
-        Add club
+        <%= gettext("Add club") %>
       </.link>
     </div>
   </div>
-
-  <%!-- <div class="flex flex-col">
-    <div class="flex justify-end mr-4">
-      <form action={~p"/admin/clubs"} method="get" class="flex gap-2">
-        <input
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Search by name club"
-          value={@search}
-          class="boder boder-gray-300 bg-white h-10 px-8 pr-16 rounded-lg text-sm focus:outline-none"
-        />
-      </form>
-    </div>
-  </div> --%>
   <.table id="clubs" rows={@clubs}>
-    <:col :let={club} label="Name">
+    <:col :let={club} label={gettext("Name")}>
       <.link navigate={~p"/admin/clubs/#{club}"}><%= club.name %></.link>
     </:col>
-    <:col :let={club} label="Email"><%= club.email %></:col>
-    <:col :let={club} label="Since">
+    <:col :let={club} label={gettext("Email")}><%= club.email %></:col>
+    <:col :let={club} label={gettext("Since")}>
       <%= Calendar.strftime(club.since, "%d-%m-%Y") %>
     </:col>
-    <:col :let={club} label="Address"><%= club.address %></:col>
-    <:col :let={club} label="Status"><%= club.status %></:col>
-    <:col :let={club} label="Verified"><%= club.verified_organizer %></:col>
+    <:col :let={club} label={gettext("Address")}><%= club.address %></:col>
+    <:col :let={club} label={gettext("Status")}><%= club.status %></:col>
+    <:col :let={club} label={gettext("Verified")}><%= club.verified_organizer %></:col>
     <:action :let={club}>
       <div class="sr-only">
-        <.link navigate={~p"/admin/clubs/#{club}"}>Show</.link>
+        <.link navigate={~p"/admin/clubs/#{club}"}><%= gettext("Show") %></.link>
       </div>
-      <.link navigate={~p"/admin/clubs/#{club}/edit"}>Edit</.link>
+      <.link navigate={~p"/admin/clubs/#{club}/edit"}><%= gettext("Edit") %></.link>
     </:action>
     <:action :let={club}>
-      <.link href={~p"/admin/clubs/#{club}"} method="delete" data-confirm="Are you sure?">
-        Delete
+      <.link
+        href={~p"/admin/clubs/#{club}"}
+        method="delete"
+        data-confirm="Are you sure?"
+        class="text-red-500 hover:text-red-700"
+      >
+        <%= gettext("Delete") %>
       </.link>
     </:action>
   </.table>

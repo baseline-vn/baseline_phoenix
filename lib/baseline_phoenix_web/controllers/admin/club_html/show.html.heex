@@ -1,19 +1,19 @@
-<.back navigate={~p"/admin/clubs"}>Back to clubs</.back>
+<.back navigate={~p"/admin/clubs"}><%= gettext("Back") %></.back>
 
 <.header>
-  Club Detailsdd
+  <%= gettext("Club details") %>
   <:actions>
     <.link href={~p"/admin/clubs/#{@club.id}/edit"} class="button button-primary">
-      <.button>Edit Club</.button>
+      <.button><%= gettext("Edit club") %></.button>
     </.link>
   </:actions>
 </.header>
 
 <.list>
-  <:item title="Name Club"><%= @club.name %></:item>
-  <:item title="Email"><%= @club.email %></:item>
-  <:item title="Phone Number"><%= @club.phone_number %></:item>
-  <:item title="Address"><%= @club.address %></:item>
-  <:item title="Since"><%= Calendar.strftime(@club.since, "%d-%m-%Y") %></:item>
-  <:item title="Website Clubs"><%= @club.website %></:item>
+  <:item title={gettext("Name")}><%= @club.name %></:item>
+  <:item title={gettext("Email")}><%= @club.email %></:item>
+  <:item title={gettext("Phone Number")}><%= @club.phone_number %></:item>
+  <:item title={gettext("Address")}><%= @club.address %></:item>
+  <:item title={gettext("Since")}><%= Calendar.strftime(@club.since, "%d-%m-%Y") %></:item>
+  <:item title={gettext("Website")}><%= @club.website %></:item>
 </.list>
