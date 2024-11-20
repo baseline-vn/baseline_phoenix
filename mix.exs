@@ -69,7 +69,8 @@ defmodule BaselinePhoenix.MixProject do
       {:ex_aws, "~> 2.5"},
       {:ex_aws_s3, "~> 2.5"},
       {:plug, "~> 1.16"},
-      {:set_locale, "~> 0.2.9"}
+      {:set_locale, "~> 0.2.9"},
+      {:earmark, "~> 1.4"}
     ]
   end
 

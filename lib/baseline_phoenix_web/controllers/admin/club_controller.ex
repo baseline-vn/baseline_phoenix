@@ -41,6 +41,9 @@ defmodule BaselinePhoenixWeb.Admin.ClubController do
         |> redirect(to: ~p"/admin/clubs/#{club}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
+        IO.inspect(changeset.errors)
+        IO.inspect(@changeset.data, label: "Changeset Data")
+
         render(conn, :new, changeset: changeset)
     end
   end

@@ -14,6 +14,7 @@
   <:item title={gettext("Email")}><%= @club.email %></:item>
   <:item title={gettext("Phone Number")}><%= @club.phone_number %></:item>
   <:item title={gettext("Address")}><%= @club.address %></:item>
+  <:item title={gettext("About")}><%= raw(Earmark.as_html!(@club.about)) || "" %></:item>
   <:item title={gettext("Since")}><%= Calendar.strftime(@club.since, "%d-%m-%Y") %></:item>
   <:item title={gettext("Website")}><%= @club.website %></:item>
 </.list>

@@ -1,6 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/* assets/css/app.css or assets/css/tailwind.css */
+@import "tiny-markdown-editor/dist/tiny-mde.css"; /* Import TinyMDE CSS */
 
 /* This file is for your main application CSS */
 
