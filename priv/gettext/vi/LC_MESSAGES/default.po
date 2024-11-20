@@ -506,3 +506,6 @@ msgstr "Tên cụm sân"
 
 msgid "Province"
 msgstr "Tỉnh thành"
+
+msgid "About"
+msgstr "Mô tả"

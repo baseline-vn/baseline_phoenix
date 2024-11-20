@@ -14,7 +14,7 @@ defmodule BaselinePhoenix.Club do
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "clubs" do
-    field :about, :map
+    field :about, :string
     field :address, :string
     field :cover_data, :string
     field :email, :string
@@ -46,7 +46,7 @@ defmodule BaselinePhoenix.Club do
       :verified_organizer,
       :website
     ])
-    |> validate_required([:name, :email, :status])
+    |> validate_required([:name, :email, :status, :about])
     # Add this line for debugging
     |> validate_length(:email, max: 160)
     |> validate_length(:name, max: 160)

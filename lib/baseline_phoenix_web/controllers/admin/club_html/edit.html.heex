@@ -15,7 +15,12 @@
   <.input field={f[:email]} type="email" label={gettext("Email")}></.input>
   <.input field={f[:phone_number]} type="tel" label={gettext("Phone number")}></.input>
   <.input field={f[:since]} type="date" label={gettext("Since")}></.input>
-  <%!-- <.input field={f[:about]} type="textarea" label="About"></.input> --%>
+  <label><%= gettext("About") %></label>
+  <div id="editor-container" phx-hook="MarkdownEditor">
+    <div id="toolbar"></div>
+    <!-- Toolbar for TinyMDE -->
+    <textarea id="markdown-editor" name="club[about]"><%= @changeset.data.about || "" %></textarea>
+  </div>
   <.input field={f[:website]} type="text" label={gettext("Website")}></.input>
 
   <:actions>
